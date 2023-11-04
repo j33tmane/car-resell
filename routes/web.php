@@ -13,10 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'root']);
+
+Route::get('{any}', [App\Http\Controllers\HomeController::class, 'index']);
+//Language Translation
+
+Route::get('index/{locale}', [App\Http\Controllers\HomeController::class, 'lang']);
+
+Route::post('/formsubmit', [App\Http\Controllers\HomeController::class, 'FormSubmit'])->name('FormSubmit');
+
