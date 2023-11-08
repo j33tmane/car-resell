@@ -18,16 +18,16 @@ class CreateCarsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('car_name');
-            $table->integer('car_brand')->nullable();
-            $table->string('year');
-            $table->integer('fuel');
+            $table->string('car_brand',50)->nullable();
+            $table->string('year',5);
+            $table->string('fuel',20);
             $table->boolean('transmission')->nullable();
             $table->string('km_driven');
             $table->integer('no_of_owners')->nullable();
             $table->text('car_description')->nullable();
             $table->string('car_number',30)->nullable();
             $table->string('price');
-            $table->boolean('active')->default(0);
+            $table->boolean('active')->default(1);
             $table->timestamps();
         });
     }

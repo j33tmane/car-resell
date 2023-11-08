@@ -81,7 +81,7 @@ return [
     "Wizard"=> "колдун",
     "Mask"=> "маскировать",
     "Tables"=> "таблицы",
-    "Bootstrap_Basic"=> "Bootstrap Basic",
+    "Bootstrap_Basic"=> "Car Resell",
     "Datatables"=> "DataTables",
     "Responsive"=> "отзывчивый",
     "Editable"=> "Редактирование",

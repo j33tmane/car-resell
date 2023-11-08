@@ -12,9 +12,12 @@ class DealerProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
+        $user = $request->user();
+        $dp = DealerProfile::where('user_id',$user->id)->first();
+        return view('dealer.profile-index',compact('dp'));
     }
 
     /**
@@ -22,9 +25,10 @@ class DealerProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
+      
     }
 
     /**
@@ -36,6 +40,7 @@ class DealerProfileController extends Controller
     public function store(Request $request)
     {
         //
+
     }
 
     /**
@@ -44,9 +49,11 @@ class DealerProfileController extends Controller
      * @param  \App\Models\DealerProfile  $dealerProfile
      * @return \Illuminate\Http\Response
      */
-    public function show(DealerProfile $dealerProfile)
+    public function show(Request $request,$id)
     {
         //
+        $dp = DealerProfile::where("user_id",$id)->first();
+        return view('dealer.profile-index',compact('dp'));
     }
 
     /**
@@ -67,9 +74,13 @@ class DealerProfileController extends Controller
      * @param  \App\Models\DealerProfile  $dealerProfile
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DealerProfile $dealerProfile)
+    public function update(Request $request, $id)
     {
         //
+        $inputs = $request->except(['user_id']);
+        $dp = DealerProfile::updateOrCreate(["user_id"=>$id],$inputs);
+        flash('Profile updated successfully.')->success()->important();
+        return back();
     }
 
     /**
