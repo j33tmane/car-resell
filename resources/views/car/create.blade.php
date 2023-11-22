@@ -28,7 +28,7 @@
                     <form action="{{ route('cars.store') }}" class="custom-validation" method="post">
                         @csrf
                         <div class="row">
-                            <div class="col-sm-4 mb-3">
+                            <div class="col-sm-3 mb-3">
                                 <label class="form-label">Delaer</label>
                                 <div>
                                     <select id="fuel" class="form-control mb-2" name="user_id" required>
@@ -40,11 +40,18 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-8 mb-3">
+                            <div class="col-sm-7 mb-3">
                                 <label class="form-label">Ad Title / Car Name</label>
                                 <div>
                                     <input type="text" class="form-control" required data-parsley-minlength="6"
                                         placeholder="Car Name  Min 6 chars." name="car_name" />
+                                </div>
+                            </div>
+                            <div class="col-sm-2 mb-3">
+                                <label class="form-label">Car Color</label>
+                                <div>
+                                    <input type="text" class="form-control" required data-parsley-minlength="3"
+                                        placeholder="Enter car color  Ex. Red" name="color" />
                                 </div>
                             </div>
                             <div class="col-sm-3">
@@ -97,7 +104,7 @@
                                 <div class="mb-3">
                                     <label class="form-label">KM Driven</label>
                                     <div>
-                                        <input type="text" class="form-control" required placeholder="Kilo Meters Driven"
+                                        <input type="number" class="form-control" required placeholder="Kilo Meters Driven"
                                             name="km_driven" />
                                     </div>
                                 </div>
@@ -124,7 +131,7 @@
                                 <div class="mb-3">
                                     <label class="form-label text-primary">Price</label>
                                     <div>
-                                        <input type="text" class="form-control" data-parsley-min="6" placeholder="Price"
+                                        <input type="number" class="form-control" data-parsley-min="6" placeholder="Price"
                                             name="price" required />
                                     </div>
                                 </div>

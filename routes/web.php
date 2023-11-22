@@ -26,14 +26,41 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/profile/password-update', 'UserController@updatePassword')->name('updatepassword');
     
     // dealers
-    Route::get('dealers', 'DealerController@index');
-    Route::get('dealers/toggle/{uid}', 'DealerController@toggleStatus');
+    Route::group(['middleware' => ['permission:view-dealers']], function () {
+        Route::get('dealers', 'DealerController@index');
+        Route::get('dealers/toggle/{uid}', 'DealerController@toggleStatus');
+    });
     Route::resource('dealer-profile', 'DealerProfileController');
 
-    //car
-    Route::resource('cars', 'CarController');
+    Route::group(['middleware' => ['permission:view-cars']], function () {
+        //car
+        Route::resource('cars', 'CarController');
+        Route::post('cars/img/upload', 'CarController@uploadImage');
+        Route::get('cars/img/remove/{id}', 'CarController@removeImage');
+    });
+
+    
+
+    //enquiry
+    Route::group(['middleware' => ['permission:view-enquiry']], function () {
+        //car
+        Route::resource('enquiry', 'EnquiryController');
+    });
+    
+    
+
+    Route::group(['middleware' => ['permission:view-role']], function () {
+        Route::resource('role', 'RoleController');
+        Route::resource('assign-permission', 'AssignPermissionController');
+    });
+    
 });
 
 Route::get('/', function () {
-    return view('static-site/index');
+    return view('site.index');
 });
+
+
+Route::get('/dealer/{id}','GuestController@dealerPage');
+Route::get('/dealer/car/{id}','GuestController@carDetails');
+Route::post('/enquiry/car/{id}','GuestController@submitEnquiry');

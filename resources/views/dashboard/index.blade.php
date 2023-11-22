@@ -5,7 +5,7 @@
 @section('content')
     @component('common-components.breadcrumb')
         @slot('pagetitle')
-            car-resell
+            ABHCars
         @endslot
         @slot('title')
             Dashboard
@@ -13,29 +13,30 @@
     @endcomponent
 
     <div class="row">
-        <div class="col-md-6 col-xl-3">
-            <div class="card">
-                <div class="card-body">
-                    <div class="float-end mt-2">
-                        <div id="total-revenue-chart" data-colors='["--bs-primary"]'></div>
+        @unlessrole('admin')
+            <div class="col-md-6 col-xl-3">
+                <div class="card bg-success-subtle">
+                    <div class="card-body">
+                        <div class="float-end mt-2">
+                            <i class="uil-user-check text-primary" style="font-size: 30px"></i>
+                        </div>
+                        <div>
+                            <h4 class="mb-1 mt-1"><span data-plugin="counterup">{{ $dpCnt }}</span></h4>
+                            <p class="text-muted mb-0"><small>Dealers with complete profile</small></p>
+                        </div>
                     </div>
-                    <div>
-                        <h4 class="mb-1 mt-1">$<span data-plugin="counterup">34,152</span></h4>
-                        <p class="text-muted mb-0">Total Dealers</p>
-                    </div>
-
                 </div>
-            </div>
-        </div> <!-- end col-->
+            </div> <!-- end col-->
+        @endunlessrole
 
         <div class="col-md-6 col-xl-3">
             <div class="card">
                 <div class="card-body">
                     <div class="float-end mt-2">
-                        <div id="orders-chart" data-colors='["--bs-success"]'> </div>
+                        <i class="uil-car-sideview text-warning" style="font-size: 30px"></i>
                     </div>
                     <div>
-                        <h4 class="mb-1 mt-1"><span data-plugin="counterup">5,643</span></h4>
+                        <h4 class="mb-1 mt-1"><span data-plugin="counterup">{{ $carsCnt }}</span></h4>
                         <p class="text-muted mb-0">Total Cars</p>
                     </div>
 
@@ -46,11 +47,11 @@
         <div class="col-md-6 col-xl-3">
             <div class="card">
                 <div class="card-body">
-                    <div class="float-end mt-2">
-                        <div id="customers-chart" data-colors='["--bs-primary"]'> </div>
+                    <div class="float-end">
+                        <i class="uil-comment-message text-success" style="font-size: 30px"></i>
                     </div>
                     <div>
-                        <h4 class="mb-1 mt-1"><span data-plugin="counterup">45,254</span></h4>
+                        <h4 class="mb-1 mt-1"><span data-plugin="counterup">{{ $enqCnt }}</span></h4>
                         <p class="text-muted mb-0">Total Enquiry</p>
                     </div>
 

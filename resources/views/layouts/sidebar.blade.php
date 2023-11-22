@@ -40,30 +40,48 @@
                         <span>@lang('translation.Dashboard')</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ url('/dealer/' . Auth::user()->id) }}" target="_blank">
+                        <i class="uil-globe"></i>
+                        <span>View My WebPage</span>
+                    </a>
+                </li>
 
 
 
                 <li class="menu-title">@lang('Data')</li>
-
-                <li>
-                    <a href="{{ url('/dealers') }}" class="waves-effect">
-                        <i class="uil-user-check"></i>
-                        <span>Dealers</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="{{ url('/cars') }}" class=" waves-effect">
-                        <i class="uil-car-sideview"></i>
-                        <span>Cars</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url('/enquiry') }}" class=" waves-effect">
-                        <i class="uil-comment-alt-message"></i>
-                        <span>Enquiry</span>
-                    </a>
-                </li>
+                @can('view-dealers')
+                    <li>
+                        <a href="{{ url('/dealers') }}" class="waves-effect">
+                            <i class="uil-user-check"></i>
+                            <span>Dealers</span>
+                        </a>
+                    </li>
+                @endcan
+                @can('view-cars')
+                    <li>
+                        <a href="{{ url('/cars') }}" class=" waves-effect">
+                            <i class="uil-car-sideview"></i>
+                            <span>Cars</span>
+                        </a>
+                    </li>
+                @endcan
+                @can('view-enquiry')
+                    <li>
+                        <a href="{{ url('/enquiry') }}" class=" waves-effect">
+                            <i class="uil-comment-alt-message"></i>
+                            <span>Enquiry</span>
+                        </a>
+                    </li>
+                @endcan
+                @can('view-role')
+                    <li>
+                        <a href="{{ url('/role') }}" class=" waves-effect">
+                            <i class="uil-user"></i>
+                            <span>Role</span>
+                        </a>
+                    </li>
+                @endcan
             </ul>
         </div>
         <!-- Sidebar -->

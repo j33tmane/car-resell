@@ -5,7 +5,7 @@
 @section('content')
     @component('common-components.breadcrumb')
         @slot('pagetitle')
-            car-resell
+            ABHCars
         @endslot
         @slot('title')
             Profile

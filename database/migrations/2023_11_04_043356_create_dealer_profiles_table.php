@@ -20,6 +20,7 @@ class CreateDealerProfilesTable extends Migration
             $table->string('company_name');
             $table->string('contact_person_name')->nullable();
             $table->string('url_slug')->nullable();
+            $table->string('image_key')->nullable();
             $table->string('address',255)->nullable();
             $table->string('contact_call',15)->nullable();
             $table->string('contact_whatsapp',15)->nullable();

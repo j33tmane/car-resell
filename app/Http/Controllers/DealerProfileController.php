@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\DealerProfile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class DealerProfileController extends Controller
 {
@@ -79,6 +80,18 @@ class DealerProfileController extends Controller
         //
         $inputs = $request->except(['user_id']);
         $dp = DealerProfile::updateOrCreate(["user_id"=>$id],$inputs);
+        $img_key=null;
+        if($dp && $request->imageFile){
+           try{
+                if($dp->image_key && filter_var($dp->image_key, FILTER_VALIDATE_INT) == false)
+                    Storage::disk('s3')->delete($dp->image_key);
+                $img_key = Storage::disk('s3')->put('users/'.$dp->id, $request->imageFile);
+                $dp->image_key = $img_key;
+                $dp->save();
+           }catch(\Exception $e){
+            Storage::disk('s3')->delete($img_key);
+           }
+        }
         flash('Profile updated successfully.')->success()->important();
         return back();
     }

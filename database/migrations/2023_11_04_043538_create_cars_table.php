@@ -19,6 +19,7 @@ class CreateCarsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('car_name');
             $table->string('car_brand',50)->nullable();
+            $table->string('color',15)->nullable();
             $table->string('year',5);
             $table->string('fuel',20);
             $table->boolean('transmission')->nullable();

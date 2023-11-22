@@ -19,7 +19,7 @@ class CreateEnquiriesTable extends Migration
             $table->string('message')->nullable();
             $table->string('mobile',15)->nullable();
             $table->string('name',100)->nullable();
-            $table->boolean('active')->default(1);
+            $table->boolean('active')->default(0);
             $table->timestamps();
         });
     }

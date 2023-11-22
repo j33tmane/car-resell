@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Car;
+use App\Models\CarImage;
 use App\Models\DealerProfile;
 use Illuminate\Http\Request;
 use Spatie\QueryBuilder\QueryBuilder;
 use Spatie\QueryBuilder\Exceptions\InvalidFilterQuery;
 use Spatie\QueryBuilder\Exceptions\InvalidSortQuery;
+use Illuminate\Support\Facades\Storage;
+
 class CarController extends Controller
 {
     /**
@@ -15,13 +18,19 @@ class CarController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
+        $user = $request->user();
+
         $cars =QueryBuilder::for(Car::class)
-        // ->allowedIncludes(['claimUser'])
-        ->allowedFilters(['brand','year','car_name'])
-        ->latest()->paginate(10)->appends(request()->query());
+        ->allowedIncludes(['images'])
+        ->allowedFilters(['brand','year','car_name']);
+
+        if(!$user->hasRole('admin'))
+            $cars = $cars->where('user_id',$user->id);
+
+        $cars = $cars->latest()->paginate(10)->appends(request()->query());
         return view('car.index',compact('cars'));
     }
 
@@ -58,7 +67,7 @@ class CarController extends Controller
             $inputs = $request->all();
             $car = Car::create($inputs);
             flash('Care added succefuly')->success()->important(); 
-            return back();
+            return redirect('/cars');
         }catch(\Exception $e){
             flash('Something went wrong.<br><strong>Error</strong>: '.$e->getMessage())->error()->important(); 
             return back()->withInput();
@@ -137,4 +146,42 @@ class CarController extends Controller
     {
         //
     }
+
+    public function uploadImage(Request $request){
+        $car = Car::find($request->car_id);
+        $path=null;
+        // try{
+            if($car && $request->imageFile){
+                $path = Storage::disk('s3')->put('cars/user_'.$car->user_id.'/'.$car->id, $request->imageFile);
+                $request->merge(["image_key"=>$path]);
+                $inputs = $request->all();
+                $img = CarImage::create($inputs);
+                flash('Image uploaded successfuly')->success()->important(); 
+            }else{
+                flash('Car Not Found')->error()->important(); 
+            }
+        // }catch(\Exception $e){
+        //     Storage::disk('s3')->delete($path);
+        // }
+        return back();
+    }
+
+    public function removeImage(Request $request,$img_id){
+        $carImage = CarImage::find($img_id);
+        $path=null;
+        try{
+            if($carImage){
+                Storage::disk('s3')->delete($carImage->image_key);
+                $carImage->delete();
+                flash('Image deleted successfuly')->success()->important(); 
+            }else{
+                flash('Car Not Found')->error()->important(); 
+            }
+        }catch(\Exception $e){
+            
+        }
+        return back();
+    }
+
+    
 }

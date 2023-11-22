@@ -15,6 +15,9 @@
 
 
     <div class="row">
+        <div class="col-sm-12">
+            @include('flash::message')
+        </div>
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
@@ -56,7 +59,7 @@
                                         </td>
                                         <td>
                                             <a href="{{ url('/cars/' . $car->id . '/edit') }}"
-                                                class="btn btn-sm btn-outline-warning">view</a>
+                                                class="btn btn-sm btn-outline-warning">Edit & Upload</a>
                                         </td>
                                     </tr>
                                 @endforeach

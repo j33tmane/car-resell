@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Enquiry;
 use Illuminate\Http\Request;
+use Spatie\QueryBuilder\QueryBuilder;
+use Spatie\QueryBuilder\Exceptions\InvalidFilterQuery;
+use Spatie\QueryBuilder\Exceptions\InvalidSortQuery;
 
 class EnquiryController extends Controller
 {
@@ -12,9 +15,18 @@ class EnquiryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
+        $user = $request->user();
+        $enqs =QueryBuilder::for(Enquiry::class)
+        // ->allowedIncludes(['images'])
+        ->allowedFilters(['mobile','name']);
+        if(!$user->hasRole('admin')){
+            $enqs=$enqs->leftjoin('cars','cars.id','=','car_id')->where('user_id',$user->id);
+        }
+        $enqs=$enqs->orderBy('enquiries.created_at')->paginate(10)->appends(request()->query());
+        return view('enquiry.index',compact('enqs'));
     }
 
     /**

@@ -5,7 +5,7 @@
 @section('content')
     @component('common-components.breadcrumb')
         @slot('pagetitle')
-            car-resell
+            ABHCars
         @endslot
         @slot('title')
             Dealer Profile
@@ -18,12 +18,22 @@
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">General Information</h4>
-                    <p class="card-title-desc">This information will be visble to users on your profile.
-                    </p>
+                    <div class="row">
+                        <div class="col-auto">
+                            @if ($dp)
+                                <img class="rounded" src="{{ $dp->imageUrl }}" width="50px">
+                            @endif
+                        </div>
+                        <div class="col">
+                            <h4 class="card-title">General Information</h4>
+                            <p class="card-title-desc">This information will be visble to users on your profile.
+                            </p>
+                        </div>
+                    </div>
 
                     <form class="custom-validation"
-                        action="{{ route('dealer-profile.update', $dp->user_id ?? Auth::user()->id) }}" method="post">
+                        action="{{ route('dealer-profile.update', $dp->user_id ?? Auth::user()->id) }}" method="post"
+                        enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="row">
@@ -53,6 +63,10 @@
                                 <label class="form-label">WhatsApp</label>
                                 <input type="text" class="form-control" required placeholder="Contact Person Name"
                                     value="{{ $dp->contact_whatsapp ?? '' }}" name="contact_whatsapp" />
+                            </div>
+                            <div class="col-sm-6 mb-3">
+                                <label class="form-label">Logo</label>
+                                <input type="file" class="form-control" name="imageFile" />
                             </div>
                             <div>
                                 <button type="submit" class="btn btn-primary waves-effect waves-light me-1">

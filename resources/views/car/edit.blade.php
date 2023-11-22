@@ -22,16 +22,38 @@
                 <div class="card-body">
                     <h4 class="card-title">Images</h4>
                     <p class="card-title-desc">You can add upto 5 images.</p>
-
-                    <form class="custom-validation" action="#">
-
-                        <div>
-                            <button type="submit" class="btn btn-primary waves-effect waves-light me-1">
-                                Upload
-                            </button>
-
+                    @if ($car->images->count() == 0)
+                        <div class="alert alert-danger">
+                            <strong>Opps!</strong> Please upload at least one image</a>.
                         </div>
-                    </form>
+                    @endif
+                    <div class="row">
+
+                        @foreach ($car->images as $item)
+                            <div class="col-sm-2">
+                                <div class="card">
+                                    <img src="{{ $item->imageUrl }}" class="card-img-top" alt="Cinque Terre" width="140px">
+                                    <div class="card-body p-0 text-center">
+                                        <a href="{{ url('cars/img/remove/' . $item->id) }}" class="px-2 text-danger">Remove
+                                            <i class="uil uil-trash-alt font-size-18"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                    <div class="mt-3">
+                        <form class="custom-validation" action="{{ url('cars/img/upload') }}" method="post"
+                            enctype="multipart/form-data">
+                            @csrf
+                            <input type="hidden" class="form-control" name="car_id" value="{{ $car->id }}">
+                            <input type="file" class="form-control" name="imageFile">
+                            <div class="mt-3">
+                                <button type="submit" class="btn btn-primary waves-effect waves-light me-1">
+                                    Upload
+                                </button>
+                            </div>
+                        </form>
+                    </div>
 
                 </div>
             </div>
@@ -126,7 +148,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <div class="mb-3">
                                     <label class="form-label">KM Driven</label>
                                     <div>
@@ -135,13 +157,22 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <div class="mb-3">
                                     <label class="form-label">No Of Owners</label>
                                     <div>
-                                        <input type="number" class="form-control" required placeholder="Number Of Owners"
-                                            name="no_of_owners" value="{{ old('no_of_owners', $car->no_of_owners) }}" />
+                                        <input type="number" class="form-control" required
+                                            placeholder="Number Of Owners" name="no_of_owners"
+                                            value="{{ old('no_of_owners', $car->no_of_owners) }}" />
                                     </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 mb-3">
+                                <label class="form-label">Car Color</label>
+                                <div>
+                                    <input type="text" class="form-control" required data-parsley-minlength="3"
+                                        placeholder="Enter car color  Ex. Red" name="color"
+                                        value="{{ old('color', $car->color) }}" />
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -158,8 +189,9 @@
                                 <div class="mb-3">
                                     <label class="form-label text-primary">Price</label>
                                     <div>
-                                        <input type="text" class="form-control" data-parsley-min="6" placeholder="Price"
-                                            name="price" required value="{{ old('price', $car->price) }}" />
+                                        <input type="text" class="form-control" data-parsley-min="6"
+                                            placeholder="Price" name="price" required
+                                            value="{{ old('price', $car->price) }}" />
                                     </div>
                                 </div>
                             </div>

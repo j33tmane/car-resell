@@ -46,17 +46,19 @@
                                                 href="{{ url('/dealer-profile/' . $del->id) }}">{{ $del->dealerProfile->company_name ?? 'NA' }}</a>
                                         </td>
                                         <td>{{ $del->dealerProfile->contact_call ?? 'NA' }}</td>
-                                        <td id="stat{{ $del->id }}">{{ $del->active ?? 'NA' }}</td>
                                         <td>
                                             <div class="form-check form-switch">
                                                 <input type="checkbox" class="form-check-input"
                                                     id="customSwitch{{ $key }}"
                                                     onchange="changeMode(this,{{ $del->id }})"
                                                     {{ $del->getRawOriginal('active') == 1 ? 'checked' : '' }}>
-                                                <label class="form-check-label"
-                                                    for="customSwitch{{ $key }}"></label>
+                                                <label class="form-check-label" for="customSwitch{{ $key }}"><span
+                                                        id="stat{{ $del->id }}">{{ $del->active ?? 'NA' }}</span></label>
                                             </div>
+                                        </td>
+                                        <td>
 
+                                            <a href="{{ url('dealer/' . $del->id) }}" target="_blank">Dealer Page</a>
                                         </td>
                                     </tr>
                                 @endforeach
