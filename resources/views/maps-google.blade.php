@@ -5,8 +5,12 @@
 
 @section('content')
     @component('common-components.breadcrumb')
-        @slot('pagetitle') Maps @endslot
-        @slot('title') Google Maps @endslot
+        @slot('pagetitle')
+            Maps
+        @endslot
+        @slot('title')
+            Google Maps
+        @endslot
     @endcomponent
 
     <div class="row">
@@ -61,10 +65,8 @@
             </div>
         </div> <!-- end col -->
     </div> <!-- end row -->
-
 @endsection
 @section('script')
-    <script src="https://maps.google.com/maps/api/js?key=AIzaSyCtSAR45TFgZjOs4nBFFZnII-6mMHLfSYI"></script>
     <script src="{{ URL::asset('/assets/libs/gmaps/gmaps.min.js') }}"></script>
     <script src="{{ URL::asset('/assets/js/pages/gmaps.init.js') }}"></script>
 @endsection
