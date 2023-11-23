@@ -122,8 +122,8 @@
                                 <div class="mb-3">
                                     <label class="form-label">Vehical Number</label>
                                     <div>
-                                        <input type="text" class="form-control" data-parsley-min="6"
-                                            placeholder="Vehical Number" name="car_number" />
+                                        <input type="text" class="form-control" placeholder="Vehical Number"
+                                            name="car_number" />
                                     </div>
                                 </div>
                             </div>
