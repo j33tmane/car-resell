@@ -355,7 +355,7 @@
         //DEFAULT MSG FOR REJECTION
         let brand = @json($car->car_brand);
         let year = @json($car->year);
-        $.getJSON("{{ url('json/brands.json') }}",
+        $.getJSON("{{ secure_url('json/brands.json') }}",
             function(json) {
                 console.log(json)
                 $("#brands").append("<option value=''>Select Brand </option>");

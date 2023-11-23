@@ -293,7 +293,7 @@
     <script src="{{ URL::asset('/assets/js/pages/form-validation.init.js') }}"></script>
     <script>
         //DEFAULT MSG FOR REJECTION
-        $.getJSON("{{ url('json/brands.json') }}",
+        $.getJSON("{{ secure_url('json/brands.json') }}",
             function(json) {
                 console.log(json)
                 $("#brands").append("<option value=''>Select Brand </option>");
