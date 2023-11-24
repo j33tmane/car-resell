@@ -18,65 +18,84 @@
 
     <div class="album py-3 ">
         <div class="container">
-            <div class="row justify-content-end text-end">
-                <div class="col">
-                    <a href="{{ url('/dealer/' . $dealer->user_id) }}">Reset Filter ❌</a>
+
+            <div class="row justify-content-end">
+                @if (request()->has('filter'))
+                    <div class="col">
+                        <a href="{{ url('/dealer/' . $dealer->user_id) }}">Reset Filter ❌</a>
+                    </div>
+                @endif
+                <div class="col-auto mb-2">
+                    <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="collapse"
+                        data-bs-target="#demo">Show
+                        Filters</button>
+
                 </div>
-            </div>
-            <div class="row mt-3 mb-5  justify-content-end">
-                <div class="col-6 col-md-3 mt-1">
-                    <label for="price_sort" class="form-label">Sort by price:</label>
-                    <select class="form-select" id="price_sort" name="price_sort" onchange="filterResults()">
-                        <option value="">Select sort
-                        </option>
-                        <option value="price" {{ request()->input('sort') == 'price' ? 'selected' : '' }}>Low to high
-                        </option>
-                        <option value="-price" {{ request()->input('sort') == '-price' ? 'selected' : '' }}>High to low
-                        </option>
-                    </select>
+                <div id="demo" class="collapse {{ request()->has('filter') ? 'show' : '' }}">
+
+                    <div class="row  mb-5  justify-content-end">
+                        <div class="col-6 col-md-3 mt-1">
+                            <label for="price_sort" class="form-label">Sort by price:</label>
+                            <select class="form-select" id="price_sort" name="price_sort" onchange="filterResults()">
+                                <option value="">Select sort
+                                </option>
+                                <option value="price" {{ request()->input('sort') == 'price' ? 'selected' : '' }}>Low
+                                    to
+                                    high
+                                </option>
+                                <option value="-price" {{ request()->input('sort') == '-price' ? 'selected' : '' }}>High
+                                    to
+                                    low
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="col-6 col-md-3 mt-1">
+                            <label for="price_sort" class="form-label">Year:</label>
+                            <select class="form-select" id="year_filter" name="year" onchange="filterResults()">
+                                <option value="">Select Year
+                                </option>
+                                @foreach ($years as $year)
+                                    <option value="{{ $year }}"
+                                        @if (request()->has('filter')) {{ request()->input('filter')['year'] == $year ? 'selected' : '' }} @endif>
+                                        {{ $year }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-6 col-md-3 mt-1">
+                            <label for="price_sort" class="form-label">Brand:</label>
+                            <select class="form-select" id="brand_filter" name="brand_filter" onchange="filterResults()">
+                                <option value="">Select brand
+                                </option>
+                                @foreach ($brands as $brand)
+                                    <option value="{{ $brand }}"
+                                        @if (request()->has('filter')) {{ request()->input('filter')['car_brand'] == $brand ? 'selected' : '' }} @endif>
+                                        {{ $brand }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-6 col-md-3 mt-1">
+                            <label for="price_sort" class="form-label">Fule:</label>
+                            <select class="form-select" id="fule_filter" name="fule_filter" onchange="filterResults()">
+                                <option value="">Select brand
+                                </option>
+                                @foreach ($fuels as $fuel)
+                                    <option value="{{ $fuel }}"
+                                        @if (request()->has('filter')) {{ request()->input('filter')['fuel'] == $fuel ? 'selected' : '' }} @endif>
+                                        {{ $fuel }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                    </div>
                 </div>
 
-                <div class="col-6 col-md-3 mt-1">
-                    <label for="price_sort" class="form-label">Year:</label>
-                    <select class="form-select" id="year_filter" name="year" onchange="filterResults()">
-                        <option value="">Select Year
-                        </option>
-                        @foreach ($years as $year)
-                            <option value="{{ $year }}"
-                                @if (request()->has('filter')) {{ request()->input('filter')['year'] == $year ? 'selected' : '' }} @endif>
-                                {{ $year }}
-                            </option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="col-6 col-md-3 mt-1">
-                    <label for="price_sort" class="form-label">Brand:</label>
-                    <select class="form-select" id="brand_filter" name="brand_filter" onchange="filterResults()">
-                        <option value="">Select brand
-                        </option>
-                        @foreach ($brands as $brand)
-                            <option value="{{ $brand }}"
-                                @if (request()->has('filter')) {{ request()->input('filter')['car_brand'] == $brand ? 'selected' : '' }} @endif>
-                                {{ $brand }}
-                            </option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="col-6 col-md-3 mt-1">
-                    <label for="price_sort" class="form-label">Fule:</label>
-                    <select class="form-select" id="fule_filter" name="fule_filter" onchange="filterResults()">
-                        <option value="">Select brand
-                        </option>
-                        @foreach ($fuels as $fuel)
-                            <option value="{{ $fuel }}"
-                                @if (request()->has('filter')) {{ request()->input('filter')['fuel'] == $fuel ? 'selected' : '' }} @endif>
-                                {{ $fuel }}
-                            </option>
-                        @endforeach
-                    </select>
-                </div>
-
             </div>
+
+
             <div class="row mb-2">
                 @foreach ($cars as $car)
                     <div class="col-6 col-md-4 col-lg-4">

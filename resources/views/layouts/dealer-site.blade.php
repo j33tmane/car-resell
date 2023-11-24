@@ -14,6 +14,7 @@
     <!-- Bootstrap core CSS -->
     <link href="{{ URL::asset('/assets/css/bootstrap.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
     <link href="{{ URL::asset('/assets/css/app.css') }}" id="app-style" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;

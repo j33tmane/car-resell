@@ -19,9 +19,8 @@
                     <div class="carousel-inner">
                         @if ($car->video_id)
                             <div class="carousel-item active">
-                                <iframe width="100%" height="500"
-                                    src="https://www.youtube.com/embed/{{ $car->video_id }}" title="YouTube video player"
-                                    frameborder="0"
+                                <iframe width="100%" height="350px"src="https://www.youtube.com/embed/{{ $car->video_id }}"
+                                    title="YouTube video player" frameborder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                     allowfullscreen></iframe>
                             </div>
@@ -58,9 +57,20 @@
 
                 <article class="blog-post">
                     <hr>
-                    <h2 class="blog-post-title">{{ $car->car_name }}</h2><a
-                        href="whatsapp://send?text=I just saw this ad {{ $car->car_name }} on {{ $car->dealerProfile->company_name }} website.\n{{ Request::url() }}"
-                        data-action="share/whatsapp/share">Share via Whatsapp</a>
+                    <div class="row justify-content-between">
+                        <div class="col">
+                            <h2 class="blog-post-title">{{ $car->car_name }}
+                            </h2>
+                        </div>
+                        <div class="col-auto">
+                            <a href="whatsapp://send?text=I just saw this ad {{ $car->car_name }} on {{ $car->dealerProfile->company_name }} website.{{ Request::url() }}"
+                                data-action="share/whatsapp/share" style="font-size:18px"> <i class="fa fa-share"
+                                    style="font-size:20px"></i> Share
+                                To</a>
+                        </div>
+
+                    </div>
+
                     <p class="blog-post-meta">{{ date('d-M-Y', strtotime($car->created_at)) ?? 'NA' }} by <a
                             href="{{ url('dealer/' . $car->dealerProfile->user_id) }}">{{ $car->dealerProfile->company_name }}</a>
                     </p>
