@@ -17,12 +17,29 @@
                             aria-label="Slide 3"></button>
                     </div> --}}
                     <div class="carousel-inner">
+                        @if ($car->video_id)
+                            <div class="carousel-item active">
+                                <iframe width="100%" height="500"
+                                    src="https://www.youtube.com/embed/{{ $car->video_id }}" title="YouTube video player"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowfullscreen></iframe>
+                            </div>
+                        @endif
+
                         @foreach ($car->images as $key => $item)
-                            <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                            <div class="carousel-item {{ $key == 0 && $car->video_id == null ? 'active' : '' }}">
                                 <img src="{{ $item->imageUrl }}" class="w-100 rounded" alt="..."
                                     style="max-height:500px;object-fit: cover;">
                             </div>
                         @endforeach
+
+                        @if ($car->images->count() == 0 && $car->video_id == null)
+                            <div class="carousel-item active">
+                                <img src="{{ $car->firstImageUrl }}" class="w-100 rounded" alt="..."
+                                    style="max-height:500px;object-fit: cover;">
+                            </div>
+                        @endif
 
 
                     </div>
@@ -41,7 +58,9 @@
 
                 <article class="blog-post">
                     <hr>
-                    <h2 class="blog-post-title">{{ $car->car_name }}</h2>
+                    <h2 class="blog-post-title">{{ $car->car_name }}</h2><a
+                        href="whatsapp://send?text=I just saw this ad {{ $car->car_name }} on {{ $car->dealerProfile->company_name }} website.\n{{ Request::url() }}"
+                        data-action="share/whatsapp/share">Share via Whatsapp</a>
                     <p class="blog-post-meta">{{ date('d-M-Y', strtotime($car->created_at)) ?? 'NA' }} by <a
                             href="{{ url('dealer/' . $car->dealerProfile->user_id) }}">{{ $car->dealerProfile->company_name }}</a>
                     </p>
@@ -81,9 +100,26 @@
                                 <td>{{ $car->no_of_owners ?? 'NA' }}</td>
                             </tr>
                             <tr>
-                                <th>Car Number</th>
-                                <td>{{ $car->car_number ?? 'NA' }}</td>
+                                <th>Tyre Condtion</th>
+                                <td>{{ $car->tyre_type ?? 'NA' }}</td>
                             </tr>
+                            <tr>
+                                <th>Insurance</th>
+                                <td>{{ $car->insurance == 1 ? 'YES' : 'NO' }}</td>
+                            </tr>
+                            <tr>
+                                <th>Power Window</th>
+                                <td>{{ $car->p_window == 1 ? 'YES' : 'NO' }}</td>
+                            </tr>
+                            <tr>
+                                <th>Power Steering</th>
+                                <td>{{ $car->p_steering == 1 ? 'YES' : 'NO' }}</td>
+                            </tr>
+                            <tr>
+                                <th>Location</th>
+                                <td>{{ $car->location ?? 'NA' }}</td>
+                            </tr>
+
                         </tbody>
                     </table>
 

@@ -136,6 +136,65 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-sm-4">
+                                <div class="mb-3">
+                                    <label class="form-label">Car Location</label>
+                                    <div>
+                                        <input type="text" class="form-control" placeholder="ex. Kolahpur"
+                                            name="location" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="mb-3">
+                                    <label class="form-label">Tyre Condition</label>
+                                    <div>
+                                        <select id="fuel" class="form-control mb-2" name="tyre_type">
+                                            <option value=''>Select Condition </option>
+                                            <option value='low'>Low </option>
+                                            <option value='medium'>Medium </option>
+                                            <option value='best'>Best </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="mb-3">
+                                    <label class="form-label">Insurance</label>
+                                    <div>
+                                        <select id="fuel" class="form-control mb-2" name="insurance">
+                                            <option value=''>Select </option>
+                                            <option value='1'>Yes </option>
+                                            <option value='2'>No </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-2">
+                                <div class="mb-3">
+                                    <label class="form-label">Power Window</label>
+                                    <div>
+                                        <select id="fuel" class="form-control mb-2" name="p_window">
+                                            <option value=''>Select </option>
+                                            <option value='1'>Yes </option>
+                                            <option value='2'>No </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="mb-3">
+                                    <label class="form-label">Power Steering</label>
+                                    <div>
+                                        <select id="fuel" class="form-control mb-2" name="p_steering">
+                                            <option value=''>Select </option>
+                                            <option value='1'>Yes </option>
+                                            <option value='2'>No </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="col-sm-12">
                                 <div class="mb-3">
                                     <label class="form-label">Description</label>
@@ -293,7 +352,8 @@
     <script src="{{ URL::asset('/assets/js/pages/form-validation.init.js') }}"></script>
     <script>
         //DEFAULT MSG FOR REJECTION
-        $.getJSON("{{ secure_url('json/brands.json') }}",
+        let url = @json(url('json/brands.json'));
+        $.getJSON(url,
             function(json) {
                 console.log(json)
                 $("#brands").append("<option value=''>Select Brand </option>");

@@ -67,7 +67,7 @@ class CarController extends Controller
             $inputs = $request->all();
             $car = Car::create($inputs);
             flash('Care added succefuly')->success()->important(); 
-            return redirect('/cars');
+            return redirect('/cars/'.$car->id.'/edit');
         }catch(\Exception $e){
             flash('Something went wrong.<br><strong>Error</strong>: '.$e->getMessage())->error()->important(); 
             return back()->withInput();

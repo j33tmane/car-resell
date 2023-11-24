@@ -57,6 +57,40 @@
 
                 </div>
             </div>
+            @role('admin')
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">You Tube Video Link</h4>
+                        <p class="card-title-desc">Paste your video link here</p>
+
+                        <div class="row">
+                            @if ($car->yt_link)
+                                <div class="col">
+                                    <iframe width="100%" height="315"
+                                        src="https://www.youtube.com/embed/{{ $car->video_id }}" title="YouTube video player"
+                                        frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        allowfullscreen></iframe>
+                                </div>
+                            @endif
+                        </div>
+                        <div class="mt-3">
+                            <form class="custom-validation" action="{{ route('cars.update', $car->id) }}" method="post">
+                                @csrf
+                                @method('PUT')
+                                <input type="text" class="form-control" name="yt_link" placeholder="Youtube Link"
+                                    value="{{ old('yt_link', $car->yt_link) }}">
+                                <div class="mt-3">
+                                    <button type="submit" class="btn btn-primary waves-effect waves-light me-1">
+                                        Save Video
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            @endrole
         </div> <!-- end col -->
 
         <div class="col-xl-6">
@@ -142,7 +176,8 @@
                                             <option value=''>Select Transmission </option>
                                             <option value='2' {{ '2' == $car->transmission ? 'selected' : '' }}>
                                                 Automatic </option>
-                                            <option value='1' {{ '1' == $car->transmission ? 'selected' : '' }}>Manual
+                                            <option value='1' {{ '1' == $car->transmission ? 'selected' : '' }}>
+                                                Manual
                                             </option>
                                         </select>
                                     </div>
@@ -152,8 +187,9 @@
                                 <div class="mb-3">
                                     <label class="form-label">KM Driven</label>
                                     <div>
-                                        <input type="text" class="form-control" required placeholder="Kilo Meters Driven"
-                                            name="km_driven" value="{{ old('km_driven', $car->km_driven) }}" />
+                                        <input type="text" class="form-control" required
+                                            placeholder="Kilo Meters Driven" name="km_driven"
+                                            value="{{ old('km_driven', $car->km_driven) }}" />
                                     </div>
                                 </div>
                             </div>
@@ -191,6 +227,74 @@
                                         <input type="text" class="form-control" data-parsley-min="6"
                                             placeholder="Price" name="price" required
                                             value="{{ old('price', $car->price) }}" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="mb-3">
+                                    <label class="form-label">Car Location</label>
+                                    <div>
+                                        <input type="text" class="form-control" placeholder="ex. Kolahpur"
+                                            name="location" value="{{ old('location', $car->location) }}" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="mb-3">
+                                    <label class="form-label">Tyre Condition</label>
+                                    <div>
+                                        <select id="fuel" class="form-control mb-2" name="tyre_type">
+                                            <option value=''>Select Condition </option>
+                                            <option value='low' {{ 'low' == $car->tyre_type ? 'selected' : '' }}>Low
+                                            </option>
+                                            <option value='medium' {{ 'medium' == $car->tyre_type ? 'selected' : '' }}>
+                                                Medium </option>
+                                            <option value='best' {{ 'best' == $car->tyre_type ? 'selected' : '' }}>
+                                                Best </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="mb-3">
+                                    <label class="form-label">Insurance</label>
+                                    <div>
+                                        <select id="fuel" class="form-control mb-2" name="insurance">
+                                            <option value=''>Select </option>
+                                            <option value='1' {{ '1' == $car->insurance ? 'selected' : '' }}>Yes
+                                            </option>
+                                            <option value='2' {{ '2' == $car->insurance ? 'selected' : '' }}>No
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-2">
+                                <div class="mb-3">
+                                    <label class="form-label">Power Window</label>
+                                    <div>
+                                        <select id="fuel" class="form-control mb-2" name="p_window">
+                                            <option value=''>Select </option>
+                                            <option value='1' {{ '1' == $car->p_window ? 'selected' : '' }}>Yes
+                                            </option>
+                                            <option value='2' {{ '2' == $car->p_window ? 'selected' : '' }}>No
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="mb-3">
+                                    <label class="form-label">Power Steering</label>
+                                    <div>
+                                        <select id="fuel" class="form-control mb-2" name="p_window">
+                                            <option value=''>Select </option>
+                                            <option value='1' {{ '1' == $car->p_window ? 'selected' : '' }}>Yes
+                                            </option>
+                                            <option value='2' {{ '2' == $car->p_window ? 'selected' : '' }}>No
+                                            </option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -354,7 +458,8 @@
         //DEFAULT MSG FOR REJECTION
         let brand = @json($car->car_brand);
         let year = @json($car->year);
-        $.getJSON("{{ secure_url('json/brands.json') }}",
+        let url = @json(url('json/brands.json'));
+        $.getJSON(url,
             function(json) {
                 console.log(json)
                 $("#brands").append("<option value=''>Select Brand </option>");
