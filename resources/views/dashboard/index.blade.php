@@ -13,7 +13,7 @@
     @endcomponent
 
     <div class="row">
-        @unlessrole('admin')
+        @role('admin')
             <div class="col-md-6 col-xl-3">
                 <div class="card bg-success-subtle">
                     <div class="card-body">
@@ -27,7 +27,7 @@
                     </div>
                 </div>
             </div> <!-- end col-->
-        @endunlessrole
+        @endrole
 
         <div class="col-md-6 col-xl-3">
             <div class="card">
