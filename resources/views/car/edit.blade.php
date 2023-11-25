@@ -458,7 +458,7 @@
         //DEFAULT MSG FOR REJECTION
         let brand = @json($car->car_brand);
         let year = @json($car->year);
-        let url = @json(url('json/brands.json'));
+        let url = @json($brandurl);
         $.getJSON(url,
             function(json) {
                 console.log(json)

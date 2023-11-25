@@ -86,6 +86,7 @@
     <footer class="text-muted py-5">
         <div class="container">
             <p class="float-end mb-1">
+                <a href="{{ url('dealer/' . $dealer->user_id) }}">Home </a> |
                 <a href="#">Back to top</a>
             </p>
             <p class="mb-1">{{ $dealer->company_name ?? '' }} &copy;All Rights Reserved!</p>

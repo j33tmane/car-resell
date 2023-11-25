@@ -60,6 +60,8 @@
                                         <td>
                                             <a href="{{ url('/cars/' . $car->id . '/edit') }}"
                                                 class="btn btn-sm btn-outline-warning">Edit & Upload</a>
+                                            <a href="{{ url('/cars/' . $car->id) }}"
+                                                class="btn btn-sm btn-outline-info">View</a>
                                         </td>
                                     </tr>
                                 @endforeach

@@ -32,26 +32,14 @@
                                 <label class="form-label">Delaer</label>
                                 <div>
                                     <select id="fuel" class="form-control mb-2" name="user_id" required>
-                                        <option value=''>Select Dealer </option>
+                                        @role('admin')
+                                            <option value=''>Select Dealer </option>
+                                        @endrole
                                         @foreach ($dealers as $dealer)
                                             <option value='{{ $dealer->user_id }}'>{{ $dealer->company_name }} </option>
                                         @endforeach
 
                                     </select>
-                                </div>
-                            </div>
-                            <div class="col-sm-7 mb-3">
-                                <label class="form-label">Ad Title / Car Name</label>
-                                <div>
-                                    <input type="text" class="form-control" required data-parsley-minlength="6"
-                                        placeholder="Car Name  Min 6 chars." name="car_name" />
-                                </div>
-                            </div>
-                            <div class="col-sm-2 mb-3">
-                                <label class="form-label">Car Color</label>
-                                <div>
-                                    <input type="text" class="form-control" required data-parsley-minlength="3"
-                                        placeholder="Enter car color  Ex. Red" name="color" />
                                 </div>
                             </div>
                             <div class="col-sm-3">
@@ -63,6 +51,22 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="col-sm-6 mb-3">
+                                <label class="form-label">Ad Title / Car Name</label>
+                                <div>
+                                    <input type="text" class="form-control" required data-parsley-minlength="6"
+                                        placeholder="Car Name  Min 6 chars." name="car_name" />
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-3">
+                                <label class="form-label">Car Color</label>
+                                <div>
+                                    <input type="text" class="form-control" required data-parsley-minlength="3"
+                                        placeholder="Enter car color  Ex. Red" name="color" />
+                                </div>
+                            </div>
+
                             <div class="col-sm-3">
                                 <div class="mb-3">
                                     <label class="form-label">Year</label>
@@ -352,7 +356,7 @@
     <script src="{{ URL::asset('/assets/js/pages/form-validation.init.js') }}"></script>
     <script>
         //DEFAULT MSG FOR REJECTION
-        let url = @json(url('json/brands.json'));
+        let url = @json($brandurl);
         $.getJSON(url,
             function(json) {
                 console.log(json)

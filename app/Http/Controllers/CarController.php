@@ -43,6 +43,7 @@ class CarController extends Controller
     {
         //
         $user = $request->user();
+        $brandurl = url('json/brands.json');
         $dealers=null;
         if($user->hasRole('admin')){
             $dealers = DealerProfile::all();
@@ -50,7 +51,7 @@ class CarController extends Controller
         {
             $dealers = DealerProfile::where('user_id',$user->id)->get();
         }
-        return view('car.create',compact('dealers'));
+        return view('car.create',compact('dealers','brandurl'));
     }
 
     /**
@@ -63,6 +64,7 @@ class CarController extends Controller
     {
         //
         $user = $request->user();
+        
         try{
             $inputs = $request->all();
             $car = Car::create($inputs);
@@ -81,9 +83,11 @@ class CarController extends Controller
      * @param  \App\Models\Car  $car
      * @return \Illuminate\Http\Response
      */
-    public function show(Car $car)
+    public function show(Request $request,$id)
     {
         //
+        $car = Car::find($id);
+        return view('car.show',compact('car'));
     }
 
     /**
@@ -95,6 +99,7 @@ class CarController extends Controller
     public function edit(Request $request,$id)
     {
         //
+        $brandurl = url('json/brands.json');
         $user = $request->user();
         $car = Car::find($id);
         
@@ -106,7 +111,7 @@ class CarController extends Controller
             {
                 $dealers = DealerProfile::where('user_id',$user->id)->get();
             }
-            return view('car.edit',compact('car','dealers'));
+            return view('car.edit',compact('car','dealers','brandurl'));
         }else{
             flash('Car Not Found')->success()->important(); 
             return back();
