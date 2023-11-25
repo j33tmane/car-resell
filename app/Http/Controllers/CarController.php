@@ -43,7 +43,7 @@ class CarController extends Controller
     {
         //
         $user = $request->user();
-        $brandurl = url('json/brands.json');
+        $brandurl = secure_url('json/brands.json');
         $dealers=null;
         if($user->hasRole('admin')){
             $dealers = DealerProfile::all();
@@ -99,7 +99,7 @@ class CarController extends Controller
     public function edit(Request $request,$id)
     {
         //
-        $brandurl = url('json/brands.json');
+        $brandurl = secure_url('json/brands.json');
         $user = $request->user();
         $car = Car::find($id);
         
