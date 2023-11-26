@@ -66,12 +66,17 @@
                             </h2>
                         </div>
                         <div class="col-auto">
-
-                            <button id="share" class="btn btn-outline-success"> <i class="fa fa-share"
-                                    style="font-size:20px"></i> Share
-                                To</button>
+                            <a class="btn btn-sm text-success"
+                                href="whatsapp://send?text=I just saw this ad {{ $car->car_name }} on {{ $car->dealerProfile->company_name }} website.%0a{{ Request::url() }}"
+                                data-action="share/whatsapp/share" style="font-size:18px"> <i class="fa fa-whatsapp"
+                                    style="font-size:20px"></i>
+                            </a>
+                            <a class="btn btn-sm text-primary"
+                                href="https://telegram.me/share/url?url={{ Request::url() }}&text=I just saw this ad {{ $car->car_name }} on {{ $car->dealerProfile->company_name }} website."
+                                data-action="share/whatsapp/share" style="font-size:18px"> <i class="fa fa-telegram"
+                                    style="font-size:20px"></i>
+                            </a>
                         </div>
-
                     </div>
 
                     <p class="blog-post-meta">{{ date('d-M-Y', strtotime($car->created_at)) ?? 'NA' }} by <a
@@ -308,7 +313,7 @@
 @endsection
 
 @section('scripts')
-    <script>
+    {{-- <script>
         let image = @json($car->firstImageUrl);
         let url = window.location.href;
         let title = @json($car->car_name);
@@ -326,10 +331,9 @@
                     const file = new File([blob], 'abhcars.jpg', {
                         type: blob.type
                     });
-
+                    // "I just saw this ad " + title + ",Visit: " + desc + " For more deatils.\n" +
                     await navigator.share({
-                        url: "I just saw this ad " + title + ",Visit: " + desc + " For more deatils.\n" +
-                            shareurl,
+                        url: shareurl,
                         title: sharetitle,
                         text: sharetext,
                         files: [file]
@@ -348,5 +352,5 @@
                 );
             });
         }
-    </script>
+    </script> --}}
 @endsection
