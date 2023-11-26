@@ -317,13 +317,13 @@
             const share = async function(shareimg, shareurl, sharetitle, sharetext) {
                 try {
                     const response = await fetch(shareimg, {
-                        mode: 'cors',
                         headers: {
-                            'Access-Control-Allow-Origin': '*'
+                            'Access-Control-Allow-Origin': '*',
+                            "Access-Control-Allow-Methods": "GET,HEAD"
                         }
                     });
                     const blob = await response.blob();
-                    const file = new File([blob], 'rick.jpg', {
+                    const file = new File([blob], 'abhcars.jpg', {
                         type: blob.type
                     });
 
