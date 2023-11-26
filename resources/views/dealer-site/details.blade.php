@@ -1,5 +1,7 @@
 @extends('layouts.dealer-site')
-
+@section('tags')
+    <meta property="og:image" content="{{ $car->firstImageUrl }}">
+@endsection
 @section('content')
     <section class="py-5 container">
         <div class="col-sm-12">
@@ -19,7 +21,8 @@
                     <div class="carousel-inner">
                         @if ($car->video_id)
                             <div class="carousel-item active">
-                                <iframe width="100%" height="350px"src="https://www.youtube.com/embed/{{ $car->video_id }}"
+                                <iframe width="100%"
+                                    height="350px"src="https://www.youtube.com/embed/{{ $car->video_id }}"
                                     title="YouTube video player" frameborder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                     allowfullscreen></iframe>
@@ -63,10 +66,10 @@
                             </h2>
                         </div>
                         <div class="col-auto">
-                            <a href="whatsapp://send?text=I just saw this ad {{ $car->car_name }} on {{ $car->dealerProfile->company_name }} website.{{ Request::url() }}"
-                                data-action="share/whatsapp/share" style="font-size:18px"> <i class="fa fa-share"
+
+                            <button id="share" class="btn btn-outline-success"> <i class="fa fa-share"
                                     style="font-size:20px"></i> Share
-                                To</a>
+                                To</button>
                         </div>
 
                     </div>
@@ -302,4 +305,42 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+        let image = @json($car->firstImageUrl);
+        let url = window.location.href;
+        let title = @json($car->car_name);
+        let desc = @json($car->dealerProfile->company_name);
+        if ('canShare' in navigator) {
+            const share = async function(shareimg, shareurl, sharetitle, sharetext) {
+                try {
+                    const response = await fetch(shareimg);
+                    const blob = await response.blob();
+                    const file = new File([blob], 'rick.jpg', {
+                        type: blob.type
+                    });
+
+                    await navigator.share({
+                        url: shareurl,
+                        title: sharetitle,
+                        text: sharetext,
+                        files: [file]
+                    });
+                } catch (err) {
+                    console.log(err.name, err.message);
+                }
+            };
+
+            document.getElementById('share').addEventListener('click', () => {
+                share(
+                    image,
+                    url,
+                    title,
+                    "Dealer: " + desc
+                );
+            });
+        }
+    </script>
 @endsection

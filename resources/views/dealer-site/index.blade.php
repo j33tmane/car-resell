@@ -1,4 +1,7 @@
 @extends('layouts.dealer-site')
+@section('tags')
+    <meta property="og:image" content="{{ $dealer->imageUrl }}">
+@endsection
 @section('content')
     <section class="py-5 text-center container bg-light">
         <div class="row py-2">

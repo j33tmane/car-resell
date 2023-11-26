@@ -4,9 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{{ $dealer->address ?? '' }}">
+    <meta name="description"
+        content="At {{ $dealer->company_name ?? '' }}, {{ $dealer->address ?? '' }} we redefine the experience of purchasing pre-owned vehicles. With a passion for quality and reliability, we've established ourselves as a trusted name in the used car market.">
     <meta name="author" content="{{ $dealer->company_name ?? '' }}">
-    <meta name="generator" content="Hugo 0.84.0">
+
+    @yield('tags')
     <title>{{ $dealer->company_name ?? '' }} | ABHCars</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
     <!-- Icons Css -->
