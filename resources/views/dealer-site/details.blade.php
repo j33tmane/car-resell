@@ -328,7 +328,8 @@
                     });
 
                     await navigator.share({
-                        url: shareurl,
+                        url: "I just saw this ad " + title + ",Visit: " + desc + " For more deatils.\n" +
+                            shareurl,
                         title: sharetitle,
                         text: sharetext,
                         files: [file]
