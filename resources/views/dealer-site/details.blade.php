@@ -316,7 +316,12 @@
         if ('canShare' in navigator) {
             const share = async function(shareimg, shareurl, sharetitle, sharetext) {
                 try {
-                    const response = await fetch(shareimg);
+                    const response = await fetch(shareimg, {
+                        mode: 'cors',
+                        headers: {
+                            'Access-Control-Allow-Origin': '*'
+                        }
+                    });
                     const blob = await response.blob();
                     const file = new File([blob], 'rick.jpg', {
                         type: blob.type
