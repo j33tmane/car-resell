@@ -56,13 +56,13 @@
                             </div>
                             <div class="col-sm-6 mb-3">
                                 <label class="form-label">Mobile</label>
-                                <input type="text" class="form-control" required placeholder="Calling Number"
+                                <input type="text" class="form-control" required placeholder="Ex. +9188302XXXXX"
                                     value="{{ $dp->contact_call ?? '' }}" name="contact_call"
                                     data-parsley-pattern="^([+][9][1]){1}([7-9]{1})([0-9]{9})$" />
                             </div>
                             <div class="col-sm-6 mb-3">
                                 <label class="form-label">WhatsApp</label>
-                                <input type="text" class="form-control" required placeholder="Contact Person Name"
+                                <input type="text" class="form-control" required placeholder="Ex. +9188302XXXXX"
                                     value="{{ $dp->contact_whatsapp ?? '' }}" name="contact_whatsapp"
                                     data-parsley-pattern="^([+][9][1]){1}([7-9]{1})([0-9]{9})$" />
                             </div>

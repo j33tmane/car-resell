@@ -33,8 +33,8 @@
                                     <div class="mb-3">
                                         <label class="form-label" for="email">Email</label>
                                         <input type="text" class="form-control @error('email') is-invalid @enderror"
-                                            name="email" value="{{ old('email', 'manjeetmane@gmail.com') }}"
-                                            id="email" placeholder="Enter Email address">
+                                            name="email" value="{{ old('email', '') }}" id="email"
+                                            placeholder="Enter Email address">
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -51,8 +51,7 @@
                                         </div>
                                         <label class="form-label" for="userpassword">Password</label>
                                         <input type="password" class="form-control @error('password') is-invalid @enderror"
-                                            value="asdasdasd" name="password" id="userpassword"
-                                            placeholder="Enter password">
+                                            name="password" id="userpassword" placeholder="Enter password">
                                         @error('password')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
