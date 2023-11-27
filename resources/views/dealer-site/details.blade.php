@@ -280,7 +280,7 @@
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form method="post" action="{{ url('enquiry/car/' . $car->id) }}">
+                <form method="post" action="{{ url('enquiry/car/' . $car->id) }}" class="custom-validation">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Submit Enquiry</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -290,15 +290,16 @@
                         @csrf
                         <div class="mb-1">
                             <label for="name" class="col-form-label">Name:</label>
-                            <input type="text" class="form-control" id="name" name="name">
+                            <input type="text" class="form-control" id="name" name="name" required>
                         </div>
                         <div class="mb-1">
                             <label for="mobile" class="col-form-label">Mobile:</label>
-                            <input type="text" class="form-control" id="mobile" name="mobile">
+                            <input type="text" class="form-control" id="mobile" name="mobile"
+                                data-parsley-pattern="^[789]\d{9}$" required>
                         </div>
                         <div class="mb-3">
                             <label for="message" class="col-form-label">Message:</label>
-                            <textarea class="form-control" id="message" name="message"></textarea>
+                            <textarea class="form-control" id="message" name="message" required></textarea>
                         </div>
 
                     </div>
@@ -313,6 +314,9 @@
 @endsection
 
 @section('scripts')
+    <script src="{{ URL::asset('/assets/libs/parsleyjs/parsleyjs.min.js') }}"></script>
+    <script src="{{ URL::asset('/assets/js/pages/form-validation.init.js') }}"></script>
+
     {{-- <script>
         let image = @json($car->firstImageUrl);
         let url = window.location.href;

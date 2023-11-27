@@ -57,12 +57,14 @@
                             <div class="col-sm-6 mb-3">
                                 <label class="form-label">Mobile</label>
                                 <input type="text" class="form-control" required placeholder="Calling Number"
-                                    value="{{ $dp->contact_call ?? '' }}" name="contact_call" />
+                                    value="{{ $dp->contact_call ?? '' }}" name="contact_call"
+                                    data-parsley-pattern="^([+][9][1]){1}([7-9]{1})([0-9]{9})$" />
                             </div>
                             <div class="col-sm-6 mb-3">
                                 <label class="form-label">WhatsApp</label>
                                 <input type="text" class="form-control" required placeholder="Contact Person Name"
-                                    value="{{ $dp->contact_whatsapp ?? '' }}" name="contact_whatsapp" />
+                                    value="{{ $dp->contact_whatsapp ?? '' }}" name="contact_whatsapp"
+                                    data-parsley-pattern="^([+][9][1]){1}([7-9]{1})([0-9]{9})$" />
                             </div>
                             <div class="col-sm-6 mb-3">
                                 <label class="form-label">Logo</label>
@@ -70,24 +72,29 @@
                             </div>
                             <hr />
                             <div class="col-sm-6 mb-3">
+
                                 <label class="form-label">Facebook</label>
                                 <input type="text" class="form-control" placeholder="Facebook page url"
-                                    value="{{ $dp->social->fburl ?? '' }}" name="sl[fburl]" />
+                                    value="{{ $dp->social->fburl ?? '' }}" name="sl[fburl]"
+                                    data-parsley-pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)" />
                             </div>
                             <div class="col-sm-6 mb-3">
                                 <label class="form-label">Youtube Channel</label>
                                 <input type="text" class="form-control" placeholder="Youtube Channel Url"
-                                    value="{{ $dp->social->yturl ?? '' }}" name="sl[yturl]" />
+                                    value="{{ $dp->social->yturl ?? '' }}" name="sl[yturl]"
+                                    data-parsley-pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)" />
                             </div>
                             <div class="col-sm-6 mb-3">
                                 <label class="form-label">Instagram </label>
                                 <input type="text" class="form-control" placeholder="Instagram Profile Url"
-                                    value="{{ $dp->social->instaurl ?? '' }}" name="sl[instaurl]" />
+                                    value="{{ $dp->social->instaurl ?? '' }}" name="sl[instaurl]"
+                                    data-parsley-pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)" />
                             </div>
                             <div class="col-sm-6 mb-3">
                                 <label class="form-label">External Website </label>
                                 <input type="text" class="form-control" placeholder="Website Url"
-                                    value="{{ $dp->social->weburl ?? '' }}" name="sl[weburl]" />
+                                    value="{{ $dp->social->weburl ?? '' }}" name="sl[weburl]"
+                                    data-parsley-pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)" />
                             </div>
                             <div>
                                 <button type="submit" class="btn btn-primary waves-effect waves-light me-1">
