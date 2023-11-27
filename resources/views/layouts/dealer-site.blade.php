@@ -91,7 +91,17 @@
                 <a href="{{ url('dealer/' . $dealer->user_id) }}">Home </a> |
                 <a href="#">Back to top</a>
             </p>
-            <p class="mb-1">{{ $dealer->company_name ?? '' }} &copy;All Rights Reserved!</p>
+            <p>
+                <a href="{{ $dealer->social->instaurl ?? 'javascript:void(0);' }}" target="_blank"
+                    class="btn btn-sm"><i class="fa fa-instagram" style="font-size: 20px;"></i></a>
+                <a href="{{ $dealer->social->fburl ?? 'javascript:void(0);' }}" target="_blank" class="btn btn-sm"><i
+                        class="fa fa-facebook" style="font-size: 20px;"></i></a>
+                <a href="{{ $dealer->social->yturl ?? 'javascript:void(0);' }}" target="_blank" class="btn btn-sm"><i
+                        class="fa fa-youtube" style="font-size: 20px;"></i></a>
+                <a href="{{ $dealer->social->weburl ?? 'javascript:void(0);' }}" target="_blank" class="btn btn-sm"><i
+                        class="fa fa-globe" style="font-size: 20px;"></i></a>
+            </p>
+            <p class="mb-1 text-center">{{ $dealer->company_name ?? '' }} &copy;All Rights Reserved!</p>
 
         </div>
     </footer>

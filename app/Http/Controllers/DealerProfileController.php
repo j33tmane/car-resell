@@ -54,6 +54,7 @@ class DealerProfileController extends Controller
     {
         //
         $dp = DealerProfile::where("user_id",$id)->first();
+        // return $dp;
         return view('dealer.profile-index',compact('dp'));
     }
 
@@ -78,7 +79,10 @@ class DealerProfileController extends Controller
     public function update(Request $request, $id)
     {
         //
+        if(count($request->sl)>0)
+        $request->merge(["social_link"=>json_encode($request->sl)]);
         $inputs = $request->except(['user_id']);
+
         $dp = DealerProfile::updateOrCreate(["user_id"=>$id],$inputs);
         $img_key=null;
         if($dp && $request->imageFile){

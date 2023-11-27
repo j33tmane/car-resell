@@ -68,6 +68,27 @@
                                 <label class="form-label">Logo</label>
                                 <input type="file" class="form-control" name="imageFile" />
                             </div>
+                            <hr />
+                            <div class="col-sm-6 mb-3">
+                                <label class="form-label">Facebook</label>
+                                <input type="text" class="form-control" placeholder="Facebook page url"
+                                    value="{{ $dp->social->fburl ?? '' }}" name="sl[fburl]" />
+                            </div>
+                            <div class="col-sm-6 mb-3">
+                                <label class="form-label">Youtube Channel</label>
+                                <input type="text" class="form-control" placeholder="Youtube Channel Url"
+                                    value="{{ $dp->social->yturl ?? '' }}" name="sl[yturl]" />
+                            </div>
+                            <div class="col-sm-6 mb-3">
+                                <label class="form-label">Instagram </label>
+                                <input type="text" class="form-control" placeholder="Instagram Profile Url"
+                                    value="{{ $dp->social->instaurl ?? '' }}" name="sl[instaurl]" />
+                            </div>
+                            <div class="col-sm-6 mb-3">
+                                <label class="form-label">External Website </label>
+                                <input type="text" class="form-control" placeholder="Website Url"
+                                    value="{{ $dp->social->weburl ?? '' }}" name="sl[weburl]" />
+                            </div>
                             <div>
                                 <button type="submit" class="btn btn-primary waves-effect waves-light me-1">
                                     Update
