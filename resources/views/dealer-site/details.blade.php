@@ -53,9 +53,17 @@
                 <article class="blog-post">
                     <hr>
                     <div class="row justify-content-between">
-                        <div class="col">
+                        <div class="col-auto">
                             <h2 class="blog-post-title">{{ $car->car_name }}
                             </h2>
+                        </div>
+
+                    </div>
+                    <div class="row justify-content-between">
+                        <div class="col-auto">
+                            <p class="blog-post-meta">{{ date('d-M-Y', strtotime($car->created_at)) ?? 'NA' }} by <a
+                                    href="{{ url('dealer/' . $car->dealerProfile->user_id) }}">{{ $car->dealerProfile->company_name }}</a>
+                            </p>
                         </div>
                         <div class="col-auto">
                             <a class="btn btn-sm text-success"
@@ -68,12 +76,14 @@
                                 data-action="share/whatsapp/share" style="font-size:18px"> <i class="fa fa-telegram"
                                     style="font-size:20px"></i>
                             </a>
+                            <button onclick="copyFunction()" class="btn btn-sm">
+
+                                <i class="fa fa-copy" style="font-size:20px"></i>
+                            </button>
                         </div>
                     </div>
 
-                    <p class="blog-post-meta">{{ date('d-M-Y', strtotime($car->created_at)) ?? 'NA' }} by <a
-                            href="{{ url('dealer/' . $car->dealerProfile->user_id) }}">{{ $car->dealerProfile->company_name }}</a>
-                    </p>
+
                 </article>
                 <hr>
 
@@ -152,8 +162,10 @@
 
                     <div class="p-4 mb-3 bg-light rounded">
                         <h2 class="fw-bold">₹ {{ number_format($car->price) }}</h2>
-                        <p class="mb-0">Customize this section to tell your visitors a little bit about your
-                            publication, writers, content, or something else entirely. Totally up to you.</p>
+                        <p class="mb-0 text-danger">Note: Original purchase invoice, insurance, road tax receipt, and
+                            pollution
+                            certificate
+                            are other documents that are needed to be checked while buying a used car.</p>
                         <div class="d-grid gap-2 mt-4">
                             <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
                                 data-bs-target="#exampleModal">Submit Enquiry</button>
@@ -309,44 +321,14 @@
     <script src="{{ URL::asset('/assets/libs/parsleyjs/parsleyjs.min.js') }}"></script>
     <script src="{{ URL::asset('/assets/js/pages/form-validation.init.js') }}"></script>
 
-    {{-- <script>
-        let image = @json($car->firstImageUrl);
-        let url = window.location.href;
-        let title = @json($car->car_name);
-        let desc = @json($car->dealerProfile->company_name);
-        if ('canShare' in navigator) {
-            const share = async function(shareimg, shareurl, sharetitle, sharetext) {
-                try {
-                    const response = await fetch(shareimg, {
-                        headers: {
-                            'Access-Control-Allow-Origin': '*',
-                            "Access-Control-Allow-Methods": "GET,HEAD"
-                        }
-                    });
-                    const blob = await response.blob();
-                    const file = new File([blob], 'abhcars.jpg', {
-                        type: blob.type
-                    });
-                    // "I just saw this ad " + title + ",Visit: " + desc + " For more deatils.\n" +
-                    await navigator.share({
-                        url: shareurl,
-                        title: sharetitle,
-                        text: sharetext,
-                        files: [file]
-                    });
-                } catch (err) {
-                    console.log(err.name, err.message);
-                }
-            };
-
-            document.getElementById('share').addEventListener('click', () => {
-                share(
-                    image,
-                    url,
-                    title,
-                    "Dealer: " + desc
-                );
-            });
+    <script>
+        function copyFunction() {
+            // Get the text field
+            var copyText = window.location.href.toString();
+            // Copy the text inside the text field
+            navigator.clipboard.writeText(copyText);
+            // Alert the copied text
+            alert("URL Copied : " + copyText);
         }
-    </script> --}}
+    </script>
 @endsection
