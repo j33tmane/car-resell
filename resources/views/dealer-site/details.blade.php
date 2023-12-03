@@ -326,9 +326,16 @@
             // Get the text field
             var copyText = window.location.href.toString();
             // Copy the text inside the text field
-            navigator.clipboard.writeText(copyText);
-            // Alert the copied text
-            alert("URL Copied : " + copyText);
+            navigator.clipboard
+                .writeText(copyText)
+                .then(() => {
+                    alert("URL Copied : " + copyText);
+                })
+                .catch(() => {
+                    alert("something went wrong");
+                });
+
+
         }
     </script>
 @endsection
