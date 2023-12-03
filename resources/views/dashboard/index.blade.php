@@ -13,6 +13,15 @@
     @endcomponent
 
     <div class="row">
+        @if (!Auth::user()->dealerProfile)
+            <div class="col-md-6 col-xl-3">
+                <div class="alert alert-danger  fade show  px-4 mb-0 text-center" role="alert">
+                    <i class="uil uil-exclamation-octagon d-block display-4 text-danger"></i>
+                    <h5 class="text-danger">Oops</h5>
+                    <p><a href="{{ url('/dealer-profile') }}">Please click to complete dealer profile first!</a></p>
+                </div>
+            </div>
+        @endif
         @role('admin')
             <div class="col-md-6 col-xl-3">
                 <div class="card bg-success-subtle">

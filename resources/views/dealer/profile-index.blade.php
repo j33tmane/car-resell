@@ -55,15 +55,15 @@
                                     value="{{ $dp->contact_person_name ?? '' }}" name="contact_person_name" />
                             </div>
                             <div class="col-sm-6 mb-3">
-                                <label class="form-label">Mobile</label>
+                                <label class="form-label">Mobile<small> (+9188302xxxxx)</small></label>
                                 <input type="text" class="form-control" required placeholder="Ex. +9188302XXXXX"
-                                    value="{{ $dp->contact_call ?? '' }}" name="contact_call"
+                                    value="{{ $dp->contact_call ?? '+91' }}" name="contact_call"
                                     data-parsley-pattern="^([+][9][1]){1}([7-9]{1})([0-9]{9})$" />
                             </div>
                             <div class="col-sm-6 mb-3">
-                                <label class="form-label">WhatsApp</label>
+                                <label class="form-label">WhatsApp <small> (+9188302xxxxx)</small></label>
                                 <input type="text" class="form-control" required placeholder="Ex. +9188302XXXXX"
-                                    value="{{ $dp->contact_whatsapp ?? '' }}" name="contact_whatsapp"
+                                    value="{{ $dp->contact_whatsapp ?? '+91' }}" name="contact_whatsapp"
                                     data-parsley-pattern="^([+][9][1]){1}([7-9]{1})([0-9]{9})$" />
                             </div>
                             <div class="col-sm-6 mb-3">
@@ -78,12 +78,12 @@
                                     value="{{ $dp->social->fburl ?? '' }}" name="sl[fburl]"
                                     data-parsley-pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)" />
                             </div>
-                            <div class="col-sm-6 mb-3">
+                            {{-- <div class="col-sm-6 mb-3">
                                 <label class="form-label">Youtube Channel</label>
                                 <input type="text" class="form-control" placeholder="Youtube Channel Url"
                                     value="{{ $dp->social->yturl ?? '' }}" name="sl[yturl]"
                                     data-parsley-pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)" />
-                            </div>
+                            </div> --}}
                             <div class="col-sm-6 mb-3">
                                 <label class="form-label">Instagram </label>
                                 <input type="text" class="form-control" placeholder="Instagram Profile Url"

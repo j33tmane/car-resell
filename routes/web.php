@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Models\DealerProfile;
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,8 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/home', function () {
-    return redirect('dashboard');
+Route::get('/home', function (Request $request) {
+    $user=$request->user();
+    if($user->dealerProfile)
+        return redirect('dashboard');
+    else
+        return redirect('dealer-profile');
 });
 
 Route::middleware(['auth'])->group(function () {

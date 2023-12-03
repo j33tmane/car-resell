@@ -55,7 +55,7 @@
 
         <nav class="navbar navbar-expand-md navbar-light bg-white" aria-label="Fourth navbar example">
             <div class="container">
-                <a class="navbar-brand text-uppercase"
+                <a class="text-black text-uppercase"
                     href="{{ url('dealer/' . $dealer->user_id) }}">{{ $dealer->company_name }}</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false"
@@ -65,10 +65,10 @@
 
                 <div class="collapse navbar-collapse" id="navbarsExample04">
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link active" aria-current="page"
                                 href="{{ url('/dealer/' . $dealer->user_id) }}">Home</a>
-                        </li>
+                        </li> --}}
                     </ul>
                     <div class="d-flex">
                         <input class="form-control me-2" type="text" placeholder="Search car name" name="car_name"

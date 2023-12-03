@@ -19,24 +19,16 @@
                             aria-label="Slide 3"></button>
                     </div> --}}
                     <div class="carousel-inner">
-                        @if ($car->video_id)
-                            <div class="carousel-item active">
-                                <iframe width="100%"
-                                    height="350px"src="https://www.youtube.com/embed/{{ $car->video_id }}"
-                                    title="YouTube video player" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    allowfullscreen></iframe>
-                            </div>
-                        @endif
+
 
                         @foreach ($car->images as $key => $item)
-                            <div class="carousel-item {{ $key == 0 && $car->video_id == null ? 'active' : '' }}">
+                            <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
                                 <img src="{{ $item->imageUrl }}" class="w-100 rounded" alt="..."
                                     style="max-height:500px;object-fit: cover;">
                             </div>
                         @endforeach
 
-                        @if ($car->images->count() == 0 && $car->video_id == null)
+                        @if ($car->images->count() == 0)
                             <div class="carousel-item active">
                                 <img src="{{ $car->firstImageUrl }}" class="w-100 rounded" alt="..."
                                     style="max-height:500px;object-fit: cover;">
@@ -168,15 +160,15 @@
                         </div>
                     </div>
                     <div class="">
-                        <div class="card">
-                            <img src="https://gomechanic.in/blog/wp-content/uploads/2020/06/10-Best-Used-Cars-under-75000.jpg"
-                                class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Advertise</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.</p>
+                        @if ($car->video_id)
+                            <div class="carousel-item active">
+                                <iframe width="100%"
+                                    height="250px"src="https://www.youtube.com/embed/{{ $car->video_id }}"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowfullscreen></iframe>
                             </div>
-                        </div>
+                        @endif
                     </div>
 
 
@@ -185,9 +177,9 @@
             </div>
         </div>
     </section>
-    <hr>
+
     <br>
-    <section class="py-5 container ">
+    {{-- <section class="py-5 container ">
         Related Ads
         <div class="row mb-2">
             <div class="col-4 oc-card">
@@ -275,7 +267,7 @@
             </div>
 
         </div>
-    </section>
+    </section> --}}
     <!-- Varying Modal Content example -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
