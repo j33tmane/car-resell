@@ -43,7 +43,12 @@ class CarController extends Controller
     {
         //
         $user = $request->user();
-        $brandurl = secure_url('json/brands.json');
+        $brandurl = url('json/brands.json');
+
+        if(env('APP_ENV')=="production")
+            $brandurl = secure_url('json/brands.json');
+ 
+      
         $dealers=null;
         if($user->hasRole('admin')){
             $dealers = DealerProfile::all();
