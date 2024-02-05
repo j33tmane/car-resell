@@ -54,7 +54,7 @@ Route::middleware(['auth'])->group(function () {
     
     
 
-    Route::group(['middleware' => ['permission:view-role']], function () {
+    Route::group(['middleware' => ['role_or_permission:view-role|admin']], function () {
         Route::resource('role', 'RoleController');
         Route::resource('assign-permission', 'AssignPermissionController');
     });
@@ -69,3 +69,5 @@ Route::get('/', function () {
 Route::get('/dealer/{id}','GuestController@dealerPage');
 Route::get('/dealer/car/{id}','GuestController@carDetails');
 Route::post('/enquiry/car/{id}','GuestController@submitEnquiry');
+
+
