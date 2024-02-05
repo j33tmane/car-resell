@@ -74,14 +74,15 @@
                         </a>
                     </li>
                 @endcan
-                @can('view-role')
+                @role('admin')
                     <li>
                         <a href="{{ url('/role') }}" class=" waves-effect">
                             <i class="uil-user"></i>
                             <span>Role</span>
                         </a>
                     </li>
-                @endcan
+                @endrole
+
             </ul>
         </div>
         <!-- Sidebar -->
