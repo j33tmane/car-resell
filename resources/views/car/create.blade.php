@@ -28,7 +28,7 @@
                     <form action="{{ route('cars.store') }}" class="custom-validation" method="post">
                         @csrf
                         <div class="row">
-                            <div class="col-sm-3 mb-3">
+                            <div class="col-sm-6 mb-3">
                                 <label class="form-label">Delaer</label>
                                 <div>
                                     <select id="fuel" class="form-control mb-2" name="user_id" required>
@@ -42,7 +42,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-3">
+                            <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label class="form-label">Brand</label>
                                     <div>
@@ -59,7 +59,7 @@
                                         placeholder="Car Name  Min 6 chars." name="car_name" />
                                 </div>
                             </div>
-                            <div class="col-sm-3 mb-3">
+                            <div class="col-sm-6 mb-3">
                                 <label class="form-label">Car Color</label>
                                 <div>
                                     <input type="text" class="form-control" required data-parsley-minlength="3"
@@ -67,7 +67,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-sm-3">
+                            <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label class="form-label">Year</label>
                                     <div>
@@ -76,7 +76,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-3">
+                            <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label class="form-label">Fuel</label>
                                     <div>
@@ -92,7 +92,30 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-3">
+
+                            <div class="col-sm-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Body Style</label>
+                                 <div >
+                                  <select class="form-control mb-2" name="body">
+                                     <option value="">-Select Body Style-</option>
+                                  <option value="SUV">SUV</option>
+                                  <option value="Mini SUV">Mini SUV</option>
+                                  <option value="Sedan">Sedan</option>
+                                  <option value="Hatchback">Hatchback</option>
+                                  <option value="Coupe">Coupe</option>
+                                  <option value="Wagon">Wagon</option>
+                                  <option value="Hybrid">Hybrid</option>
+                                  <option value="Luxury">Luxury</option>
+                                  <option value="Pickup">Pickup</option>
+                                  <option value="Convertible">Convertible</option>
+                                  <option value="Truck">Truck</option>
+                                  <option value="None">None</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label class="form-label">Transmission</label>
                                     <div>
@@ -104,7 +127,42 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-3">
+
+                            <div class="col-sm-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Engine (cc)</label>
+                                    <div>
+                                        <input type="text" class="form-control" name="engine" placeholder="1497" value="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Power (bhp)</label>
+                                    <div>
+                                        <input type="text" class="form-control" name="power" placeholder="113.31" value="">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            {{-- <div class="mb-3 row">
+                                <label class="col-md-3 col-form-label">Engine (cc)</label>
+                                <div class="col-md-9">
+                                  <input type="text" class="form-control" name="engine" placeholder="1497" value="">
+                                </div>
+                              </div>
+
+                            <div class="mb-3 row">
+                                <label class="col-md-3 col-form-label">Power (bhp)</label>
+                                <div class="col-md-9">
+                                  <input type="text" class="form-control" name="power" placeholder="113.31" value="">
+                                </div>
+                              </div> --}}
+
+
+                            <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label class="form-label">KM Driven</label>
                                     <div>
@@ -113,25 +171,46 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-3">
+                            <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label class="form-label">No Of Owners</label>
                                     <div>
-                                        <input type="number" class="form-control" required placeholder="Number Of Owners"
-                                            name="no_of_owners" />
+                                        <select id="fuel" class="form-control mb-2" name="no_of_owners" required>
+                                            <option value=''>-Select No of Owners-</option>
+                                            <option value='2'>1st </option>
+                                            <option value='1'>2nd </option>
+                                            <option value='1'>3rd </option>
+                                            <option value='1'>4th </option>
+                                            <option value='1'>5th </option>
+                                            <option value='1'>6th </option>
+                                            <option value='1'>7th </option>
+                                            <option value='1'>8th </option>
+                                            <option value='1'>9th </option>
+                                        </select>
+
+                                        {{-- <input type="number" class="form-control" required placeholder="Number Of Owners"
+                                            name="no_of_owners" /> --}}
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-3">
+
+                            {{-- <div class="mb-3 row">
+                                <label class="col-md-3 col-form-label">Vehicle Number <small style="font-size:7px">(Without Space)</small></label>
+                                <div class="col-md-9">
+                                  <input type="text" class="form-control" name="cno" maxlength="10" placeholder="MH09XX1234 (Without Space)" value="" required="">
+                                </div>
+                              </div> --}}
+
+
+                            <div class="col-sm-6">
                                 <div class="mb-3">
-                                    <label class="form-label">Vehical Number</label>
+                                    <label class="form-label">Vehical Number<small style="font-size:7px">(Without Space)</small></label>
                                     <div>
-                                        <input type="text" class="form-control" placeholder="Vehical Number"
-                                            name="car_number" />
+                                        <input type="text" class="form-control" name="cno" maxlength="10" placeholder="MH09XX1234 (Without Space)" value="" required="">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-3">
+                            <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label class="form-label text-primary">Price</label>
                                     <div>
@@ -140,7 +219,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label class="form-label">Car Location</label>
                                     <div>
@@ -149,7 +228,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-2">
+                            <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label class="form-label">Tyre Condition</label>
                                     <div>
@@ -162,7 +241,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-2">
+                            <div class="col-sm-4">
                                 <div class="mb-3">
                                     <label class="form-label">Insurance</label>
                                     <div>
@@ -175,7 +254,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-sm-2">
+                            <div class="col-sm-4">
                                 <div class="mb-3">
                                     <label class="form-label">Power Window</label>
                                     <div>
@@ -187,7 +266,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-2">
+                            <div class="col-sm-4">
                                 <div class="mb-3">
                                     <label class="form-label">Power Steering</label>
                                     <div>
@@ -199,25 +278,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-12">
-                                <div class="mb-3">
-                                    <label class="form-label">Description</label>
-                                    <button type="button" class="btn-link btn btn-sm  waves-effect waves-light"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModalScrollable">Sample
-                                        Description</button>
-                                    <div>
-                                        <textarea class="form-control" name="car_description">
-                                       </textarea>
-                                    </div>
-                                </div>
-                            </div>
 
-                        </div>
-
-
-                        {{-- <div class="mb-3 row">
+                             <div class="mb-3 row">
                             <div class="col-md">
-                              <small class="text-light text-uppercase fw-medium d-block">Features</small>
+                              <h5>Features</h5>
                               <div class="form-check form-check-inline mt-3">
                                 <input class="form-check-input" type="checkbox" name="abs" value="1">
                                 <label class="form-check-label" for="inlineCheckbox1">ABS</label>
@@ -255,12 +319,31 @@
                                 <label class="form-check-label" for="inlineCheckbox2">Leather Seats</label>
                               </div>
                             </div> 
-                          </div> --}}
+                          </div>
+
+
+                            <div class="col-sm-12">
+                                <div class="mb-3">
+                                    <label class="form-label">Description</label>
+                                    <button type="button" class="btn-link btn btn-sm  waves-effect waves-light"
+                                        data-bs-toggle="modal" data-bs-target="#exampleModalScrollable">Sample
+                                        Description</button>
+                                    <div>
+                                        <textarea class="form-control" name="car_description">
+                                       </textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                       
 
 
                         <div>
                             <div>
-                                <button type="submit" class="btn btn-primary waves-effect waves-light me-1">
+                                <button type="submit" class="btn btn-primary waves-effect waves-light me-1 " >
                                     Save
                                 </button>
                             </div>
