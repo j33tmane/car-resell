@@ -118,23 +118,35 @@
                                     </select>
                                 </div>
                             </div>
+
                             <div class="mb-3">
+                                <label class="form-label">Brand</label>
+                                <div>
+                                    <select id="brands" class="form-control mb-2" name="car_brand" required>
+                                    </select>
+                                </div>
+                            </div>
+
+                            {{-- <div class="mb-3">
                                 <label class="form-label">Ad Title / Car Name</label>
                                 <div>
                                     <input type="text" class="form-control" required data-parsley-minlength="6"
                                         placeholder="Car Name  Min 6 chars." name="car_name"
                                         value="{{ old('car_name', $car->car_name) }}" />
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="col-sm-6">
-                                <div class="mb-3">
-                                    <label class="form-label">Brand</label>
+                                <div class="mb-6">
+                                    <label class="form-label">Ad Title / Car Name</label>
                                     <div>
-                                        <select id="brands" class="form-control mb-2" name="car_brand" required>
-                                        </select>
+                                        <input type="text" class="form-control" required data-parsley-minlength="6"
+                                        placeholder="Car Name  Min 6 chars." name="car_name"
+                                        value="{{ old('car_name', $car->car_name) }}" />
                                     </div>
                                 </div>
                             </div>
+
+                            
                             <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label class="form-label">Year</label>
@@ -168,6 +180,29 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="col-sm-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Body Style</label>
+                                 <div>
+                                  <select class="form-control mb-2" name="body">
+                                     <option value="">-Select Body Style-</option>
+                                  <option value="SUV">SUV</option>
+                                  <option value="Mini SUV">Mini SUV</option>
+                                  <option value="Sedan">Sedan</option>
+                                  <option value="Hatchback">Hatchback</option>
+                                  <option value="Coupe">Coupe</option>
+                                  <option value="Wagon">Wagon</option>
+                                  <option value="Hybrid">Hybrid</option>
+                                  <option value="Luxury">Luxury</option>
+                                  <option value="Pickup">Pickup</option>
+                                  <option value="Convertible">Convertible</option>
+                                  <option value="Truck">Truck</option>
+                                  <option value="None">None</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
                             <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label class="form-label">Transmission</label>
@@ -183,7 +218,25 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-4">
+
+                            <div class="col-sm-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Engine (cc)</label>
+                                    <div>
+                                        <input type="text" class="form-control" name="engine" placeholder="1497" value="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Power (bhp)</label>
+                                    <div>
+                                        <input type="text" class="form-control" name="power" placeholder="113.31" value="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label class="form-label">KM Driven</label>
                                     <div>
@@ -193,7 +246,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label class="form-label">No Of Owners</label>
                                     <div>
@@ -203,7 +256,17 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-4 mb-3">
+
+                            <div class="col-sm-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Vehical Number<small style="font-size:7px">(Without Space)</small></label>
+                                    <div>
+                                        <input type="text" class="form-control" name="cno" maxlength="10" placeholder="MH09XX1234 (Without Space)" value="" required="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6 mb-3">
                                 <label class="form-label">Car Color</label>
                                 <div>
                                     <input type="text" class="form-control" required data-parsley-minlength="3"
@@ -230,7 +293,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label class="form-label">Car Location</label>
                                     <div>
@@ -239,7 +302,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-2">
+                            <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label class="form-label">Tyre Condition</label>
                                     <div>
@@ -255,7 +318,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-2">
+                            <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label class="form-label">Insurance</label>
                                     <div>
@@ -270,7 +333,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-sm-2">
+                            <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label class="form-label">Power Window</label>
                                     <div>
@@ -284,7 +347,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-2">
+                            <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label class="form-label">Power Steering</label>
                                     <div>
@@ -298,6 +361,48 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="mb-3 row">
+                                <div class="col-md">
+                                  <h5>Features</h5>
+                                  <div class="form-check form-check-inline mt-3">
+                                    <input class="form-check-input" type="checkbox" name="abs" value="1" data-parsley-multiple="abs">
+                                    <label class="form-check-label" for="inlineCheckbox1">ABS</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="clock" value="1" data-parsley-multiple="clock">
+                                    <label class="form-check-label" for="inlineCheckbox2">Central Locking</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="ac" value="1" data-parsley-multiple="ac">
+                                    <label class="form-check-label" for="inlineCheckbox2">Air Conditioner</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="pstrering" value="1" data-parsley-multiple="pstrering">
+                                    <label class="form-check-label" for="inlineCheckbox2">Power Steering</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="pwindow" value="1" data-parsley-multiple="pwindow">
+                                    <label class="form-check-label" for="inlineCheckbox2">Power Windows</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="heat" value="1" data-parsley-multiple="heat">
+                                    <label class="form-check-label" for="inlineCheckbox2">Auxiliary Heating</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="btooth" value="1" data-parsley-multiple="btooth">
+                                    <label class="form-check-label" for="inlineCheckbox2">Bluetooth</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="cd" value="1" data-parsley-multiple="cd">
+                                    <label class="form-check-label" for="inlineCheckbox2">CD player</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="seat" value="1" data-parsley-multiple="seat">
+                                    <label class="form-check-label" for="inlineCheckbox2">Leather Seats</label>
+                                  </div>
+                                </div> 
+                              </div>
                             <div class="col-sm-12">
                                 <div class="mb-3">
                                     <label class="form-label">Description</label>

@@ -4,17 +4,22 @@
     <!-- LOGO -->
     <div class="navbar-brand-box">
         <a href="{{ url('index') }}" class="logo logo-dark">
-            <span class="logo-sm">
+            <span class="logo-sm app-brand-text demo menu-text fw-bolder ms-2">
                 <img src="{{ URL::asset('/assets/images/logo-sm.png') }}" alt="" height="22">
             </span>
-            <span class="logo-lg">
-                <img src="{{ URL::asset('/assets/images/logo-dark.png') }}" alt="" height="20">
+            <span class="logo-lg  ">
+
+               
+
+                {{-- <img src="{{ URL::asset('/assets/my-img/car-logo.png') }}" alt=""  width="138px" height="80" > --}}
+
+               
             </span>
         </a>
 
         <a href="{{ url('index') }}" class="logo logo-light">
             <span class="logo-sm">
-                <img src="{{ URL::asset('/assets/images/logo-sm.png') }}" alt="" height="22">
+                <img src="{{ URL::asset('/assets/my-img/car-logo.png') }}" alt="" height="22">
             </span>
             <span class="logo-lg">
                 <img src="{{ URL::asset('/assets/images/logo-light.png') }}" alt="" height="20">

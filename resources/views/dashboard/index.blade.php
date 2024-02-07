@@ -69,6 +69,45 @@
         </div> <!-- end col-->
 
     </div> <!-- end row-->
+
+
+    <div class="row">
+        <div class="col-md-6">
+          <div class="card mb-4">
+            <h5 class="card-header">Website Link</h5>
+            <div class="card-body demo-vertical-spacing demo-only-element">
+              
+              <ul class="list-group">
+                 <li class="list-group-item d-flex justify-content-between flex-column flex-sm-row  " style="border-color: #696cff">
+                 <div class="offer">
+                    <p class="mb-0">https://abhcars.in/Dealer/822357</p>
+                 </div>
+
+                 <button type="button" class="btn btn-outline-primary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Copied!" onclick="copyText()">
+                    Copy
+                  </button>
+
+                 {{-- <div class="apply mt-3 mt-sm-0"><button class="btn btn-outline-primary" onclick="copyText()">Copy</button></div> --}}
+                 </li>
+              </ul>
+              <script>
+              function copyText() {
+                  navigator.clipboard.writeText
+                      ("https://abhcars.in/Dealer/822357");
+              }
+              </script>
+              
+              <br><center><img src="https://api.qrserver.com/v1/create-qr-code/?size=190x190&amp;data=https://abhcars.in/QR/822357">
+              <br><br><a href="https://api.qrserver.com/v1/create-qr-code/?size=190x190&amp;data=https://abhcars.in/QR/822357" class="btn btn-primary" download="">Download</a></center>
+      
+            </div>
+          </div>
+        </div>
+      </div>
+
+     
+      
+
 @endsection
 @section('script')
     <!-- apexcharts -->
