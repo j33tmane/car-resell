@@ -152,7 +152,7 @@ class CarController extends Controller
      * @param  \App\Models\Car  $car
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Car $id)
+    public function destroy($id)
     {
        
             $car = Car:: find($id);
