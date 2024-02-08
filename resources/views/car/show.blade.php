@@ -33,7 +33,15 @@
                                 </div>
                             </div>
                         @endforeach
+
+                        <div class="visible-print text-center">
+                            {!! QrCode::size(100)->generate(url('dealer/car/'.$car->id)) !!}
+                            <p>Scan me to return to the original page.</p>
+                        </div>
                     </div>
+
+
+                    
                 </div>
             </div>
             <div class="card">
