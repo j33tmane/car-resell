@@ -152,9 +152,13 @@ class CarController extends Controller
      * @param  \App\Models\Car  $car
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Car $car)
+    public function destroy(Car $id)
     {
-        //
+       
+            $car = Car:: find($id);
+            $car -> delete();
+            return back();
+        
     }
 
     public function uploadImage(Request $request){

@@ -177,7 +177,7 @@
                                     <div>
                                         <select id="fuel" class="form-control mb-2" name="no_of_owners" required>
                                             <option value=''>-Select No of Owners-</option>
-                                            <option value='2'>1st </option>
+                                            <option value='1'>1st </option>
                                             <option value='1'>2nd </option>
                                             <option value='1'>3rd </option>
                                             <option value='1'>4th </option>
