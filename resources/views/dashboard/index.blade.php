@@ -92,20 +92,20 @@
                     {{-- <div class="apply mt-3 mt-sm-0"><button class="btn btn-outline-primary" onclick="copyText()">Copy</button></div> --}}
                    </li>
                 </ul>
-                {{-- <script>
+                <script>
                 function copyText() {
                     navigator.clipboard.writeText
                         ("https://abhcars.in/Dealer/822357");
                 }
                 </script>
                 
-                <br><center><img src="https://api.qrserver.com/v1/create-qr-code/?size=190x190&amp;data=https://abhcars.in/QR/822357">
+                {{-- <br><center><img src="https://api.qrserver.com/v1/create-qr-code/?size=190x190&amp;data=https://abhcars.in/QR/822357">
                 <br><br><a href="https://api.qrserver.com/v1/create-qr-code/?size=190x190&amp;data=https://abhcars.in/QR/822357" class="btn btn-primary" download="">Download</a></center>
-         --}}
+          --}}
 
          <br><br>
             <div class="visible-print text-center">
-                {!! QrCode::size(200)->generate(url('dealer/3')); !!}
+                {!! QrCode::size(200)->generate(url('dealer/3')) !!}
                 <p>Scan me to return to the original page.</p>
             </div>
             
