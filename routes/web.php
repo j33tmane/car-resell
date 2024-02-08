@@ -70,4 +70,6 @@ Route::get('/dealer/{id}','GuestController@dealerPage');
 Route::get('/dealer/car/{id}','GuestController@carDetails');
 Route::post('/enquiry/car/{id}','GuestController@submitEnquiry');
 
-
+Route::get('/car/carSold_form', function () {
+    return view('car.carSold_form');
+});
