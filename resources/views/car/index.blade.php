@@ -61,7 +61,7 @@
                                             <a href="{{ url('/cars/' . $car->id . '/edit') }}"
                                                 class="btn btn-sm btn-outline-warning">Edit & Upload</a>
                                             <a href="{{ url('/cars/' . $car->id) }}"
-                                                class="btn btn-sm btn-outline-info">View</a>
+                                                class="btn btn-sm btn-outline-info">view</a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -132,9 +132,17 @@
                                                 class="btn btn-sm btn-outline-warning">Edit & Upload</a>
                                             <a href="{{ url('/cars/' . $car->id) }}"
                                                 class="btn btn-sm btn-outline-info">View</a>
+                                                <form action="{{url('/cars/'.$car->id)}}"method="POST">
+                                                    @csrf
+                                                    @method('delete')
+                                                    
+                                                   <button type="submit" class="btn btn-sm btn-outline-danger"  data-original-title="Delete"> Delete 
+                                                    
+                                                   </button>
+                                                   </form>
+                                                
 
-                                                <a href="{{ url('/cars/' . $car->id) }}"
-                                                    class="btn btn-sm btn-outline-danger">Delete</a>
+                                               
 
                                         
                                         </td>
