@@ -4,11 +4,19 @@
     <!-- LOGO -->
     <div class="navbar-brand-box">
         <a href="{{ url('index') }}" class="logo logo-dark">
-            <span class="logo-sm app-brand-text demo menu-text fw-bolder ms-2">
+            {{-- <span class="logo-sm app-brand-text demo menu-text fw-bolder ms-2">
                 <img src="{{ URL::asset('/assets/images/logo-sm.png') }}" alt="" height="22">
-            </span>
+            </span> --}}
             <span class="logo-lg  ">
 
+                <marquee behavior="scroll" direction="left" scrollamount="10" >
+                    <img src="{{ URL::asset('/assets/my-img/car-logo.gif') }}" width="10%"></marquee>
+                <div class="app-brand justify-content-center bg-info rounded py-2" >
+                    <center><a href="https://abhcars.in/" class="app-brand-link gap-2" >
+                      <span class="app-brand-text demo text-body fw-semibold text-uppercase">
+                        <img src="{{ URL::asset('/assets/my-img/ABH-logo.png') }}" width="100px"></span>
+                    </a></center>
+                  </div>
                
 
                 {{-- <img src="{{ URL::asset('/assets/my-img/car-logo.png') }}" alt=""  width="138px" height="80" > --}}

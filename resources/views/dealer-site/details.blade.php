@@ -139,6 +139,27 @@
                                 <th>Location</th>
                                 <td>{{ $car->location ?? 'NA' }}</td>
                             </tr>
+                            <tr>
+                                <th>Body-style</th>
+                                <td>//Body-style</td>
+                            </tr>
+                             <tr>
+                                <th>Engine(CC)</th>
+                                <td>//Engine</td>
+                            </tr>
+                            <tr>
+                                <th>Power(bhp)</th>
+                                <td>//Power</td>
+                            </tr>
+                            <tr>
+                                <th>Vehical No</th>
+                                <td>//Vehical</td>
+                            </tr>
+                            <tr>
+                                <th>Features</th>
+                                <td>//Features</td>
+                            </tr>
+                           
 
                         </tbody>
                     </table>

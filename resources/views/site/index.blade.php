@@ -51,6 +51,7 @@
                     <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
                     <li><a class="nav-link scrollto" href="#about">About</a></li>
                     <li><a class="nav-link scrollto" href="#pricing">Pricing</a></li>
+                    {{-- <li><a class="nav-link scrollto" href="#vehicals">Vehicals</a></li> --}}
                     <li><a class="nav-link scrollto" href="#faq">FAQ</a></li>
                     <li><a class="nav-link scrollto" href="#footer">Contact</a></li>
                 </ul>
