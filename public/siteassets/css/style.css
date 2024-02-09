@@ -934,6 +934,9 @@ section {
   }
 }
 
+
+
+
 /*--------------------------------------------------------------
 # Portfolio
 --------------------------------------------------------------*/
@@ -1823,28 +1826,28 @@ section {
   }
 }
 
-/* .steps  span {
-                           width: 98px;
-                            height: 98px;
-                            border-radius: 100%;
-                            background-color: #bce4ee;
-                            color: #194a77;
-                            font-family: var(--main-font);
-                            font-weight: 700;
-                            font-size: 52px;
-                            line-height: 57px;
-                            text-align: center;
-                            letter-spacing: -.01em;
-                            position: absolute;
-                            top: -49px;
-                            left: 20px;
-                            -webkit-box-align: center;
-                            -ms-flex-align: center;
-                            align-items: center;
-                            display: -webkit-box;
-                            display: -ms-flexbox;
-                            display: flex;
-                            -webkit-box-pack: center;
-                            -ms-flex-pack: center;
-                            justify-content: center
-} */
+#steps .body-card span {
+  width: 98px;
+   height: 98px;
+   border-radius: 100%;
+   background-color: #bce4ee;
+   color: #194a77;
+   font-family: var(--main-font);
+   font-weight: 700;
+   font-size: 52px;
+   line-height: 57px;
+   text-align: center;
+   letter-spacing: -.01em;
+   position: absolute;
+   top: -49px;
+   left: 20px;
+   -webkit-box-align: center;
+   -ms-flex-align: center;
+   align-items: center;
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-box-pack: center;
+   -ms-flex-pack: center;
+   justify-content: center
+}
