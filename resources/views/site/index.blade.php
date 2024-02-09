@@ -207,15 +207,15 @@
             <h1 style="margin: 0% 0% 3% 10%">Process of Selling Used Car</h1>
             <div class="album py-5 bg-light">
                 
-                <div class="container" style="">
+                <div class="container "   >
 
                    
             
-                  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                    <div class="col">
-                      <div class="card shadow-sm">
+                  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 " >
+                    <div class="col" >
+                      <div class="card shadow-sm rounded-4 border-bottom-0 ">
                         
-                        <img src="{{url('/assets/my-img/step1.jpg')}}" alt="">
+                        <img src="{{url('/assets/my-img/step1.jpg')}}" alt="" class="rounded-4">
             
                         <div class="card-body">
                             <span style="width: 98px;
@@ -248,8 +248,8 @@
                       </div>
                     </div>
                     <div class="col">
-                        <div class="card shadow-sm">
-                            <img src="{{url('/assets/my-img/step2.jpg')}}" alt="">
+                        <div class="card shadow-sm rounded-4 border-bottom-0">
+                            <img src="{{url('/assets/my-img/step2.jpg')}}" alt="" class="rounded-4">
               
                           <div class="card-body">
                               <span style="width: 98px;
@@ -282,8 +282,8 @@
                         </div>
                       </div>
                       <div class="col">
-                        <div class="card shadow-sm">
-                            <img src="{{url('/assets/my-img/step3.webp')}}" alt="">
+                        <div class="card shadow-sm rounded-4 border-bottom-0">
+                            <img src="{{url('/assets/my-img/step3.webp')}}" alt="" class="rounded-4">
               
                           <div class="card-body">
                               <span style="width: 98px;
