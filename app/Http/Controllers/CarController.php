@@ -108,6 +108,7 @@ class CarController extends Controller
         $user = $request->user();
         $car = Car::find($id);
         
+        
         if($car){
             $dealers=null;
             if($user->hasRole('admin')){
