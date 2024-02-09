@@ -107,7 +107,7 @@
                                     <th>Status</th>
                                     <th>Status Change</th>
                                     <th>Actions</th>
-                                    
+
 
                                 </tr>
                             </thead>
@@ -123,28 +123,38 @@
                                         <td id="stat{{ $car->id }}">{{ $car->active == 0 ? 'Inactive' : 'Active' }}
                                         </td>
                                         <td>
-                                            <a href="{{url('/car/carSold_form')}}">
+                                            <a href="{{ url('/cars-sold/create?carid=' . $car->id) }}">
                                                 <i class="bx bx-select-multiple text-secondary">
-                                                </i><small class="text-secondary">Sold</small></a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-                                                <a href="" target="_blank"><i class="bx bx-world text-secondary"></i></a></td>
-                                        <td>
-                                            <a href="{{ url('/cars/' . $car->id . '/edit') }}"
-                                                class="btn btn-sm btn-outline-warning">Edit & Upload</a>
-                                            <a href="{{ url('/cars/' . $car->id) }}"
-                                                class="btn btn-sm btn-outline-info">View</a>
-                                                <form action="{{url('/cars/'.$car->id)}}"method="POST">
-                                                    @csrf
-                                                    @method('delete')
-                                                    
-                                                   <button type="submit" class="btn btn-sm btn-outline-danger"  data-original-title="Delete"> Delete 
-                                                    
-                                                   </button>
-                                                   </form>
-                                                
+                                                </i><small
+                                                    class="text-secondary">Sold</small></a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                                            <a href="{{ url('/dealer/car/' . $car->id) }}" target="_blank"><i
+                                                    class="bx bx-world text-secondary"></i></a>
+                                        </td>
+                                        <td width="15%">
+                                            <div class="row">
+                                                <div class="col-auto">
+                                                    <a href="{{ url('/cars/' . $car->id . '/edit') }}"
+                                                        class="btn btn-sm btn-outline-warning">Edit & Upload</a>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a href="{{ url('/cars/' . $car->id) }}"
+                                                        class="btn btn-sm btn-outline-info" data-bs-toggle="tooltip"
+                                                        data-bs-placement="top" title="Hooray!"><i
+                                                            class="fa fa-eye"></i></a>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <form action="{{ url('/cars/' . $car->id) }}"method="POST">
 
-                                               
+                                                        @csrf
+                                                        @method('delete')
 
-                                        
+                                                        <button type="submit" class="btn btn-sm btn-outline-danger"
+                                                            data-original-title="Delete"> <i class="fa fa-trash"></i>
+
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </div>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -160,7 +170,7 @@
     </div>
 
 
-   
+
     <!-- end row -->
 @endsection
 

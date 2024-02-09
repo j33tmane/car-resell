@@ -69,7 +69,7 @@ class CarController extends Controller
     {
         //
         $user = $request->user();
-        $features = implode(', ', $request->features);
+        $features = implode(',', $request->features);
         $request->merge([
             "features"=>$features
         ]);

@@ -15,14 +15,9 @@ class AlterMigration extends Migration
     {
         Schema::table('cars', function (Blueprint $table) {
             $table->string('features',255)->nullable();
-           
             $table->integer('bodystyle')->nullable();
-           
             $table->string('power',5)->nullable();
             $table->string('engine',5)->nullable();
-            
-            
-            
         });
     }
 

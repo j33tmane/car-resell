@@ -40,8 +40,10 @@ Route::middleware(['auth'])->group(function () {
     Route::group(['middleware' => ['permission:view-cars']], function () {
         //car
         Route::resource('cars', 'CarController');
+        Route::resource('cars-sold', 'SoldHistoryController');
         Route::post('cars/img/upload', 'CarController@uploadImage');
         Route::get('cars/img/remove/{id}', 'CarController@removeImage');
+        Route::post('cars/add-sold', 'CarController@uploadImage');
     });
 
     
@@ -69,7 +71,3 @@ Route::get('/', function () {
 Route::get('/dealer/{id}','GuestController@dealerPage');
 Route::get('/dealer/car/{id}','GuestController@carDetails');
 Route::post('/enquiry/car/{id}','GuestController@submitEnquiry');
-
-Route::get('/car/carSold_form', function () {
-    return view('car.carSold_form');
-});

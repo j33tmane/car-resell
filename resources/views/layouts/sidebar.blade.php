@@ -9,7 +9,7 @@
             </span> --}}
 
             <span class="logo-sm">
-                <img src="{{ URL::asset('/assets/my-img/car-logo.png') }}" alt="" height="50" >
+                <img src="{{ URL::asset('/assets/my-img/car-logo.png') }}" alt="" height="50">
             </span>
 
             <span class="logo-lg  ">
@@ -17,16 +17,16 @@
                 {{-- <marquee behavior="scroll" direction="left" scrollamount="10" >
                     <img src="{{ URL::asset('/assets/my-img/car-logo.gif') }}" width="10%"></marquee> --}}
                 <div class="app-brand justify-content-center bg-info rounded py-2" style="margin: 10% 14% 2% 4%">
-                    <center><a href="https://abhcars.in/" class="app-brand-link gap-2" >
-                      <span class="app-brand-text demo text-body fw-semibold text-uppercase">
-                        <img src="{{ URL::asset('/assets/my-img/ABH-logo.png') }}" width="100px"></span>
-                    </a></center>
-                  </div>
-               
+                    <center><a href="https://abhcars.in/" class="app-brand-link gap-2">
+                            <span class="app-brand-text demo text-body fw-semibold text-uppercase">
+                                <img src="{{ URL::asset('/assets/my-img/ABH-logo.png') }}" width="100px"></span>
+                        </a></center>
+                </div>
+
 
                 {{-- <img src="{{ URL::asset('/assets/my-img/car-logo.png') }}" alt=""  width="138px" height="80" > --}}
 
-               
+
             </span>
         </a>
 
@@ -92,6 +92,12 @@
                         </a>
                     </li>
                 @endcan
+                <li>
+                    <a href="{{ url('/cars-sold') }}" class="waves-effect">
+                        <i class="uil-user"></i>
+                        <span>Sold Cars History</span>
+                    </a>
+                </li>
                 @role('admin')
                     <li>
                         <a href="{{ url('/role') }}" class=" waves-effect">
@@ -100,6 +106,7 @@
                         </a>
                     </li>
                 @endrole
+
 
             </ul>
         </div>

@@ -24,6 +24,17 @@ return [
         '1'=>'Low',
         '2'=>'Medium',
         '3'=>'High',
+    ],
+    'features'=>[
+        '1'=>'ABS',
+        '2'=>'Central Locking',
+        '3'=>'Air Conditioner',
+        '4'=>'Power Steering',
+        '5'=>'Power Windows',
+        '6'=>'Auxiliary Heating',
+        '7'=>'Bluetooth',
+        '8'=>'CD player',
+        '9'=>'Leather Seats'
     ]
 
     
