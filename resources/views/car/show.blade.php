@@ -112,7 +112,7 @@
                             </tr>
                             <tr>
                                 <th>Vehical No</th>
-                                <td>{{$car->bodystyle ?? 'NA'}}</td>
+                                <td>{{$car->car_number ?? 'NA'}}</td>
                             </tr>
                             <tr>
                                 <th>Features</th>

@@ -258,14 +258,14 @@
                                 </div>
                             </div>
 
-                            <div class="col-sm-6">
+                            {{-- <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label class="form-label">Vehical Number<small style="font-size:7px">(Without Space)</small></label>
                                     <div>
                                         <input type="text" class="form-control" name="cno" maxlength="10" placeholder="MH09XX1234 (Without Space)" value="" required="">
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="col-sm-6 mb-3">
                                 <label class="form-label">Car Color</label>
