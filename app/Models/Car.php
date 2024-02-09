@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Car extends Model
 {
     //
-    protected $fillable=['location','tyre_type','insurance','p_window','p_steering','yt_link','user_id','car_name','car_brand','year','color','fuel','transmission','km_driven','no_of_owners','car_description','car_number','price','active'];
+    protected $fillable=['location','tyre_type','insurance','p_window','p_steering','yt_link','user_id','car_name','car_brand','year','color','fuel','transmission','km_driven','no_of_owners','car_description','car_number','price','active','features','bodystyle','power','engine'];
 
     protected $appends = ['firstImageUrl','video_id'];
     public function dealerProfile(){

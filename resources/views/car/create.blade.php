@@ -290,39 +290,39 @@
                             <div class="col-md">
                               <h5>Features</h5>
                               <div class="form-check form-check-inline mt-3">
-                                <input class="form-check-input" type="checkbox" name="abs" value="1">
+                                <input class="form-check-input" type="checkbox" name=" featurs[]['abs]" value="1">
                                 <label class="form-check-label" for="inlineCheckbox1">ABS</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="clock" value="1">
+                                <input class="form-check-input" type="checkbox" name="featurs[]['clock']" value="2">
                                 <label class="form-check-label" for="inlineCheckbox2">Central Locking</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="ac" value="1">
+                                <input class="form-check-input" type="checkbox" name="featurs[]['ac']" value="3">
                                 <label class="form-check-label" for="inlineCheckbox2">Air Conditioner</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="pstrering" value="1">
+                                <input class="form-check-input" type="checkbox" name="featurs[]['pstrering']" value="4">
                                 <label class="form-check-label" for="inlineCheckbox2">Power Steering</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="pwindow" value="1">
+                                <input class="form-check-input" type="checkbox" name="featurs[]['pwindow']" value="5">
                                 <label class="form-check-label" for="inlineCheckbox2">Power Windows</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="heat" value="1">
+                                <input class="form-check-input" type="checkbox" name="featurs[]['heat']" value="6">
                                 <label class="form-check-label" for="inlineCheckbox2">Auxiliary Heating</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="btooth" value="1">
+                                <input class="form-check-input" type="checkbox" name="featurs[]['btooth']" value="7">
                                 <label class="form-check-label" for="inlineCheckbox2">Bluetooth</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="cd" value="1">
+                                <input class="form-check-input" type="checkbox" name="featurs[]['cd']" value="8">
                                 <label class="form-check-label" for="inlineCheckbox2">CD player</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="seat" value="1">
+                                <input class="form-check-input" type="checkbox" name="featurs[]['seat']" value="9">
                                 <label class="form-check-label" for="inlineCheckbox2">Leather Seats</label>
                               </div>
                             </div> 
