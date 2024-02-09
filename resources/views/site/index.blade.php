@@ -21,6 +21,7 @@
     <meta name="twitter:description"
         content="Discover a wide range of quality used cars at ABHCARS. Scan our unique QR codes to access detailed information about each vehicle - brand, year, fuel type, and more. Find your perfect car hassle-free!">
     <meta name="twitter:image" content="https://www.example.com/abhcars-logo.png">
+    
     <link rel="canonical" href="https://www.abhcars.in">
     <!-- Other necessary meta tags or links go here -->
     @yield('tags')
@@ -200,16 +201,46 @@
         </section><!-- End Cta Section -->
 
 
-        <section >
+        
+
+        <section class="steps" id="steps" >
+            <h1 style="margin: 0% 0% 3% 10%">Process of Selling Used Car</h1>
             <div class="album py-5 bg-light">
-                <div class="container">
+                
+                <div class="container" style="">
+
+                   
             
                   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                     <div class="col">
                       <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                        
+                        <img src="{{url('/assets/my-img/step1.jpg')}}" alt="">
             
                         <div class="card-body">
+                            <span style="width: 98px;
+                            height: 98px;
+                            border-radius: 100%;
+                            background-color: #bce4ee;
+                            color: #194a77;
+                            font-family: var(--main-font);
+                            font-weight: 700;
+                            font-size: 52px;
+                            line-height: 57px;
+                            text-align: center;
+                            letter-spacing: -.01em;
+                            position: absolute;
+                            top: -49px;
+                            left: 20px;
+                            -webkit-box-align: center;
+                            -ms-flex-align: center;
+                            align-items: center;
+                            display: -webkit-box;
+                            display: -ms-flexbox;
+                            display: flex;
+                            -webkit-box-pack: center;
+                            -ms-flex-pack: center;
+                            justify-content: center">01</span>
                             <h4 class="card-title">Register</h4>
                           <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                           
@@ -217,37 +248,73 @@
                       </div>
                     </div>
                     <div class="col">
-                      <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            
-                        <div class="card-body">
-                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                          <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                            </div>
-                            <small class="text-muted">9 mins</small>
+                        <div class="card shadow-sm">
+                            <img src="{{url('/assets/my-img/step2.jpg')}}" alt="">
+              
+                          <div class="card-body">
+                              <span style="width: 98px;
+                              height: 98px;
+                              border-radius: 100%;
+                              background-color: #bce4ee;
+                              color: #194a77;
+                              font-family: var(--main-font);
+                              font-weight: 700;
+                              font-size: 52px;
+                              line-height: 57px;
+                              text-align: center;
+                              letter-spacing: -.01em;
+                              position: absolute;
+                              top: -49px;
+                              left: 20px;
+                              -webkit-box-align: center;
+                              -ms-flex-align: center;
+                              align-items: center;
+                              display: -webkit-box;
+                              display: -ms-flexbox;
+                              display: flex;
+                              -webkit-box-pack: center;
+                              -ms-flex-pack: center;
+                              justify-content: center">02</span>
+                              <h4 class="card-title">Add vehical</h4>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="col">
-                      <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            
-                        <div class="card-body">
-                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                          <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                            </div>
-                            <small class="text-muted">9 mins</small>
+                      <div class="col">
+                        <div class="card shadow-sm">
+                            <img src="{{url('/assets/my-img/step3.webp')}}" alt="">
+              
+                          <div class="card-body">
+                              <span style="width: 98px;
+                              height: 98px;
+                              border-radius: 100%;
+                              background-color: #bce4ee;
+                              color: #194a77;
+                              font-family: var(--main-font);
+                              font-weight: 700;
+                              font-size: 52px;
+                              line-height: 57px;
+                              text-align: center;
+                              letter-spacing: -.01em;
+                              position: absolute;
+                              top: -49px;
+                              left: 20px;
+                              -webkit-box-align: center;
+                              -ms-flex-align: center;
+                              align-items: center;
+                              display: -webkit-box;
+                              display: -ms-flexbox;
+                              display: flex;
+                              -webkit-box-pack: center;
+                              -ms-flex-pack: center;
+                              justify-content: center">03</span>
+                              <h4 class="card-title">Sold Vehical</h4>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            
                           </div>
                         </div>
                       </div>
-                    </div>
             
                    
                   </div>
