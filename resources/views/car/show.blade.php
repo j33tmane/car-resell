@@ -100,27 +100,27 @@
                             </tr>
                             <tr>
                                 <th>Body-style</th>
-                                <td>//Body-style</td>
+                                <td>{{$car->bodystyle ?? 'NA'}}</td>
                             </tr>
                              <tr>
                                 <th>Engine(CC)</th>
-                                <td>//Engine</td>
+                                <td>{{$car->engine ?? 'NA'}}</td>
                             </tr>
                             <tr>
                                 <th>Power(bhp)</th>
-                                <td>//Power</td>
+                                <td>{{$car->power ?? 'NA'}}</td>
                             </tr>
                             <tr>
                                 <th>Vehical No</th>
-                                <td>//Vehical</td>
+                                <td>{{$car->car_number ?? 'NA'}}</td>
                             </tr>
                             <tr>
                                 <th>Features</th>
-                                <td>//Features</td>
+                                <td>{{$car->features ?? 'NA'}}</td>
                             </tr>
                             <tr>
                                 <th>Description</th>
-                                <td>//Description</td>
+                                <td>{{$car->car_description ?? 'NA'}}</td>
                             </tr>
 
                         </tbody>

@@ -69,16 +69,20 @@ class CarController extends Controller
     {
         //
         $user = $request->user();
-        
-        try{
+        $features = implode(', ', $request->features);
+        $request->merge([
+            "features"=>$features
+        ]);
+        // try{
             $inputs = $request->all();
+            // return $inputs;
             $car = Car::create($inputs);
             flash('Care added succefuly')->success()->important(); 
-            return redirect('/cars/'.$car->id.'/edit');
-        }catch(\Exception $e){
-            flash('Something went wrong.<br><strong>Error</strong>: '.$e->getMessage())->error()->important(); 
-            return back()->withInput();
-        }
+            // return redirect('/cars/'.$car->id.'/edit');
+        // }catch(\Exception $e){
+        //     flash('Something went wrong.<br><strong>Error</strong>: '.$e->getMessage())->error()->important(); 
+        //     return back()->withInput();
+        // }
 
     }
 
@@ -103,10 +107,17 @@ class CarController extends Controller
      */
     public function edit(Request $request,$id)
     {
-        //
-        $brandurl = secure_url('json/brands.json');
         $user = $request->user();
+        
+        $brandurl = url('json/brands.json');
+
+        if(env('APP_ENV')=="production")
+            $brandurl = secure_url('json/brands.json');
+        //
+        // $brandurl = secure_url('json/brands.json');
+        // $user = $request->user();
         $car = Car::find($id);
+        
         
         if($car){
             $dealers=null;
