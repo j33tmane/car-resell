@@ -103,9 +103,14 @@ class CarController extends Controller
      */
     public function edit(Request $request,$id)
     {
-        //
-        $brandurl = secure_url('json/brands.json');
         $user = $request->user();
+        $brandurl = url('json/brands.json');
+
+        if(env('APP_ENV')=="production")
+            $brandurl = secure_url('json/brands.json');
+        //
+        // $brandurl = secure_url('json/brands.json');
+        // $user = $request->user();
         $car = Car::find($id);
         
         if($car){

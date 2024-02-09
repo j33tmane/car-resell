@@ -97,7 +97,14 @@
                                 <div class="mb-3">
                                     <label class="form-label">Body Style</label>
                                  <div >
-                                  <select class="form-control mb-2" name="body">
+                                    <select class="form-control mb-2" name="body">
+                                        <option value="">-Select Body Style-</option>
+                                    @foreach (Config::get('drops.body-style') as $key => $value)
+                                   
+                                    <option value="{{$key}}">{{$value}}</option>
+                                    @endforeach
+                                </select>
+                                  {{-- <select class="form-control mb-2" name="body">
                                      <option value="">-Select Body Style-</option>
                                   <option value="SUV">SUV</option>
                                   <option value="Mini SUV">Mini SUV</option>
@@ -111,7 +118,7 @@
                                   <option value="Convertible">Convertible</option>
                                   <option value="Truck">Truck</option>
                                   <option value="None">None</option>
-                                  </select>
+                                  </select> --}}
                                 </div>
                               </div>
                             </div>
