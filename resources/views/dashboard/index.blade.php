@@ -104,11 +104,11 @@
           --}}
 
          <br><br>
-            <div class="visible-print text-center">
+            <div class="visible-print text-center"  id="html-content-holder">
                 {!! QrCode::size(200)->generate(url('/dealer/' . Auth::user()->id)) !!}
                 <p>Scan me to return to the original page.</p>
             </div>
-            
+            <a id="btn-Convert-Html2Image" href="#">Download</a>
             </div>
           </div>
         </div>
@@ -121,6 +121,29 @@
 @section('script')
     <!-- apexcharts -->
     <script src="{{ URL::asset('/assets/libs/apexcharts/apexcharts.min.js') }}"></script>
-
     <script src="{{ URL::asset('/assets/js/pages/dashboard.init.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    
+    <script>
+        $(document).ready(function () {
+            var element = $("#html-content-holder"); // global variable
+            var getCanvas; // global variable
+
+            html2canvas(element, {
+                onrendered: function (canvas) {
+                    $("#previewImage").append(canvas);
+                    getCanvas = canvas;
+                }
+            });
+
+            $("#btn-Convert-Html2Image").on('click', function () {
+                var imgageData = getCanvas.toDataURL("image/png");
+                // Now browser starts downloading it instead of just showing it
+                var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
+                $("#btn-Convert-Html2Image").attr("download", "your_pic_name.png").attr("href", newData);
+            });
+        });
+
+
+    </script>
 @endsection
