@@ -160,11 +160,11 @@
                     <a class="dropdown-item" href="{{ url('/dealer-profile') }}"><i
                             class="uil uil-user-check font-size-18 align-middle text-muted me-1"></i> <span
                             class="align-middle">Dealer Info</span></a>
-                    <a class="dropdown-item"
+                    <a class="dropdown-item" style="cursor: pointer;"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
                             class="uil uil-sign-out-alt font-size-18 align-middle me-1 text-muted"></i> <span
                             class="align-middle">@lang('translation.Sign_out')</span></a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none; ">
                         @csrf
                     </form>
                 </div>
