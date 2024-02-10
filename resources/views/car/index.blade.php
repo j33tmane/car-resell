@@ -130,33 +130,36 @@
                                             <a href="{{ url('/dealer/car/' . $car->id) }}" target="_blank"><i
                                                     class="bx bx-world text-secondary"></i></a>
                                         </td>
-                                        <td width="15%">
-                                            <div class="row">
-                                                <div class="col-auto">
-                                                    <a href="{{ url('/cars/' . $car->id . '/edit') }}"
-                                                        class="btn btn-sm btn-outline-warning">Edit & Upload</a>
-                                                </div>
-                                                <div class="col-auto">
-                                                    <a href="{{ url('/cars/' . $car->id) }}"
-                                                        class="btn btn-sm btn-outline-info" data-bs-toggle="tooltip"
-                                                        data-bs-placement="top" title="Hooray!"><i
-                                                            class="fa fa-eye"></i></a>
-                                                </div>
-                                                <div class="col-auto">
-                                                    <form action="{{ url('/cars/' . $car->id) }}"method="POST">
+                                         
+                                    
 
-                                                        @csrf
-                                                        @method('delete')
+                                     <td>
+                                        <div class="button-container" style="display:flex; gap:5px">
+    
+                                            <a href="{{ url('/cars/' . $car->id . '/edit') }}"
+                                                class="btn btn-sm btn-outline-warning">Edit & Upload</a>
+    
+                                                <a href="{{ url('/cars/' . $car->id) }}"
+                                                    class="btn btn-sm btn-outline-info" data-bs-toggle="tooltip"
+                                                    data-bs-placement="top" title="View"><i
+                                                        class="fa fa-eye"></i></a>
+        
+                                                        <form action="{{ url('/cars/' . $car->id) }}"method="POST">
 
-                                                        <button type="submit" class="btn btn-sm btn-outline-danger"
-                                                            data-original-title="Delete"> <i class="fa fa-trash"></i>
-
-                                                        </button>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                                            @csrf
+                                                            @method('delete')
+    
+                                                            <button type="submit" class="btn btn-sm btn-outline-danger"
+                                                                data-original-title="Delete"> <i class="fa fa-trash"></i>
+    
+                                                            </button>
+                                                        </form>
+    
+                                              
+                                            
+                                        </div>
+                                    </td>  
+                                </tr>
                                 @endforeach
 
 
