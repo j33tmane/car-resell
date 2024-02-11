@@ -73,3 +73,6 @@ Route::get('/dealer/car/{id}','GuestController@carDetails');
 Route::post('/enquiry/car/{id}','GuestController@submitEnquiry');
 
 
+Route::get('/details-show', function () {
+    return view('site.details-show');
+});

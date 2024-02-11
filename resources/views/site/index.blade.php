@@ -106,71 +106,22 @@
         </div>
     
         
+
+
+
+        
+
+
+
+
       </footer>
 
-    {{-- <section id="search" class=""> --}}
 
-        
-
-        
-{{-- 
-        <div class="container">
-            <div class="row">
-              <div class="col-lg-10">
-
-                <h2 class="text-white">Enter Car Number</h2>
-
-                <div class="col-lg-5">
-                    <form action="" class="d-flex gap-3">
-                        <input type="text" class="form-control " placeholder="Enter Number Here" id="searchrefno">
-                    <button class="btn  pl-5" type="submit"  style="background-color: #209dd8; border:none"> Search</button>
-                </form>
-                </div> --}}
-               
-                
-
-                {{-- <h2 data-aos="fade-up" data-aos-delay="100" class="aos-init aos-animate text-white">Enter Car Number</h2>
-                
-               
-                
-              </div>
-              <div class="col-lg-5">
-                <form class="sign-up-form d-flex " data-aos="fade-up" >
-                  <input type="text" class="form-control" placeholder="Enter Number Here" id="searchrefno">
-                 
-                  <button class="btn  " type="submit"  style="background-color: #209dd8; border:none"> Search</button>
-                </form>
-              </div> --}}
-            {{-- </div>
-          </div>
-        
-
-    </section> --}}
+     
+      
 
 
-    {{-- <section class="search " style="background-color: #98c8f5; height:100% ; weight:100%">
 
-        <img src="{{url('assets/images/product/i')}}" alt="" data-aos="fade-in" class="aos-init aos-animate">
-    
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-10">
-               
-                <div class="sent-message">@include('flash::message')</div>
-
-                <h2 data-aos="fade-up" data-aos-delay="100" class="aos-init aos-animate">Track Your Package</h2>
-                <p data-aos="fade-up" data-aos-delay="200" class="aos-init aos-animate">Enter your 10 digit Referance Number</p>
-               
-                
-              </div>
-              <div class="col-lg-5">
-                <form  class="sign-up-form d-flex aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" onsubmit="return false;">
-                  <input type="text" class="form-control" placeholder="Enter Referance Number Here" id="searchrefno">
-                  <button class="btn btn-primary" type="submit" onclick="searchParcel()" style="background-color: #e84545; border:none"><i class="fa-fa-search" ></i> Search</button>
-                </form>
-              </div>
-            </div>
-          </div> --}}
 
         
 
@@ -350,12 +301,14 @@
                             -webkit-box-pack: center;
                             -ms-flex-pack: center;
                             justify-content: center">01</span>
-                            <h4 class="card-title">Register</h4>
-                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <h4 >Register</h4>
+                          <p >This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                           
                         </div>
                       </div>
                     </div>
+
+                  
                     <div class="col">
                         <div class="card shadow-sm rounded-4 border-bottom-0">
                             <img src="{{url('/assets/my-img/step2.jpg')}}" alt="" class="rounded-4">
