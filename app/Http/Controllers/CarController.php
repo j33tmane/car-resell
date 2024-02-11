@@ -10,9 +10,21 @@ use Spatie\QueryBuilder\QueryBuilder;
 use Spatie\QueryBuilder\Exceptions\InvalidFilterQuery;
 use Spatie\QueryBuilder\Exceptions\InvalidSortQuery;
 use Illuminate\Support\Facades\Storage;
+use Spatie\QueryBuilder\AllowedFilter;
 
 class CarController extends Controller
 {
+ 
+    protected $brandurl;
+
+        public function __construct()
+        {
+            $this->brandurl = url('json/brands.json');
+
+            if(env('APP_ENV')=="production")
+                $this->brandurl = secure_url('json/brands.json');
+        }
+
     /**
      * Display a listing of the resource.
      *
@@ -43,11 +55,7 @@ class CarController extends Controller
     {
         //
         $user = $request->user();
-        $brandurl = url('json/brands.json');
-
-        if(env('APP_ENV')=="production")
-            $brandurl = secure_url('json/brands.json');
- 
+       
       
         $dealers=null;
         if($user->hasRole('admin')){
@@ -207,6 +215,55 @@ class CarController extends Controller
         }
         return back();
     }
+
+
+    public function searchCarsPage(Request $request){
+        $brandurl = $this->brandurl;
+        
+        return view('car.search',compact('brandurl'));
+    }
+
+    public function searchCars(Request $request){
+        $cars=[];
+           
+        $brandurl = url('json/brands.json');
+
+        if(env('APP_ENV')=="production")
+            $brandurl = secure_url('json/brands.json');
+
+        $isEmptyQuery=1;
+
+       //remove empty values from filter
+        if($request->has("filter"))
+        {
+            $request->merge(["filter"=>collect(request()->query()['filter'])->filter()->toArray()]) ;
+     
+
+            if($request->query())
+                foreach ($request->query()['filter'] as $key => $value) {
+                    if($value){
+                        $isEmptyQuery = 0;
+                    }
+                }
+        }
+            
+        // return $request->input();
+        
+        if($isEmptyQuery==1)
+        {
+            \flash("adssdad")->error()->important();
+            return back();
+        }
+
+        $cars =QueryBuilder::for(Car::class)
+        ->allowedIncludes(['images'])
+        ->allowedFilters(['car_brand','fuel','car_name', AllowedFilter::scope('price_between'),])
+        ->paginate(10);
+
+        // return $cars;
+        return view('car.search',compact('cars','brandurl'));
+    }
+    
 
     
 }

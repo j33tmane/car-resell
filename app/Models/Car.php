@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\QueryBuilder\QueryBuilder;
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 
 class Car extends Model
 {
@@ -46,6 +49,12 @@ class Car extends Model
             return $video_id;
         }
         
+    }
+
+    public function scopePriceBetween(Builder $query, $plist): Builder
+    {
+        $prices = explode(';',$plist);
+        return $query->where('price', '>=', $prices[0])->where('price','<=',$prices[1]);
     }
 
     
