@@ -150,7 +150,7 @@
                                                             @method('delete')
     
                                                             <button type="submit" class="btn btn-sm btn-outline-danger"
-                                                                data-original-title="Delete"> <i class="fa fa-trash"></i>
+                                                                data-original-title="Delete" > <i class="fa fa-trash"></i>
     
                                                             </button>
                                                         </form>
