@@ -85,10 +85,119 @@
 
     </section><!-- End Hero -->
 
+
+
+    <footer id="footer" >
+
+        <div class="footer-newsletter">
+          <div class="container" style="margin: 8%">
+            <div class="row justify-content-center">
+              <div class="col-lg-6">
+                <h3>Enter Car Number</h3>
+                <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+                <form action="" method="">
+                  <input type="text" name="text" style="border:none ;padding-right:50vh" placeholder="Enter Number here">
+                  <input type="submit" value="Search">
+                 
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        
+      </footer>
+
+    {{-- <section id="search" class=""> --}}
+
+        
+
+        
+{{-- 
+        <div class="container">
+            <div class="row">
+              <div class="col-lg-10">
+
+                <h2 class="text-white">Enter Car Number</h2>
+
+                <div class="col-lg-5">
+                    <form action="" class="d-flex gap-3">
+                        <input type="text" class="form-control " placeholder="Enter Number Here" id="searchrefno">
+                    <button class="btn  pl-5" type="submit"  style="background-color: #209dd8; border:none"> Search</button>
+                </form>
+                </div> --}}
+               
+                
+
+                {{-- <h2 data-aos="fade-up" data-aos-delay="100" class="aos-init aos-animate text-white">Enter Car Number</h2>
+                
+               
+                
+              </div>
+              <div class="col-lg-5">
+                <form class="sign-up-form d-flex " data-aos="fade-up" >
+                  <input type="text" class="form-control" placeholder="Enter Number Here" id="searchrefno">
+                 
+                  <button class="btn  " type="submit"  style="background-color: #209dd8; border:none"> Search</button>
+                </form>
+              </div> --}}
+            {{-- </div>
+          </div>
+        
+
+    </section> --}}
+
+
+    {{-- <section class="search " style="background-color: #98c8f5; height:100% ; weight:100%">
+
+        <img src="{{url('assets/images/product/i')}}" alt="" data-aos="fade-in" class="aos-init aos-animate">
+    
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-10">
+               
+                <div class="sent-message">@include('flash::message')</div>
+
+                <h2 data-aos="fade-up" data-aos-delay="100" class="aos-init aos-animate">Track Your Package</h2>
+                <p data-aos="fade-up" data-aos-delay="200" class="aos-init aos-animate">Enter your 10 digit Referance Number</p>
+               
+                
+              </div>
+              <div class="col-lg-5">
+                <form  class="sign-up-form d-flex aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" onsubmit="return false;">
+                  <input type="text" class="form-control" placeholder="Enter Referance Number Here" id="searchrefno">
+                  <button class="btn btn-primary" type="submit" onclick="searchParcel()" style="background-color: #e84545; border:none"><i class="fa-fa-search" ></i> Search</button>
+                </form>
+              </div>
+            </div>
+          </div> --}}
+
+        
+
+        {{-- <div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog" id="modalSheet">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content rounded-4 shadow">
+                <div class="modal-header border-bottom-0">
+                  <h1 class="modal-title fs-5">Modal title</h1>
+                  
+                </div>
+                <div class="modal-body py-0">
+                    
+                  <input type="text" >
+                </div>
+                <div class="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
+                  <button type="button" class="btn btn-lg btn-primary">Save changes</button>
+                 
+                </div>
+              </div>
+            </div>
+          </div> --}}
+    </section>
+
     <main id="main">
 
         <!-- ======= Clients Section ======= -->
-        <!-- <section id="clients" class="clients section-bg">
+        {{-- <section id="clients" class="clients section-bg">
       <div class="container">
 
         <div class="row" data-aos="zoom-in">
@@ -120,7 +229,7 @@
         </div>
 
       </div>
-    </section> -->
+    </section>  --}}
         <!-- End Cliens Section -->
 
         <!-- ======= About Us Section ======= -->

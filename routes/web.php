@@ -42,6 +42,8 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('cars', 'CarController');
         Route::resource('cars-sold', 'SoldHistoryController');
         Route::post('cars/img/upload', 'CarController@uploadImage');
+        Route::get('search-cars', 'CarController@searchCarsPage');
+        Route::get('filter-cars', 'CarController@searchCars');
         Route::get('cars/img/remove/{id}', 'CarController@removeImage');
         Route::post('cars/add-sold', 'CarController@uploadImage');
     });
@@ -71,3 +73,4 @@ Route::get('/', function () {
 Route::get('/dealer/{id}','GuestController@dealerPage');
 Route::get('/dealer/car/{id}','GuestController@carDetails');
 Route::post('/enquiry/car/{id}','GuestController@submitEnquiry');
+

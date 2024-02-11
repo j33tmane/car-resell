@@ -1650,7 +1650,7 @@ section {
   color: #444444;
 }
 
-#footer .footer-newsletter h4 {
+#footer .footer-newsletter h3 {
   font-size: 24px;
   margin: 0 0 20px 0;
   padding: 0;
@@ -1669,8 +1669,9 @@ section {
   text-align: left;
 }
 
-#footer .footer-newsletter form input[type=email] {
-  border: 0;
+#footer .footer-newsletter form input[type=text] {
+  border: none;
+  
   padding: 4px 8px;
   width: calc(100% - 100px);
 }
@@ -1850,4 +1851,8 @@ section {
    -webkit-box-pack: center;
    -ms-flex-pack: center;
    justify-content: center
+}
+
+#search  {
+   background-color: #18d26e;
 }
