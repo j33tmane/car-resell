@@ -123,12 +123,27 @@
                                         <td id="stat{{ $car->id }}">{{ $car->active == 0 ? 'Inactive' : 'Active' }}
                                         </td>
                                         <td>
+
+                                          
+
+                                            @if ($car->is_sold==1)
+                                            <a href=""><span class="badge bg-danger h6 text-white " style="padding: 4% 8% 4% 8%;  "><b> SOLD </b></span></a>
+
+                                            @else
+
                                             <a href="{{ url('/cars-sold/create?carid=' . $car->id) }}">
                                                 <i class="bx bx-select-multiple text-secondary">
                                                 </i><small
-                                                    class="text-secondary">Sold</small></a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                                                    class="text-secondary" data-bs-toggle="tooltip"
+                                                    data-bs-placement="top" title="sold">Sold</small></a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
                                             <a href="{{ url('/dealer/car/' . $car->id) }}" target="_blank"><i
-                                                    class="bx bx-world text-secondary"></i></a>
+                                                    class="bx bx-world text-secondary" data-bs-toggle="tooltip"
+                                                    data-bs-placement="top" title="details"></i></a>
+                                            @endif
+                                              
+                                               
+
+                                            
                                         </td>
                                          
                                     
@@ -137,7 +152,7 @@
                                         <div class="button-container" style="display:flex; gap:5px">
     
                                             <a href="{{ url('/cars/' . $car->id . '/edit') }}"
-                                                class="btn btn-sm btn-outline-warning"data-bs-toggle="tooltip"
+                                                class="btn btn-sm btn-outline-warning" data-bs-toggle="tooltip"
                                                 data-bs-placement="top" title="Edit & Upload" >Edit & Upload</a>
     
                                                 <a href="{{ url('/cars/' . $car->id) }}"

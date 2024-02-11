@@ -55,7 +55,7 @@ class CarController extends Controller
     {
         //
         $user = $request->user();
-       
+       $brandurl=$this->brandurl;
       
         $dealers=null;
         if($user->hasRole('admin')){
