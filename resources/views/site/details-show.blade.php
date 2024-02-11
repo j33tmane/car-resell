@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -18,7 +18,8 @@
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{url('/assets2/css/main.css')}}">
-<h1>hii</h1>
+<link rel="stylesheet" href="{{url('/assets/css/bootstrap.min.css')}}">
+{{-- <h1>hii</h1> --}}
 
 <style>
   /* Add this style to remove the border from all cards */
@@ -71,19 +72,19 @@
 
       <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
      
-        <h1>Madhur</h1>
-        <span>.</span>
+        <h1>Car Information</h1>
+        {{-- <span>.</span> --}}
       </a>
 
       <!-- Nav Menu -->
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="index.html#hero">Home</a></li>
+          {{-- <li><a href="index.html#hero">Home</a></li>
           <li><a href="index.html#about">About</a></li>
           <li><a href="index.html#services">Services</a></li>
           <li><a href="index.html#portfolio">Portfolio</a></li>
           <li><a href="index.html#team">contact</a></li>
-          <li><a href="blog.html" class="active">Tracking Details</a></li>
+          <li><a href="blog.html" class="active">Tracking Details</a></li> --}}
           
 
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -108,11 +109,13 @@
 <div class="container mt-5 ">
     <div class="card">
       <div class="card-header">
-        Tracking Details
+        <center>
+        car Details
       </div>
       <div class="card-body">
-        <h5 class="card-title">Tracking Number: </h5>
-        <p class="card-text"><span>referanceNumber</span></p>
+        <center>
+        <h5 class="card-title">Vehicle Number: </h5>
+        <p class="card-text"><span>vehicle Number</span></p>
       </div>
 
     </div>
@@ -121,13 +124,31 @@
     <section class="section"  >
       <div class="row">
         <div class="col-lg-6">
+          
+
+
   
           <div class="card">
             <div class="card-body">
-              <h4 class="card-title">Sender Information</h4>
-              <h6 class="card-text"><span>Name:</span>senderName</h6>
-              <h6 class="card-text"><span>Address:</span>senderAddress</h6>
-              <h6 class="card-text"><span>Contact:</span>sendercontact</h6>
+              
+              
+              <h4 class="card-title">Features</h4>
+              <h6 class="card-text"><span>Car name :</span>CarName</h6>
+              <h6 class="card-text"><span>Brand :</span>BrandName</h6>
+              <h6 class="card-text"><span>Year:</span>Year</h6>
+              <h6 class="card-text"><span>Fuel  :</span> Fuel</h6>
+              <h6 class="card-text"><span>Transmission :</span>Transmission</h6>
+              <h6 class="card-text"><span>KM Driven</span>KM Driven</h6>
+              <h6 class="card-text"><span>NO. of Owners</span>No.of Owners</h6>
+              <h6 class="card-text"><span>Tyre condition:</span>Tyre condition</h6>
+              <h6 class="card-text"><span>Insurance</span>Insurance</h6>
+              <h6 class="card-text"><span>Power Window</span>Power Window</h6>
+              <h6 class="card-text"><span>Power Steering</span>Power Steering</h6>
+              <h6 class="card-text"><span>Location:</span>Location</h6>
+              <h6 class="card-text"><span>Body-style</span>Body-style</h6>
+              <h6 class="card-text"><span>Engine(cc)</span>Engine(cc)</h6>
+              <h6 class="card-text"><span>Power(BHP)</span>Power(BHP)</h6>
+              <h6 class="card-text"><span>Feactures:</span>Feactures</h6>
             </div>
           </div>
   
@@ -347,8 +368,132 @@
     <div></div>
   </div>
 
+
+
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Images</h4>
+                    <p class="card-title-desc">Images uploaded by dealer</p>
+                   
+                        <div class="alert alert-danger">
+                            <strong>Opps!</strong> Please upload at least one image</a>.
+                        </div>
+                    
+                    <div class="row">
+
+                        
+                            <div class="col-sm-3">
+                                <div class="card">
+                                    <img src="" class="card-img-top" alt="Cinque Terre" width="140px">
+                                </div>
+                            </div>
+                      
+
+                        <div class="visible-print text-center">
+                            
+                            <p>Scan me to return to the original page.</p>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+
+                    <h4 class="card-title">Car Information</h4>
+                    <p class="card-title-desc">Information filled by dealer.</p>
+
+
+                    <table class="table table-bordered">
+
+                        <tbody>
+                            <tr>
+                                <th width="30%">Brand</th>
+                                <td>->car_brand ?? </td>
+                            </tr>
+                            <tr>
+                                <th>Year</th>
+                                <td>->year ?? </td>
+                            </tr>
+                            <tr>
+                                <th>Fuel</th>
+                                <td>->fuel ?? </td>
+                            </tr>
+                            <tr>
+                                <th>Transmission</th>
+                                <td>transmission ?</td>
+                            </tr>
+                            <tr>
+                                <th>KM Driven</th>
+                                <td>->km_driven ?? </td>
+                            </tr>
+                            <tr>
+                                <th>No Of Owners</th>
+                                <td>->no_of_owners ?? </td>
+                            </tr>
+                            <tr>
+                                <th>Tyre Condtion</th>
+                                <td>->tyre_type ?? </td>
+                            </tr>
+                            <tr>
+                                <th>Insurance</th>
+                                <td>->insurance == 1 ? 'YES' : 'NO' </td>
+                            </tr>
+                            <tr>
+                                <th>Power Window</th>
+                                <td>->p_window == 1 ? 'YES' : 'NO' </td>
+                            </tr>
+                            <tr>
+                                <th>Power Steering</th>
+                                <td>->p_steering == 1 ? 'YES' : 'NO'</td>
+                            </tr>
+                            <tr>
+                                <th>Location</th>
+                                <td>->location ?? </td>
+                            </tr>
+                            <tr>
+                                <th>Body-style</th>
+                                <td>->bodystyle ?? </td>
+                            </tr>
+                            <tr>
+                                <th>Engine(CC)</th>
+                                <td>//</td>
+                            </tr>
+                            <tr>
+                                <th>Power(bhp)</th>
+                                <td>//</td>
+                            </tr>
+                            <tr>
+                                <th>Vehical No</th>
+                                <td>//</td>
+                            </tr>
+                            <tr>
+                                <th>Features</th>
+                                <td>
+                                   
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Description</th>
+                                <td></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+
+                </div>
+            </div>
+        </div> <!-- end col -->
+    </div> <!-- end row -->
+
+
 <script src="{{url('/assets2/js/main.js')}}"></script>
 
 </body>
 
-</html>
+</html> 
