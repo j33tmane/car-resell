@@ -117,9 +117,13 @@
                             <tr>
                                 <th>Features</th>
                                 <td>
+                                    @if($car->features !=null)
                                     @foreach (explode(',', $car->features) as $item)
                                         {{ Config::get('drops.features')[$item] }},
                                     @endforeach
+                                    @else
+                                    no features available
+                                    @endif
                                 </td>
                             </tr>
                             <tr>

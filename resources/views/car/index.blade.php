@@ -137,7 +137,8 @@
                                         <div class="button-container" style="display:flex; gap:5px">
     
                                             <a href="{{ url('/cars/' . $car->id . '/edit') }}"
-                                                class="btn btn-sm btn-outline-warning">Edit & Upload</a>
+                                                class="btn btn-sm btn-outline-warning"data-bs-toggle="tooltip"
+                                                data-bs-placement="top" title="Edit & Upload" >Edit & Upload</a>
     
                                                 <a href="{{ url('/cars/' . $car->id) }}"
                                                     class="btn btn-sm btn-outline-info" data-bs-toggle="tooltip"
@@ -150,7 +151,8 @@
                                                             @method('delete')
     
                                                             <button type="submit" class="btn btn-sm btn-outline-danger"
-                                                                data-original-title="Delete"> <i class="fa fa-trash"></i>
+                                                                data-original-title="Delete" data-bs-toggle="tooltip"
+                                                                data-bs-placement="top" title="Delete"> <i class="fa fa-trash"></i>
     
                                                             </button>
                                                         </form>
