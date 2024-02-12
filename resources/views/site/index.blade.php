@@ -21,7 +21,7 @@
     <meta name="twitter:description"
         content="Discover a wide range of quality used cars at ABHCARS. Scan our unique QR codes to access detailed information about each vehicle - brand, year, fuel type, and more. Find your perfect car hassle-free!">
     <meta name="twitter:image" content="https://www.example.com/abhcars-logo.png">
-    
+
     <link rel="canonical" href="https://www.abhcars.in">
     <!-- Other necessary meta tags or links go here -->
     @yield('tags')
@@ -45,7 +45,7 @@
 
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top ">
-        <div class="container d-flex align-items-center">
+        <div class="container d-flex align-items-center xs">
             <h1 class="logo me-auto"><a href="index.html">ABHCars</a></h1>
             <nav id="navbar" class="navbar">
                 <ul>
@@ -87,101 +87,40 @@
 
 
 
-    <footer id="footer" >
-
-        <div class="footer-newsletter">
-          <div class="container" style="margin: 8%">
-            <div class="row justify-content-center">
-              <div class="col-lg-6">
-                <h3>Enter Car Number</h3>
-                <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-                <form action="" method="">
-                  <input type="text" name="text" style="border:none ;padding-right:50vh" placeholder="Enter Number here">
-                  <input type="submit" value="Search">
-                 
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-    
-        
-
-
-
-        
 
 
 
 
-      </footer>
-
-
-     
-      
 
 
 
 
-        
 
-        {{-- <div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog" id="modalSheet">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content rounded-4 shadow">
+
+
+    {{-- <div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog"
+        id="modalSheet">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content rounded-4 shadow">
                 <div class="modal-header border-bottom-0">
-                  <h1 class="modal-title fs-5">Modal title</h1>
-                  
+                    <h1 class="modal-title fs-5">Modal title</h1>
+
                 </div>
                 <div class="modal-body py-0">
-                    
-                  <input type="text" >
+
+                    <input type="text">
                 </div>
                 <div class="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
-                  <button type="button" class="btn btn-lg btn-primary">Save changes</button>
-                 
+                    <button type="button" class="btn btn-lg btn-primary">Save changes</button>
+
                 </div>
-              </div>
             </div>
-          </div> --}}
+        </div>
+    </div> --}}
     </section>
 
     <main id="main">
 
-        <!-- ======= Clients Section ======= -->
-        {{-- <section id="clients" class="clients section-bg">
-      <div class="container">
-
-        <div class="row" data-aos="zoom-in">
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="assets/img/clients/client-1.png" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="assets/img/clients/client-2.png" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="assets/img/clients/client-3.png" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="assets/img/clients/client-4.png" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="assets/img/clients/client-5.png" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="assets/img/clients/client-6.png" class="img-fluid" alt="">
-          </div>
-
-        </div>
-
-      </div>
-    </section>  --}}
-        <!-- End Cliens Section -->
 
         <!-- ======= About Us Section ======= -->
         <section id="about" class="about">
@@ -261,24 +200,25 @@
         </section><!-- End Cta Section -->
 
 
-        
 
-        <section class="steps" id="steps" >
+
+        <section class="steps" id="steps">
             <h1 style="margin: 0% 0% 3% 10%">Process of Selling Used Car</h1>
             <div class="album py-5 bg-light">
-                
-                <div class="container "   >
 
-                   
-            
-                  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 " >
-                    <div class="col" >
-                      <div class="card shadow-sm rounded-4 border-bottom-0 ">
-                        
-                        <img src="{{url('/assets/my-img/step1.jpg')}}" alt="" class="rounded-4">
-            
-                        <div class="card-body">
-                            <span style="width: 98px;
+                <div class="container ">
+
+
+
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 ">
+                        <div class="col">
+                            <div class="card shadow-sm rounded-4 border-bottom-0 ">
+
+                                <img src="{{ url('/assets/my-img/step1.jpg') }}" alt="" class="rounded-4">
+
+                                <div class="card-body">
+                                    <span
+                                        style="width: 98px;
                             height: 98px;
                             border-radius: 100%;
                             background-color: #bce4ee;
@@ -301,20 +241,22 @@
                             -webkit-box-pack: center;
                             -ms-flex-pack: center;
                             justify-content: center">01</span>
-                            <h4 >Register</h4>
-                          <p >This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                          
-                        </div>
-                      </div>
-                    </div>
+                                    <h4>Register</h4>
+                                    <p>This is a wider card with supporting text below as a natural lead-in to
+                                        additional content. This content is a little bit longer.</p>
 
-                  
-                    <div class="col">
-                        <div class="card shadow-sm rounded-4 border-bottom-0">
-                            <img src="{{url('/assets/my-img/step2.jpg')}}" alt="" class="rounded-4">
-              
-                          <div class="card-body">
-                              <span style="width: 98px;
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col">
+                            <div class="card shadow-sm rounded-4 border-bottom-0">
+                                <img src="{{ url('/assets/my-img/step2.jpg') }}" alt="" class="rounded-4">
+
+                                <div class="card-body">
+                                    <span
+                                        style="width: 98px;
                               height: 98px;
                               border-radius: 100%;
                               background-color: #bce4ee;
@@ -337,18 +279,20 @@
                               -webkit-box-pack: center;
                               -ms-flex-pack: center;
                               justify-content: center">02</span>
-                              <h4 class="card-title">Add vehical</h4>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            
-                          </div>
+                                    <h4 class="card-title">Add vehical</h4>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural
+                                        lead-in to additional content. This content is a little bit longer.</p>
+
+                                </div>
+                            </div>
                         </div>
-                      </div>
-                      <div class="col">
-                        <div class="card shadow-sm rounded-4 border-bottom-0">
-                            <img src="{{url('/assets/my-img/step3.webp')}}" alt="" class="rounded-4">
-              
-                          <div class="card-body">
-                              <span style="width: 98px;
+                        <div class="col">
+                            <div class="card shadow-sm rounded-4 border-bottom-0">
+                                <img src="{{ url('/assets/my-img/step3.webp') }}" alt="" class="rounded-4">
+
+                                <div class="card-body">
+                                    <span
+                                        style="width: 98px;
                               height: 98px;
                               border-radius: 100%;
                               background-color: #bce4ee;
@@ -371,17 +315,18 @@
                               -webkit-box-pack: center;
                               -ms-flex-pack: center;
                               justify-content: center">03</span>
-                              <h4 class="card-title">Sold Vehical</h4>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            
-                          </div>
+                                    <h4 class="card-title">Sold Vehical</h4>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural
+                                        lead-in to additional content. This content is a little bit longer.</p>
+
+                                </div>
+                            </div>
                         </div>
-                      </div>
-            
-                   
-                  </div>
+
+
+                    </div>
                 </div>
-              </div>
+            </div>
         </section>
 
 

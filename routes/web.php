@@ -69,6 +69,7 @@ Route::get('/', function () {
     return view('site.index');
 });
 
+Route::get('/search/car','GuestController@searchCarByNumber');
 
 Route::get('/dealer/{id}','GuestController@dealerPage');
 Route::get('/dealer/car/{id}','GuestController@carDetails');
@@ -79,7 +80,4 @@ Route::resource('cars', 'CarController');
 
 
 
-Route::get('/details-show', function () {
-    return view('site.details-show');
-});
 

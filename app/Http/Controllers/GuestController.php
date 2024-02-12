@@ -10,10 +10,11 @@ use App\Helpers\DataHelper;
 use Spatie\QueryBuilder\QueryBuilder;
 use Spatie\QueryBuilder\Exceptions\InvalidFilterQuery;
 use Spatie\QueryBuilder\Exceptions\InvalidSortQuery;
+use Spatie\QueryBuilder\AllowedFilter;
 
 class GuestController extends Controller
 {
-    //
+
     public function dealerPage(Request $request,$id){
         $dealer = DealerProfile::where('user_id',$id)->first();
         $brands = DataHelper::getDealerBrand($id);
@@ -54,6 +55,16 @@ class GuestController extends Controller
         return back();
     }
 
-    
+    public function searchCarByNumber(Request $request){
+        $car=null;
+        if($request->has('filter')){
+            $car =QueryBuilder::for(Car::class)
+            ->allowedIncludes(['images'])
+            ->allowedFilters([AllowedFilter::exact('car_number')])
+            ->first();
+        }
+      
+        return view('site.search_car',compact('car'));
+    }
     
 }

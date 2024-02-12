@@ -27,7 +27,7 @@ class CreateCarsTable extends Migration
             $table->integer('no_of_owners')->nullable();
             $table->text('car_description')->nullable();
             $table->string('car_number',30)->nullable();
-            $table->string('price');
+            $table->unsignedBigInteger('price');
             $table->boolean('active')->default(1);
             $table->timestamps();
         });

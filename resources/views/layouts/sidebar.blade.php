@@ -94,8 +94,14 @@
                 @endcan
                 <li>
                     <a href="{{ url('/cars-sold') }}" class="waves-effect">
-                        <i class="uil-user"></i>
+                        <i class="uil-thumbs-up"></i>
                         <span>Sold Cars History</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url('/search-cars') }}" class=" waves-effect">
+                        <i class="uil-search"></i>
+                        <span>Search Car</span>
                     </a>
                 </li>
                 @role('admin')

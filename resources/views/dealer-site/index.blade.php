@@ -100,25 +100,34 @@
 
 
             <div class="row mb-2">
+
                 @foreach ($cars as $car)
-                    <div class="col-6 col-md-4 col-lg-4">
-                        <div class="card shadow-sm" data-clickable="true" data-href="{{ url('dealer/car/' . $car->id) }}">
-                            <img class="card-img-top" src="{{ $car->firstImageUrl }}"
-                                style="max-height:18vh;object-fit: cover;">
-                            <div class="card-body" style="padding: 5px;">
+                    <div class="col-md-4 ">
+                        <div class="card">
+                            <img src="{{ $car->firstImageUrl }}" style="max-height:18vh;object-fit:cover;"
+                                class="img-fluid image card-img-top">
+                            <div class="card-body p-2">
+                                <a href="#" class="text-dark">
+                                    <h5>{{ $car->car_name }} </h5>
+                                </a>
+                                <ul class="list-unstyled list-inline">
+                                    <a href="#" class="text-warning">
+                                        <li class="list-inline-item"><i class="fa fa-star-o"></i><i
+                                                class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i
+                                                class="fa fa-star-o"></i><i class="fa fa-star-o"></i></li>
+                                    </a>
+                                    <a href="#" class="text-muted">
+                                        <li class="list-inline-item"><small>3 Reviews</small></li>
+                                    </a>
+                                </ul>
                                 <div class="row justify-content-between">
                                     <div class="col">
-                                        <p class="card-text" style="font-size: 2vh;">{{ $car->car_name }} </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-footer p-1">
-                                <div class="row justify-content-between">
-                                    <div class="col">
-                                        <a href="{{ url('dealer/car/' . $car->id) }}">More</a>
+                                        <h4 class="text-danger"><i class="fa fa-inr"></i> {{ $car->price }}</h4>
                                     </div>
                                     <div class="col-auto">
-                                        <p class="card-text "><b>₹ {{ $car->price }}</b> </p>
+                                        <a href="{{ url('dealer/car/' . $car->id) }}" class="btn btn-outline-info btn-sm">
+                                            <li class="list-inline-item"><small>View Details</small></li>
+                                        </a>
                                     </div>
                                 </div>
 

@@ -49,11 +49,10 @@
 
 </head>
 
-<body class="bg-white">
+<body>
 
     <header>
-
-        <nav class="navbar navbar-expand-md navbar-light bg-white" aria-label="Fourth navbar example">
+        <nav class="navbar navbar-expand-md " aria-label="Fourth navbar example" style="background-color: red;">
             <div class="container">
                 <a class="text-black text-uppercase"
                     href="{{ url('dealer/' . $dealer->user_id) }}">{{ $dealer->company_name }}</a>

@@ -177,9 +177,9 @@
             type: "double",
             grid: true,
             min: 0,
-            max: 1000,
-            from: 200,
-            to: 800,
+            max: 10000000,
+            from: 100000,
+            to: 300000,
             prefix: "₹"
         });
         //DEFAULT MSG FOR REJECTION
