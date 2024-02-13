@@ -53,8 +53,8 @@
                                         <td>{{ $record->car->car_name ?? 'NA' }}</td>
                                         <td>{{ $record->car->dealerProfile->company_name ?? 'NA' }}</td>
                                         <td>{{ $record->car->car_brand ?? 'NA' }}</td>
-                                        <td>{{ $record->car->price ?? 'NA' }}</td>
-                                        <td>{{ $record->sell_price ?? 'NA' }}</td>
+                                        <td>₹{{ number_format($record->car->price)  ?? 'NA' }}</td>
+                                        <td>₹{{ number_format($record->price)  ?? 'NA' }}</td>
                                         <td>{{ $record->customer_name ?? 'NA' }}</td>
                                         <td>{{ $record->customer_mobile ?? 'NA' }}</td>
 

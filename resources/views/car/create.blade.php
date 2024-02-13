@@ -98,7 +98,7 @@
                                     <label class="form-label">Body Style</label>
                                     <div>
                                         <select class="form-control mb-2" name="body">
-                                            <option value="">-Select Body Style-</option>
+                                            <option value=""input class="form-check-input" type="checkbox">-Select Body Style-</option>
                                             @foreach (Config::get('drops.body-style') as $key => $value)
                                                 <option value="{{ $key }}">{{ $value }}</option>
                                             @endforeach
@@ -216,7 +216,7 @@
                                             Space)</small></label>
                                     <div>
                                         <input type="text" class="form-control" name="car_number" maxlength="10"
-                                            placeholder="MH09XX1234 (Without Space)" value="" required="">
+                                            placeholder="MH09XX1234 (Without Space)" value="" required=""  pattern="[A-Z]{2}[0-9]{2}[a-z]{2}[0-9]{4}$" title="Three letter country code">
                                     </div>
                                 </div>
                             </div>
@@ -264,7 +264,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-sm-4">
+                            {{-- <div class="col-sm-4">
                                 <div class="mb-3">
                                     <label class="form-label">Power Window</label>
                                     <div>
@@ -275,8 +275,8 @@
                                         </select>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-sm-4">
+                            </div> --}}
+                            {{-- <div class="col-sm-4">
                                 <div class="mb-3">
                                     <label class="form-label">Power Steering</label>
                                     <div>
@@ -287,12 +287,20 @@
                                         </select>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="mb-3 row">
                                 <div class="col-md">
                                     <h5>Features</h5>
+                                    @foreach (Config::get('drops.features') as $key => $value)
+                                    
                                     <div class="form-check form-check-inline mt-3">
+                                        <input class="form-check-input" type="checkbox" name=" features[]"
+                                            value="{{$key}}">
+                                        <label class="form-check-label" for="inlineCheckbox1">{{$value}}</label>
+                                    </div>
+                                @endforeach
+                                    {{-- <div class="form-check form-check-inline mt-3">
                                         <input class="form-check-input" type="checkbox" name=" features[]"
                                             value="1">
                                         <label class="form-check-label" for="inlineCheckbox1">ABS</label>
@@ -336,7 +344,7 @@
                                         <input class="form-check-input" type="checkbox" name="features[]"
                                             value="9">
                                         <label class="form-check-label" for="inlineCheckbox2">Leather Seats</label>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
 

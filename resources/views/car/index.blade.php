@@ -59,7 +59,8 @@
                                         <td>{{ $car->car_name ?? 'NA' }}</td>
                                         <td>{{ $car->dealerProfile->company_name ?? 'NA' }}</td>
                                         <td>{{ $car->car_brand ?? 'NA' }}</td>
-                                        <td>{{ $car->price ?? 'NA' }}</td>
+                                        <td>₹{{ number_format($car->price)  ?? 'NA' }}</td>
+                                           
                                         <td id="stat{{ $car->id }}">{{ $car->active == 0 ? 'Inactive' : 'Active' }}
                                         </td>
                                         <td>

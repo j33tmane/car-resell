@@ -82,7 +82,7 @@
                 <ul class="list-group">
                    <li class="list-group-item d-flex justify-content-between flex-column flex-sm-row  " style="border-color: #696cff">
                    <div class="offer">
-                      <p class="mb-0">https://abhcars.in/Dealer/822357</p>
+                      <p class="mb-0">{{(url('/dealer/' . Auth::user()->id))}}</p>
                    </div>
   
                    <button type="button" class="btn btn-outline-primary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Copied!" onclick="copyText()">
