@@ -103,7 +103,13 @@
 
                 @foreach ($cars as $car)
                     <div class="col-md-4 ">
-                        <div class="card bg-light" style="--bs-bg-opacity: .5;">
+                        <div class="card bg-light border border-{{ $dealer->social->theme ?? 'secondary' }}"
+                            style="--bs-bg-opacity: .5;">
+                            @if ($car->is_sold == 1)
+                                <div class="card-img-overlay">
+                                    <a href="#" class="btn btn-sm btn-danger "><b>SOLD</b></a>
+                                </div>
+                            @endif
                             <img src="{{ $car->firstImageUrl }}" style="max-height:18vh;object-fit:cover;"
                                 class="img-fluid image card-img-top">
                             <div class="card-body p-2">
@@ -122,7 +128,8 @@
                                     <div class="col">
                                         <h4 class="text-{{ $dealer->social->theme ?? 'secondary' }}"><i
                                                 class="fa fa-inr"></i>
-                                            {{ $car->price }}</h4>
+                                            {{ $car->price_inr }}
+                                        </h4>
                                     </div>
                                     <div class="col-auto">
                                         <a href="{{ url('dealer/car/' . $car->id) }}"

@@ -54,7 +54,7 @@
                                                     class="uil-external-link-alt"></i></a>
                                         </td>
                                         <td>{{ $enq->car->car_brand ?? 'NA' }}</td>
-                                        <td>₹{{ number_format($car->price)  ?? 'NA' }}</td>
+                                        <td>₹{{ number_format($enq->car->price) ?? 'NA' }}</td>
                                         {{-- <td id="stat{{ $enq->id }}">{{ $enq->active == 0 ? 'Admin' : 'Dealer' }}
                                         </td> --}}
                                         <td>{{ date('d-m-Y', strtotime($enq->created_at)) ?? 'NA' }}</td>

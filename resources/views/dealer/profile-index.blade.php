@@ -98,13 +98,20 @@
                             </div>
                             <div class="col-sm-6 mb-3">
                                 <label class="form-label">Theme </label>
-                                <select class="form-control" name="sl[theme]">
-                                    <option value="light">Select</option>
-                                    <option value="info">Blue</option>
-                                    <option value="danger">Red</option>
-                                    <option value="secondary">Grey</option>
-                                    <option value="warning">Yello</option>
-                                    <option value="success">green</option>
+                                <select class="form-control text-{{ $dp->social->theme ?? '' }}" name="sl[theme]">
+                                    <option value="">Select</option>
+                                    <option value="info" class="text-info"
+                                        {{ ($dp->social->theme ?? '') == 'info' ? 'selected' : '' }}>⬤ Cyan</option>
+                                    <option value="danger" class="text-danger"
+                                        {{ ($dp->social->theme ?? '') == 'danger' ? 'selected' : '' }}>⬤ Red</option>
+                                    <option value="secondary" class="text-secondary"
+                                        {{ ($dp->social->theme ?? '') == 'secondary' ? 'selected' : '' }}>⬤ Grey</option>
+                                    <option value="warning" class="text-warning"
+                                        {{ ($dp->social->theme ?? '') == 'warning' ? 'selected' : '' }}>⬤ Yello</option>
+                                    <option value="success" class="text-success"
+                                        {{ ($dp->social->theme ?? '') == 'success' ? 'selected' : '' }}>⬤ Green</option>
+                                    <option value="primary" class="text-primary"
+                                        {{ ($dp->social->theme ?? '') == 'primary' ? 'selected' : '' }}>⬤ Blue</option>
                                 </select>
                             </div>
                             <div>

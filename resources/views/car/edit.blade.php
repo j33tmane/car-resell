@@ -126,7 +126,7 @@
                                     </select>
                                 </div>
                             </div>
-                            
+
 
                             {{-- <div class="mb-3">
                                 <label class="form-label">Ad Title / Car Name</label>
@@ -141,13 +141,13 @@
                                     <label class="form-label">Ad Title / Car Name</label>
                                     <div>
                                         <input type="text" class="form-control" required data-parsley-minlength="6"
-                                        placeholder="Car Name  Min 6 chars." name="car_name"
-                                        value="{{ old('car_name', $car->car_name) }}" />
+                                            placeholder="Car Name  Min 6 chars." name="car_name"
+                                            value="{{ old('car_name', $car->car_name) }}" />
                                     </div>
                                 </div>
                             </div>
 
-                            
+
                             <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label class="form-label">Year</label>
@@ -185,24 +185,24 @@
                             <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label class="form-label">Body Style</label>
-                                 <div>
-                                  <select class="form-control mb-2" name="body">
-                                     <option value="">-Select Body Style-</option>
-                                  <option value="SUV">SUV</option>
-                                  <option value="Mini SUV">Mini SUV</option>
-                                  <option value="Sedan">Sedan</option>
-                                  <option value="Hatchback">Hatchback</option>
-                                  <option value="Coupe">Coupe</option>
-                                  <option value="Wagon">Wagon</option>
-                                  <option value="Hybrid">Hybrid</option>
-                                  <option value="Luxury">Luxury</option>
-                                  <option value="Pickup">Pickup</option>
-                                  <option value="Convertible">Convertible</option>
-                                  <option value="Truck">Truck</option>
-                                  <option value="None">None</option>
-                                  </select>
+                                    <div>
+                                        <select class="form-control mb-2" name="body">
+                                            <option value="">-Select Body Style-</option>
+                                            <option value="SUV">SUV</option>
+                                            <option value="Mini SUV">Mini SUV</option>
+                                            <option value="Sedan">Sedan</option>
+                                            <option value="Hatchback">Hatchback</option>
+                                            <option value="Coupe">Coupe</option>
+                                            <option value="Wagon">Wagon</option>
+                                            <option value="Hybrid">Hybrid</option>
+                                            <option value="Luxury">Luxury</option>
+                                            <option value="Pickup">Pickup</option>
+                                            <option value="Convertible">Convertible</option>
+                                            <option value="Truck">Truck</option>
+                                            <option value="None">None</option>
+                                        </select>
+                                    </div>
                                 </div>
-                              </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="mb-3">
@@ -224,7 +224,8 @@
                                 <div class="mb-3">
                                     <label class="form-label">Engine (cc)</label>
                                     <div>
-                                        <input type="text" class="form-control" name="engine" placeholder="1497" value="">
+                                        <input type="text" class="form-control" name="engine" placeholder="1497"
+                                            value="">
                                     </div>
                                 </div>
                             </div>
@@ -233,7 +234,8 @@
                                 <div class="mb-3">
                                     <label class="form-label">Power (bhp)</label>
                                     <div>
-                                        <input type="text" class="form-control" name="power" placeholder="113.31" value="">
+                                        <input type="text" class="form-control" name="power" placeholder="113.31"
+                                            value="">
                                     </div>
                                 </div>
                             </div>
@@ -280,7 +282,9 @@
                                     <label class="form-label">Vehical Number</label>
                                     <div>
                                         <input type="text" class="form-control" placeholder="Vehical Number"
-                                            name="car_number" value="{{ old('car_number', $car->car_number) pattern="[A-Z]{2}[0-9]{2}[a-z]{2}[0-9]{4}$" title="Three letter country code">}}" />
+                                            name="car_number" value="{{ old('car_number', $car->car_number) }}"
+                                            pattern="[A-Z]{2}[0-9]{2}[a-z]{2}[0-9]{4}$"
+                                            title="Three letter country code" />
                                     </div>
                                 </div>
                             </div>
@@ -289,7 +293,7 @@
                                     <label class="form-label text-primary">Price</label>
                                     <div>
                                         <input type="text" class="form-control" data-parsley-min="6"
-                                            placeholder="Price" name="price" required 
+                                            placeholder="Price" name="price" required
                                             value="{{ old('price', $car->price) }}" />
                                     </div>
                                 </div>
@@ -365,17 +369,17 @@
 
                             <div class="mb-3 row">
                                 <div class="col-md">
-                                    <h5>Features {{$car->features}}</h5>
-                                    <?php $fets = explode(',',$car->features);?>
+                                    <h5>Features {{ $car->features }}</h5>
+                                    <?php $fets = explode(',', $car->features); ?>
                                     @foreach (Config::get('drops.features') as $key => $value)
-                                    
-                                    <div class="form-check form-check-inline mt-3">
-                                        <input class="form-check-input" type="checkbox" name="features[]"
-                                            value="{{$key}}" {{in_array($key,$fets)?'checked':''}} >
-                                        <label class="form-check-label" for="inlineCheckbox1"  >{{$value}}</label>
-                                    </div>
-                                @endforeach
-                                  {{-- <div class="form-check form-check-inline mt-3">
+                                        <div class="form-check form-check-inline mt-3">
+                                            <input class="form-check-input" type="checkbox" name="features[]"
+                                                value="{{ $key }}" {{ in_array($key, $fets) ? 'checked' : '' }}>
+                                            <label class="form-check-label"
+                                                for="inlineCheckbox1">{{ $value }}</label>
+                                        </div>
+                                    @endforeach
+                                    {{-- <div class="form-check form-check-inline mt-3">
                                     <input class="form-check-input" type="checkbox" name="abs" value="1" data-parsley-multiple="abs">
                                     <label class="form-check-label" for="inlineCheckbox1">ABS</label>
                                   </div>
@@ -411,8 +415,8 @@
                                     <input class="form-check-input" type="checkbox" name="seat" value="1" data-parsley-multiple="seat">
                                     <label class="form-check-label" for="inlineCheckbox2">Leather Seats</label>
                                   </div> --}}
-                                </div> 
-                              </div>
+                                </div>
+                            </div>
                             <div class="col-sm-12">
                                 <div class="mb-3">
                                     <label class="form-label">Description</label>
@@ -432,7 +436,7 @@
 
                         <div>
                             <div>
-                                <button type="submit" class="btn btn-primary waves-effect waves-light me-1">
+                                <button type="submit" class="btn btn-primary waves-effect waves-light me-1 ">
                                     Update
                                 </button>
                             </div>

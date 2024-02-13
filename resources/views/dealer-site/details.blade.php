@@ -9,7 +9,9 @@
         </div>
         <div class="row mt-2">
             <div class="col-md-8">
-                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div id="carouselExampleIndicators"
+                    class="carousel slide border border-{{ $dealer->social->theme ?? 'secondary' }} rounded"
+                    data-bs-ride="carousel">
                     {{-- <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
                             aria-current="true" aria-label="Slide 1"></button>
@@ -24,7 +26,7 @@
                         @foreach ($car->images as $key => $item)
                             <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
                                 <img src="{{ $item->imageUrl }}" class="w-100 rounded" alt="..."
-                                    style="max-height:500px;object-fit: cover;">
+                                    style="height:400px;object-fit: cover;">
                             </div>
                         @endforeach
 
@@ -49,8 +51,7 @@
                     </button>
                 </div>
 
-
-                <article class=" card blog-post p-3 bg-white mt-3 mb-0">
+                <article class="card blog-post bg-white p-3 mt-3 border border-{{ $dealer->social->theme ?? 'secondary' }}">
 
                     <div class="row justify-content-between">
                         <div class="col-auto">
@@ -66,31 +67,24 @@
                             </p>
                         </div>
                         <div class="col-auto">
-                            <a class="btn btn-sm text-success"
+                            <a class="btn btn-sm text-{{ $dealer->social->theme ?? 'secondary' }}"
                                 href="whatsapp://send?text=I just saw this ad {{ $car->car_name }} on {{ $car->dealerProfile->company_name }} website.%0a{{ Request::url() }}"
                                 data-action="share/whatsapp/share" style="font-size:18px"> <i class="fa fa-whatsapp"
                                     style="font-size:20px"></i>
                             </a>
-                            <a class="btn btn-sm text-primary"
+                            <a class="btn btn-sm text-{{ $dealer->social->theme ?? 'secondary' }}"
                                 href="https://telegram.me/share/url?url={{ Request::url() }}&text=I just saw this ad {{ $car->car_name }} on {{ $car->dealerProfile->company_name }} website."
                                 data-action="share/whatsapp/share" style="font-size:18px"> <i class="fa fa-telegram"
                                     style="font-size:20px"></i>
                             </a>
-                            <button onclick="copyFunction()" class="btn btn-sm">
+                            <button onclick="copyFunction()" class="btn btn-sm ">
 
-                                <i class="fa fa-copy" style="font-size:20px"></i>
+
+                                <i class="fa fa-copy text-{{ $dealer->social->theme ?? 'secondary' }}"
+                                    style="font-size:20px"></i>
                             </button>
                         </div>
                     </div>
-
-
-                </article>
-                <hr>
-
-
-
-                <article class="card blog-post bg-white p-3 ">
-                    <h5 class="blog-post-title">Car Deatil</h5>
 
                     <table class="table table-bordered">
 
@@ -164,18 +158,14 @@
                                     @endif
                                 </td>
                             </tr>
-                            <tr>
-                                <th>Description</th>
-                                <td>{{ $car->car_description ?? 'NA' }}</td>
-                            </tr>
-
 
                         </tbody>
                     </table>
 
                 </article>
 
-                <article class="card blog-post bg-white mt-3 p-3">
+                <article
+                    class="card blog-post bg-white mt-3 p-3 border border-{{ $dealer->social->theme ?? 'secondary' }}">
 
                     <h5 class="blog-post-title">Description</h5>
                     <p>{{ $car->car_description ?? 'No Description is provided by dealer.' }}</p>
@@ -190,17 +180,47 @@
             <div class="col-md-4">
                 <div class="position-sticky" style="top: 2rem;">
 
-                    <div class="p-4 mb-3 bg-light rounded">
-                        <h2 class="fw-bold">₹ {{ number_format($car->price) }}</h2>
-                        <p class="mb-0 text-danger">Note: Original purchase invoice, insurance, road tax receipt, and
-                            pollution
-                            certificate
-                            are other documents that are needed to be checked while buying a used car.</p>
+                    <div class="p-4 mb-3 bg-{{ $dealer->social->theme ?? 'secondary' }} rounded border border-{{ $dealer->social->theme ?? 'secondary' }}"
+                        style="--bs-bg-opacity: .1;">
+                        <h2 class="fw-bold">₹ {{ $car->price_inr }}</h2>
+                        Location: {{ $car->location ?? 'NA' }}
                         <div class="d-grid gap-2 mt-4">
-                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">Submit Enquiry</button>
+                            @if ($car->is_sold)
+                                <button type="button" class="btn btn-danger" disabled><b>SOLD</b></button>
+                            @else
+                                <button type="button" class="btn btn-outline-{{ $dealer->social->theme ?? 'secondary' }}"
+                                    data-bs-toggle="modal" data-bs-target="#exampleModal">Submit Enquiry</button>
+                            @endif
                         </div>
                     </div>
+
+                    <div class="p-4 mb-3 border border-{{ $dealer->social->theme ?? 'secondary' }} rounded">
+                        <div class="row">
+                            <div class="col-auto">
+
+                                <a class=" text-uppercase" href="{{ url('dealer/' . $dealer->user_id) }}"><img
+                                        src="{{ $dealer->image_url }}" class="img rounded-circle border border-white"
+                                        style="height: 50px;width: 50px;object-fit: cover;">
+                                </a>
+                            </div>
+                            <div class="col-auto">
+                                <h5 class="fw-bold">{{ $dealer->company_name ?? '' }}</h5>
+                                <p class="blog-post-meta">{{ date('d-M-Y', strtotime($car->created_at)) ?? 'NA' }} </a>
+                                </p>
+
+                            </div>
+                            <div class="row">
+                                <a href="{{ url('dealer/' . $car->dealerProfile->user_id) }}"
+                                    class="btn btn-outline-{{ $dealer->social->theme ?? 'secondary' }}">View Other
+                                    Vehicles</a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <p class="mb-0 text-danger">Note: Original purchase invoice, insurance, road tax receipt, and
+                        pollution
+                        certificate
+                        are other documents that are needed to be checked while buying a used car.</p>
                     <div class="">
                         @if ($car->video_id)
                             <div class="carousel-item active">

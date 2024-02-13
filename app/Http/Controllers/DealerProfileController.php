@@ -106,8 +106,6 @@ class DealerProfileController extends Controller
             Storage::disk('s3')->delete($img_key);
             flash('Error occurred, Please try later')->error()->important();
            }
-        }else{
-            flash('Profile updated successfully.')->success()->important();
         }
         flash('Profile updated successfully.')->success()->important();
         return back();
