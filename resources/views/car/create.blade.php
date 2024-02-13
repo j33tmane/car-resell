@@ -264,7 +264,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-sm-4">
+                            {{-- <div class="col-sm-4">
                                 <div class="mb-3">
                                     <label class="form-label">Power Window</label>
                                     <div>
@@ -275,8 +275,8 @@
                                         </select>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-sm-4">
+                            </div> --}}
+                            {{-- <div class="col-sm-4">
                                 <div class="mb-3">
                                     <label class="form-label">Power Steering</label>
                                     <div>
@@ -287,7 +287,7 @@
                                         </select>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="mb-3 row">
                                 <div class="col-md">
