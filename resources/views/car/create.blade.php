@@ -292,7 +292,15 @@
                             <div class="mb-3 row">
                                 <div class="col-md">
                                     <h5>Features</h5>
+                                    @foreach (Config::get('drops.features') as $key => $value)
+                                    
                                     <div class="form-check form-check-inline mt-3">
+                                        <input class="form-check-input" type="checkbox" name=" features[]"
+                                            value="{{$key}}">
+                                        <label class="form-check-label" for="inlineCheckbox1">{{$value}}</label>
+                                    </div>
+                                @endforeach
+                                    {{-- <div class="form-check form-check-inline mt-3">
                                         <input class="form-check-input" type="checkbox" name=" features[]"
                                             value="1">
                                         <label class="form-check-label" for="inlineCheckbox1">ABS</label>
@@ -336,7 +344,7 @@
                                         <input class="form-check-input" type="checkbox" name="features[]"
                                             value="9">
                                         <label class="form-check-label" for="inlineCheckbox2">Leather Seats</label>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
 

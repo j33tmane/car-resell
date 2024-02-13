@@ -365,8 +365,17 @@
 
                             <div class="mb-3 row">
                                 <div class="col-md">
-                                  <h5>Features</h5>
-                                  <div class="form-check form-check-inline mt-3">
+                                    <h5>Features {{$car->features}}</h5>
+                                    <?php $fets = explode(',',$car->features);?>
+                                    @foreach (Config::get('drops.features') as $key => $value)
+                                    
+                                    <div class="form-check form-check-inline mt-3">
+                                        <input class="form-check-input" type="checkbox" name="features[]"
+                                            value="{{$key}}" {{in_array($key,$fets)?'checked':''}} >
+                                        <label class="form-check-label" for="inlineCheckbox1"  >{{$value}}</label>
+                                    </div>
+                                @endforeach
+                                  {{-- <div class="form-check form-check-inline mt-3">
                                     <input class="form-check-input" type="checkbox" name="abs" value="1" data-parsley-multiple="abs">
                                     <label class="form-check-label" for="inlineCheckbox1">ABS</label>
                                   </div>
@@ -401,7 +410,7 @@
                                   <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="checkbox" name="seat" value="1" data-parsley-multiple="seat">
                                     <label class="form-check-label" for="inlineCheckbox2">Leather Seats</label>
-                                  </div>
+                                  </div> --}}
                                 </div> 
                               </div>
                             <div class="col-sm-12">
