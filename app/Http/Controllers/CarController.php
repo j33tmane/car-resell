@@ -81,16 +81,16 @@ class CarController extends Controller
         $request->merge([
             "features"=>$features
         ]);
-        // try{
+         try{
             $inputs = $request->all();
             // return $inputs;
             $car = Car::create($inputs);
             flash('Care added succefuly')->success()->important(); 
-            // return redirect('/cars/'.$car->id.'/edit');
-        // }catch(\Exception $e){
-        //     flash('Something went wrong.<br><strong>Error</strong>: '.$e->getMessage())->error()->important(); 
-        //     return back()->withInput();
-        // }
+            return redirect('/cars/'.$car->id.'/edit');
+        }catch(\Exception $e){
+            flash('Something went wrong.<br><strong>Error</strong>: '.$e->getMessage())->error()->important(); 
+            return back()->withInput();
+        }
 
     }
 
@@ -155,7 +155,15 @@ class CarController extends Controller
         $user = $request->user();
         $car = Car::find($id);
         if($car){
-            $inputs= $request->all();
+           if($request->features){
+            $features = implode(',', $request->features);
+            $request->merge([
+                "features"=>$features
+
+            ]);
+        }
+
+            $inputs= $request->input();
             $car->update($inputs);
             flash('Car updated successfuly')->success()->important(); 
             return back();

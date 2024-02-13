@@ -24,7 +24,7 @@
                 </div>
 
 
-                {{-- <img src="{{ URL::asset('/assets/my-img/car-logo.png') }}" alt=""  width="138px" height="80" > --}}
+                
 
 
             </span>
