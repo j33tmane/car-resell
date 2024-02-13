@@ -155,7 +155,15 @@ class CarController extends Controller
         $user = $request->user();
         $car = Car::find($id);
         if($car){
-            $inputs= $request->all();
+           if($request->features){
+            $features = implode(',', $request->features);
+            $request->merge([
+                "features"=>$features
+
+            ]);
+        }
+
+            $inputs= $request->input();
             $car->update($inputs);
             flash('Car updated successfuly')->success()->important(); 
             return back();
