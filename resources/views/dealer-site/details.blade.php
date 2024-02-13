@@ -50,8 +50,8 @@
                 </div>
 
 
-                <article class="blog-post">
-                    <hr>
+                <article class=" card blog-post p-3 bg-white mt-3 mb-0">
+
                     <div class="row justify-content-between">
                         <div class="col-auto">
                             <h2 class="blog-post-title">{{ $car->car_name }}
@@ -89,8 +89,8 @@
 
 
 
-                <article class="blog-post">
-                    <h5 class="blog-post-title">Features</h5>
+                <article class="card blog-post bg-white p-3 ">
+                    <h5 class="blog-post-title">Car Deatil</h5>
 
                     <table class="table table-bordered">
 
@@ -141,32 +141,41 @@
                             </tr>
                             <tr>
                                 <th>Body-style</th>
-                                <td>//Body-style</td>
+                                <td>{{ $car->bodystyle ?? 'NA' }}</td>
                             </tr>
-                             <tr>
+                            <tr>
                                 <th>Engine(CC)</th>
-                                <td>//Engine</td>
+                                <td>{{ $car->engine ?? 'NA' }}</td>
                             </tr>
                             <tr>
                                 <th>Power(bhp)</th>
-                                <td>//Power</td>
+                                <td>{{ $car->power ?? 'NA' }}</td>
                             </tr>
-                            <tr>
-                                <th>Vehical No</th>
-                                <td>//Vehical</td>
-                            </tr>
+
                             <tr>
                                 <th>Features</th>
-                                <td>//Features</td>
+                                <td>
+                                    @if ($car->features != null)
+                                        @foreach (explode(',', $car->features) as $item)
+                                            {{ Config::get('drops.features')[$item] }},
+                                        @endforeach
+                                    @else
+                                        no features available
+                                    @endif
+                                </td>
                             </tr>
-                           
+                            <tr>
+                                <th>Description</th>
+                                <td>{{ $car->car_description ?? 'NA' }}</td>
+                            </tr>
+
 
                         </tbody>
                     </table>
 
                 </article>
 
-                <article class="blog-post">
+                <article class="card blog-post bg-white mt-3 p-3">
 
                     <h5 class="blog-post-title">Description</h5>
                     <p>{{ $car->car_description ?? 'No Description is provided by dealer.' }}</p>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\DealerProfile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class DealerProfileController extends Controller
 {
@@ -86,15 +87,27 @@ class DealerProfileController extends Controller
         $dp = DealerProfile::updateOrCreate(["user_id"=>$id],$inputs);
         $img_key=null;
         if($dp && $request->imageFile){
+            $file = $request->imageFile;
+            $filename = $file->hashName();
            try{
                 if($dp->image_key && filter_var($dp->image_key, FILTER_VALIDATE_INT) == false)
                     Storage::disk('s3')->delete($dp->image_key);
-                $img_key = Storage::disk('s3')->put('users/'.$dp->id, $request->imageFile);
-                $dp->image_key = $img_key;
+
+                $img = Image::make($file)->resize(200,200,function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+                $resource = $img->stream()->detach();
+
+                $key = 'users/'.$dp->id.'/'.$filename;
+                $img_key = Storage::disk('s3')->put($key, $resource);
+                $dp->image_key = $key ;
                 $dp->save();
            }catch(\Exception $e){
             Storage::disk('s3')->delete($img_key);
+            flash('Error occurred, Please try later')->error()->important();
            }
+        }else{
+            flash('Profile updated successfully.')->success()->important();
         }
         flash('Profile updated successfully.')->success()->important();
         return back();

@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <?php $theme = $dealer->social ? $dealer->social->theme : 'secondary'; ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description"
@@ -49,13 +50,15 @@
 
 </head>
 
-<body>
+<body class="bg-white" style="--bs-bg-opacity: .5;">
 
     <header>
-        <nav class="navbar navbar-expand-md " aria-label="Fourth navbar example" style="background-color: red;">
+        <nav class="navbar navbar-expand-md bg-{{ $theme }}" aria-label="Fourth navbar example">
             <div class="container">
-                <a class="text-black text-uppercase"
-                    href="{{ url('dealer/' . $dealer->user_id) }}">{{ $dealer->company_name }}</a>
+                <a class=" text-uppercase" href="{{ url('dealer/' . $dealer->user_id) }}"><img
+                        src="{{ $dealer->image_url }}" class="img rounded-circle border border-white"
+                        style="height: 50px;width: 50px;object-fit: cover;">
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -72,7 +75,7 @@
                     <div class="d-flex">
                         <input class="form-control me-2" type="text" placeholder="Search car name" name="car_name"
                             id="car_name">
-                        <button class="btn btn-outline-info btn" type="button"
+                        <button class="btn btn-outline-light btn" type="button"
                             onclick="filterResults()">Search</button>
                     </div>
                 </div>

@@ -96,6 +96,17 @@
                                     value="{{ $dp->social->weburl ?? '' }}" name="sl[weburl]"
                                     data-parsley-pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)" />
                             </div>
+                            <div class="col-sm-6 mb-3">
+                                <label class="form-label">Theme </label>
+                                <select class="form-control" name="sl[theme]">
+                                    <option value="light">Select</option>
+                                    <option value="info">Blue</option>
+                                    <option value="danger">Red</option>
+                                    <option value="secondary">Grey</option>
+                                    <option value="warning">Yello</option>
+                                    <option value="success">green</option>
+                                </select>
+                            </div>
                             <div>
                                 <button type="submit" class="btn btn-primary waves-effect waves-light me-1">
                                     Update

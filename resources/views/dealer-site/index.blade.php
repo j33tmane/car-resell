@@ -3,16 +3,16 @@
     <meta property="og:image" content="{{ $dealer->imageUrl }}">
 @endsection
 @section('content')
-    <section class="py-5 text-center container bg-light">
+    <section class="py-5 text-center container bg-{{ $dealer->social->theme ?? 'secondary' }} mt-3">
         <div class="row py-2">
             <div class="col-lg-6 col-md-8 mx-auto">
-                <img class="rounded" src="{{ $dealer->imageUrl }}" width="100px">
-                <h1 class="fw-light">{{ $dealer->company_name }}</h1>
-                <p class="lead text-muted">{{ $dealer->address }}</p>
+
+                <h1 class="fw-light text-white">{{ $dealer->company_name }}</h1>
+                <p class="lead text-white">{{ $dealer->address }}</p>
                 <p>
-                    <a href="tel:+91{{ $dealer->contact_call }}" class="btn btn-outline-primary my-2"> <i
-                            class="uil-phone-alt"></i> Call</a>
-                    <a href="https://wa.me/{{ $dealer->contact_whatsapp }}" class="btn btn-outline-success my-2"><i
+                    <a href="tel:+91{{ $dealer->contact_call }}" class="btn btn-light my-2"> <i class="uil-phone-alt"></i>
+                        Call</a>
+                    <a href="https://wa.me/{{ $dealer->contact_whatsapp }}" class="btn btn-light my-2"><i
                             class="bx bxl-whatsapp"></i> Whats App</a>
                 </p>
             </div>
@@ -29,8 +29,8 @@
                     </div>
                 @endif
                 <div class="col-auto mb-2">
-                    <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="collapse"
-                        data-bs-target="#demo">Show
+                    <button type="button" class="btn btn-outline-{{ $dealer->social->theme ?? 'secondary' }} btn-sm"
+                        data-bs-toggle="collapse" data-bs-target="#demo">Show
                         Filters</button>
 
                 </div>
@@ -103,7 +103,7 @@
 
                 @foreach ($cars as $car)
                     <div class="col-md-4 ">
-                        <div class="card">
+                        <div class="card bg-light" style="--bs-bg-opacity: .5;">
                             <img src="{{ $car->firstImageUrl }}" style="max-height:18vh;object-fit:cover;"
                                 class="img-fluid image card-img-top">
                             <div class="card-body p-2">
@@ -112,20 +112,21 @@
                                 </a>
                                 <ul class="list-unstyled list-inline">
                                     <a href="#" class="text-warning">
-                                        <li class="list-inline-item"><i class="fa fa-star-o"></i><i
-                                                class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i
-                                                class="fa fa-star-o"></i><i class="fa fa-star-o"></i></li>
+                                        <i class="fa fa-eye"></i>
                                     </a>
                                     <a href="#" class="text-muted">
-                                        <li class="list-inline-item"><small>3 Reviews</small></li>
+                                        <li class="list-inline-item"><small>3 Views</small></li>
                                     </a>
                                 </ul>
                                 <div class="row justify-content-between">
                                     <div class="col">
-                                        <h4 class="text-danger"><i class="fa fa-inr"></i> {{ $car->price }}</h4>
+                                        <h4 class="text-{{ $dealer->social->theme ?? 'secondary' }}"><i
+                                                class="fa fa-inr"></i>
+                                            {{ $car->price }}</h4>
                                     </div>
                                     <div class="col-auto">
-                                        <a href="{{ url('dealer/car/' . $car->id) }}" class="btn btn-outline-info btn-sm">
+                                        <a href="{{ url('dealer/car/' . $car->id) }}"
+                                            class="btn btn-outline-{{ $dealer->social->theme ?? 'secondary' }} btn-sm">
                                             <li class="list-inline-item"><small>View Details</small></li>
                                         </a>
                                     </div>
