@@ -280,7 +280,7 @@
                                     <label class="form-label">Vehical Number</label>
                                     <div>
                                         <input type="text" class="form-control" placeholder="Vehical Number"
-                                            name="car_number" value="{{ old('car_number', $car->car_number) }}" />
+                                            name="car_number" value="{{ old('car_number', $car->car_number) pattern="[A-Z]{2}[0-9]{2}[a-z]{2}[0-9]{4}$" title="Three letter country code">}}" />
                                     </div>
                                 </div>
                             </div>
@@ -289,7 +289,7 @@
                                     <label class="form-label text-primary">Price</label>
                                     <div>
                                         <input type="text" class="form-control" data-parsley-min="6"
-                                            placeholder="Price" name="price" required
+                                            placeholder="Price" name="price" required 
                                             value="{{ old('price', $car->price) }}" />
                                     </div>
                                 </div>

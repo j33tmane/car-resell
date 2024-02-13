@@ -98,7 +98,7 @@
                                     <label class="form-label">Body Style</label>
                                     <div>
                                         <select class="form-control mb-2" name="body">
-                                            <option value="">-Select Body Style-</option>
+                                            <option value=""input class="form-check-input" type="checkbox">-Select Body Style-</option>
                                             @foreach (Config::get('drops.body-style') as $key => $value)
                                                 <option value="{{ $key }}">{{ $value }}</option>
                                             @endforeach
@@ -216,7 +216,7 @@
                                             Space)</small></label>
                                     <div>
                                         <input type="text" class="form-control" name="car_number" maxlength="10"
-                                            placeholder="MH09XX1234 (Without Space)" value="" required="">
+                                            placeholder="MH09XX1234 (Without Space)" value="" required=""  pattern="[A-Z]{2}[0-9]{2}[a-z]{2}[0-9]{4}$" title="Three letter country code">
                                     </div>
                                 </div>
                             </div>
