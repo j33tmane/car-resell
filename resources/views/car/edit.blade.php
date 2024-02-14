@@ -285,7 +285,7 @@
                                             placeholder="Vehical Number" name="car_number"
                                             value="{{ old('car_number', $car->car_number) }}"
                                             pattern="^[A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{4}$"
-                                            title="Three letter country code" />
+                                            title="10 Chars Long Ex. MH09FB1234 (No Space Allowed)" />
                                     </div>
                                 </div>
                             </div>

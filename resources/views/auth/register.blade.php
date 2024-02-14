@@ -22,13 +22,14 @@
                     <div class="card">
 
                         <marquee behavior="scroll" direction="left" scrollamount="10" style="margin: 2% 14% 0% 14%">
-                            <img src="{{ URL::asset('/assets/my-img/car-logo.gif') }}" width="10%"></marquee>
+                            <img src="{{ URL::asset('/assets/my-img/car-logo.gif') }}" width="10%">
+                        </marquee>
                         <div class="app-brand justify-content-center bg-info rounded py-2" style="margin: 2% 14% 2% 14%">
-                            <center><a href="https://abhcars.in/" class="app-brand-link gap-2" >
-                              <span class="app-brand-text demo text-body fw-semibold text-uppercase">
-                                <img src="{{ URL::asset('/assets/my-img/ABH-logo.png') }}" width="230px"></span>
-                            </a></center>
-                          </div>
+                            <center><a href="https://abhcars.in/" class="app-brand-link gap-2">
+                                    <span class="app-brand-text demo text-body fw-semibold text-uppercase">
+                                        <img src="{{ URL::asset('/assets/my-img/ABH-logo.png') }}" width="230px"></span>
+                                </a></center>
+                        </div>
 
                         <div class="card-body p-4">
 
@@ -58,6 +59,18 @@
                                             name="name" value="{{ old('name') }}" id="username"
                                             placeholder="Enter username">
                                         @error('name')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label" for="username">Mobile</label>
+                                        <input type="text" class="form-control @error('mobile') is-invalid @enderror"
+                                            name="mobile" value="{{ old('mobile') }}" id="mobile"
+                                            placeholder="Enter mobile number">
+                                        @error('mobile')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>

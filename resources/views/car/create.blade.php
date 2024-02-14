@@ -185,8 +185,8 @@
                                     <div>
                                         <input type="text" class="form-control text-uppercase" name="car_number"
                                             maxlength="10" placeholder="MH09XX1234 (Without Space)" value=""
-                                            required="" pattern="[A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{4}$"
-                                            title="Three letter country code">
+                                            required="" pattern="^[A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{4}$"
+                                            title="10 Chars Long Ex. MH09FB1234 (No Space Allowed)">
                                     </div>
                                 </div>
                             </div>
