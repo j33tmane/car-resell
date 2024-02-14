@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Welcome to ABHCARS - Your Destination for Quality Used Cars</title>
+    <title>Search Car - Your Destination for Quality Used Cars</title>
     <meta name="description"
         content="Discover a wide range of quality used cars at ABHCARS. Scan our unique QR codes to access detailed information about each vehicle - brand, year, fuel type, and more. Find your perfect car hassle-free!">
     <meta name="keywords" content="ABHCARS, used cars, quality vehicles, QR code, car sales, pre-owned cars">
@@ -44,12 +44,12 @@
 <body>
 
     <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top bg-dark">
+    <header id="header" class="fixed-top bg-primary">
         <div class="container d-flex align-items-center">
             <h1 class="logo me-auto"><a href="{{ url('/') }}">ABHCars</a></h1>
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto active" href="{{ url('/') }}">Home</a></li>
+                    <li><a class="nav-link scrollto " href="{{ url('/') }}">Home</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
@@ -65,12 +65,13 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
                         <h3>Enter Car Number</h3>
-                        <p>Enter vehicle number to find vehicle details</p>
+                        <p>Enter vehicle number to find vehicle details Ex. MH09FB1234</p>
                         <form action="{{ url('/search/car') }}" method="get">
                             <div class="row">
-                                <input type="text" name="filter[car_number]" class="form-control"
-                                    placeholder="Enter number here" required>
-                                <input type="submit" value="Search" class="btn btn-success mt-3">
+                                <input type="text" name="filter[car_number]" class="form-control text-uppercase"
+                                    placeholder="Enter number here" pattern="^[A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{4}$"
+                                    title="10 Chars Long Ex. MH09FB1234 (No Space Allowed)" required>
+                                <input type="submit" value="Search" class="btn btn-primary mt-3">
                             </div>
 
                         </form>
@@ -176,6 +177,17 @@
                     </div>
                 </div>
             </section>
+        @else
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="alert alert-danger text-center">
+                            <strong>Opps! No Vehile found !</strong><br> Vehicle number that you entered is incorrect,
+                            please check and enter again.</a>.
+                        </div>
+                    </div>
+                </div>
+            </div>
         @endif
     </main>
 

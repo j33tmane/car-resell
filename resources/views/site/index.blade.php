@@ -98,25 +98,7 @@
 
 
 
-    {{-- <div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog"
-        id="modalSheet">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content rounded-4 shadow">
-                <div class="modal-header border-bottom-0">
-                    <h1 class="modal-title fs-5">Modal title</h1>
 
-                </div>
-                <div class="modal-body py-0">
-
-                    <input type="text">
-                </div>
-                <div class="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
-                    <button type="button" class="btn btn-lg btn-primary">Save changes</button>
-
-                </div>
-            </div>
-        </div>
-    </div> --}}
     </section>
 
     <main id="main">
@@ -202,7 +184,7 @@
 
 
 
-        <section class="steps" id="steps">
+        {{-- <section class="steps" id="steps">
             <h1 style="margin: 0% 0% 3% 10%">Process of Selling Used Car</h1>
             <div class="album py-5 bg-light">
 
@@ -327,7 +309,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
 
 
 

@@ -97,27 +97,14 @@
                                 <div class="mb-3">
                                     <label class="form-label">Body Style</label>
                                     <div>
-                                        <select class="form-control mb-2" name="body">
-                                            <option value=""input class="form-check-input" type="checkbox">-Select Body Style-</option>
+                                        <select class="form-control mb-2" name="bodystyle">
+                                            <option value="">-Select
+                                                Body Style-</option>
                                             @foreach (Config::get('drops.body-style') as $key => $value)
                                                 <option value="{{ $key }}">{{ $value }}</option>
                                             @endforeach
                                         </select>
-                                        {{-- <select class="form-control mb-2" name="body">
-                                     <option value="">-Select Body Style-</option>
-                                  <option value="SUV">SUV</option>
-                                  <option value="Mini SUV">Mini SUV</option>
-                                  <option value="Sedan">Sedan</option>
-                                  <option value="Hatchback">Hatchback</option>
-                                  <option value="Coupe">Coupe</option>
-                                  <option value="Wagon">Wagon</option>
-                                  <option value="Hybrid">Hybrid</option>
-                                  <option value="Luxury">Luxury</option>
-                                  <option value="Pickup">Pickup</option>
-                                  <option value="Convertible">Convertible</option>
-                                  <option value="Truck">Truck</option>
-                                  <option value="None">None</option>
-                                  </select> --}}
+
                                     </div>
                                 </div>
                             </div>
@@ -155,19 +142,6 @@
                             </div>
 
 
-                            {{-- <div class="mb-3 row">
-                                <label class="col-md-3 col-form-label">Engine (cc)</label>
-                                <div class="col-md-9">
-                                  <input type="text" class="form-control" name="engine" placeholder="1497" value="">
-                                </div>
-                              </div>
-
-                            <div class="mb-3 row">
-                                <label class="col-md-3 col-form-label">Power (bhp)</label>
-                                <div class="col-md-9">
-                                  <input type="text" class="form-control" name="power" placeholder="113.31" value="">
-                                </div>
-                              </div> --}}
 
 
                             <div class="col-sm-6">
@@ -186,28 +160,22 @@
                                         <select id="fuel" class="form-control mb-2" name="no_of_owners" required>
                                             <option value=''>-Select No of Owners-</option>
                                             <option value='1'>1st </option>
-                                            <option value='1'>2nd </option>
-                                            <option value='1'>3rd </option>
-                                            <option value='1'>4th </option>
-                                            <option value='1'>5th </option>
-                                            <option value='1'>6th </option>
-                                            <option value='1'>7th </option>
-                                            <option value='1'>8th </option>
-                                            <option value='1'>9th </option>
+                                            <option value='2'>2nd </option>
+                                            <option value='3'>3rd </option>
+                                            <option value='4'>4th </option>
+                                            <option value='5'>5th </option>
+                                            <option value='6'>6th </option>
+                                            <option value='7'>7th </option>
+                                            <option value='8'>8th </option>
+                                            <option value='9'>9th </option>
                                         </select>
 
-                                        {{-- <input type="number" class="form-control" required placeholder="Number Of Owners"
-                                            name="no_of_owners" /> --}}
+
                                     </div>
                                 </div>
                             </div>
 
-                            {{-- <div class="mb-3 row">
-                                <label class="col-md-3 col-form-label">Vehicle Number <small style="font-size:7px">(Without Space)</small></label>
-                                <div class="col-md-9">
-                                  <input type="text" class="form-control" name="cno" maxlength="10" placeholder="MH09XX1234 (Without Space)" value="" required="">
-                                </div>
-                              </div> --}}
+
 
 
                             <div class="col-sm-6">
@@ -215,8 +183,10 @@
                                     <label class="form-label">Vehical Number<small style="font-size:7px">(Without
                                             Space)</small></label>
                                     <div>
-                                        <input type="text" class="form-control" name="car_number" maxlength="10"
-                                            placeholder="MH09XX1234 (Without Space)" value="" required=""  pattern="[A-Z]{2}[0-9]{2}[a-z]{2}[0-9]{4}$" title="Three letter country code">
+                                        <input type="text" class="form-control text-uppercase" name="car_number"
+                                            maxlength="10" placeholder="MH09XX1234 (Without Space)" value=""
+                                            required="" pattern="[A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{4}$"
+                                            title="Three letter country code">
                                     </div>
                                 </div>
                             </div>
@@ -293,13 +263,13 @@
                                 <div class="col-md">
                                     <h5>Features</h5>
                                     @foreach (Config::get('drops.features') as $key => $value)
-                                    
-                                    <div class="form-check form-check-inline mt-3">
-                                        <input class="form-check-input" type="checkbox" name=" features[]"
-                                            value="{{$key}}">
-                                        <label class="form-check-label" for="inlineCheckbox1">{{$value}}</label>
-                                    </div>
-                                @endforeach
+                                        <div class="form-check form-check-inline mt-3">
+                                            <input class="form-check-input" type="checkbox" name=" features[]"
+                                                value="{{ $key }}">
+                                            <label class="form-check-label"
+                                                for="inlineCheckbox1">{{ $value }}</label>
+                                        </div>
+                                    @endforeach
                                     {{-- <div class="form-check form-check-inline mt-3">
                                         <input class="form-check-input" type="checkbox" name=" features[]"
                                             value="1">

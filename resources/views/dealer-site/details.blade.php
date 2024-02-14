@@ -90,6 +90,10 @@
 
                         <tbody>
                             <tr>
+                                <th width="30%">Vehicle Number</th>
+                                <td>{{ $car->car_number ?? '' }}</td>
+                            </tr>
+                            <tr>
                                 <th>Brand</th>
                                 <td>{{ $car->car_brand ?? 'NA' }}</td>
                             </tr>
@@ -121,14 +125,14 @@
                                 <th>Insurance</th>
                                 <td>{{ $car->insurance == 1 ? 'YES' : 'NO' }}</td>
                             </tr>
-                            <tr>
+                            {{-- <tr>
                                 <th>Power Window</th>
                                 <td>{{ $car->p_window == 1 ? 'YES' : 'NO' }}</td>
                             </tr>
                             <tr>
                                 <th>Power Steering</th>
                                 <td>{{ $car->p_steering == 1 ? 'YES' : 'NO' }}</td>
-                            </tr>
+                            </tr> --}}
                             <tr>
                                 <th>Location</th>
                                 <td>{{ $car->location ?? 'NA' }}</td>

@@ -281,9 +281,10 @@
                                 <div class="mb-3">
                                     <label class="form-label">Vehical Number</label>
                                     <div>
-                                        <input type="text" class="form-control" placeholder="Vehical Number"
-                                            name="car_number" value="{{ old('car_number', $car->car_number) }}"
-                                            pattern="[A-Z]{2}[0-9]{2}[a-z]{2}[0-9]{4}$"
+                                        <input type="text" class="form-control text-uppercase"
+                                            placeholder="Vehical Number" name="car_number"
+                                            value="{{ old('car_number', $car->car_number) }}"
+                                            pattern="^[A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{4}$"
                                             title="Three letter country code" />
                                     </div>
                                 </div>
@@ -338,7 +339,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-sm-6">
+                            {{-- <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label class="form-label">Power Window</label>
                                     <div>
@@ -365,7 +366,7 @@
                                         </select>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="mb-3 row">
                                 <div class="col-md">
