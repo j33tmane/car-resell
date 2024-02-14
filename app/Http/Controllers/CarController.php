@@ -81,9 +81,16 @@ class CarController extends Controller
         $request->merge([
             "features"=>$features
         ]);
+        if($request->car_number){
+            $car = Car::where('car_number',$request->car_number)->first();
+            if($car){
+                flash('Vehicle with same number is already exist')->error()->important(); 
+                return back()->withInput();
+            }
+        }
+        
          try{
             $inputs = $request->all();
-            // return $inputs;
             $car = Car::create($inputs);
             flash('Care added succefuly')->success()->important(); 
             return redirect('/cars/'.$car->id.'/edit');
@@ -191,7 +198,7 @@ class CarController extends Controller
     public function uploadImage(Request $request){
         $car = Car::find($request->car_id);
         $path=null;
-        // try{
+        try{
             if($car && $request->imageFile){
                 $path = Storage::disk('s3')->put('cars/user_'.$car->user_id.'/'.$car->id, $request->imageFile);
                 $request->merge(["image_key"=>$path]);
@@ -201,9 +208,9 @@ class CarController extends Controller
             }else{
                 flash('Car Not Found')->error()->important(); 
             }
-        // }catch(\Exception $e){
-        //     Storage::disk('s3')->delete($path);
-        // }
+        }catch(\Exception $e){
+            Storage::disk('s3')->delete($path);
+        }
         return back();
     }
 

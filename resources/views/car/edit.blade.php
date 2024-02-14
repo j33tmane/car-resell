@@ -140,8 +140,8 @@
                                 <div class="mb-6">
                                     <label class="form-label">Ad Title / Car Name</label>
                                     <div>
-                                        <input type="text" class="form-control" required data-parsley-minlength="6"
-                                            placeholder="Car Name  Min 6 chars." name="car_name"
+                                        <input type="text" class="form-control" required data-parsley-minlength="3"
+                                            placeholder="Car Name  Min 3 chars." name="car_name"
                                             value="{{ old('car_name', $car->car_name) }}" />
                                     </div>
                                 </div>

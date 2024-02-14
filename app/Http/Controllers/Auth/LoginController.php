@@ -42,4 +42,13 @@ class LoginController extends Controller
         return redirect('/login');
     }
 
+    protected function credentials($request)
+    {
+        if(is_numeric($request->get('email'))){
+        return ['mobile'=>$request->get('email'),'password'=>$request->get('password')];
+        }
+        
+        return ['email' => $request->get('email'), 'password'=>$request->get('password')];
+    }
+
 }

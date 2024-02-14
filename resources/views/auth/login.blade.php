@@ -20,17 +20,18 @@
             </div> --}}
             <div class="row align-items-center justify-content-center">
                 <div class="col-md-8 col-lg-6 col-xl-5">
-                    <div class="card" >
+                    <div class="card">
                         <marquee behavior="scroll" direction="left" scrollamount="10" style="margin: 2% 14% 0% 14%">
-                            <img src="{{ URL::asset('/assets/my-img/car-logo.gif') }}" width="10%"></marquee>
-                            {{-- <img src="https://abhcars.in/car.gif" width="10%"></marquee> --}}
+                            <img src="{{ URL::asset('/assets/my-img/car-logo.gif') }}" width="10%">
+                        </marquee>
+                        {{-- <img src="https://abhcars.in/car.gif" width="10%"></marquee> --}}
                         <div class="app-brand justify-content-center bg-info rounded py-2" style="margin: 2% 14% 2% 14%">
-                            <center><a href="https://abhcars.in/" class="app-brand-link gap-2" >
-                              <span class="app-brand-text demo text-body fw-semibold text-uppercase">
-                                <img src="{{ URL::asset('/assets/my-img/ABH-logo.png') }}" width="230px"></span>
-                            </a></center>
-                          </div>
- 
+                            <center><a href="https://abhcars.in/" class="app-brand-link gap-2">
+                                    <span class="app-brand-text demo text-body fw-semibold text-uppercase">
+                                        <img src="{{ URL::asset('/assets/my-img/ABH-logo.png') }}" width="230px"></span>
+                                </a></center>
+                        </div>
+
 
                         <div class="card-body p-4">
                             <div class="text-center mt-2">
@@ -42,13 +43,13 @@
                                     @csrf
 
                                     <div class="mb-3">
-                                        <label class="form-label" for="email">Email</label>
+                                        <label class="form-label" for="email">Email/Mobile</label>
                                         <input type="text" class="form-control @error('email') is-invalid @enderror"
                                             name="email" value="{{ old('email', '') }}" id="email"
-                                            placeholder="Enter Email address">
+                                            placeholder="Enter Email address Or Mobile Number">
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
+                                                <strong>The mobile/email is required</strong>
                                             </span>
                                         @enderror
                                     </div>

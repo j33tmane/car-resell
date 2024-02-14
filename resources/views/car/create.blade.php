@@ -55,15 +55,16 @@
                             <div class="col-sm-6 mb-3">
                                 <label class="form-label">Ad Title / Car Name</label>
                                 <div>
-                                    <input type="text" class="form-control" required data-parsley-minlength="6"
-                                        placeholder="Car Name  Min 6 chars." name="car_name" />
+                                    <input type="text" class="form-control" required data-parsley-minlength="3"
+                                        placeholder="Car Name  Min 3 chars." name="car_name"
+                                        value="{{ old('car_name') }}" />
                                 </div>
                             </div>
                             <div class="col-sm-6 mb-3">
                                 <label class="form-label">Car Color</label>
                                 <div>
                                     <input type="text" class="form-control" required data-parsley-minlength="3"
-                                        placeholder="Enter car color  Ex. Red" name="color" />
+                                        placeholder="Enter car color  Ex. Red" name="color" value="{{ old('color') }}" />
                                 </div>
                             </div>
 
@@ -184,8 +185,9 @@
                                             Space)</small></label>
                                     <div>
                                         <input type="text" class="form-control text-uppercase" name="car_number"
-                                            maxlength="10" placeholder="MH09XX1234 (Without Space)" value=""
-                                            required="" pattern="^[A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{4}$"
+                                            maxlength="10" placeholder="MH09XX1234 (Without Space)"
+                                            value="{{ old('car_number') }}" required=""
+                                            pattern="^[A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{4}$"
                                             title="10 Chars Long Ex. MH09FB1234 (No Space Allowed)">
                                     </div>
                                 </div>
@@ -195,7 +197,7 @@
                                     <label class="form-label text-primary">Price</label>
                                     <div>
                                         <input type="number" class="form-control" data-parsley-min="6"
-                                            placeholder="Price" name="price" required />
+                                            placeholder="Price" name="price" required value="{{ old('price') }}" />
                                     </div>
                                 </div>
                             </div>

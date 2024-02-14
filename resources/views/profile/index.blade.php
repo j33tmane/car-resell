@@ -32,8 +32,13 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Username</label>
-                            <input type="text" class="form-control" required placeholder="Type something"
+                            <input type="text" class="form-control" required placeholder="Enter Username"
                                 value="{{ $user->name }}" name="name" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Mobile</label>
+                            <input type="text" class="form-control" required placeholder="Mobile"
+                                value="{{ $user->mobile }}" name="mobile" disabled />
                         </div>
                         <div>
                             <button type="submit" class="btn btn-primary waves-effect waves-light me-1">
