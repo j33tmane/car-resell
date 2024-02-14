@@ -2,13 +2,11 @@
 <html lang="en">
 
 <head>
-    <?php $theme = $dealer->social ? $dealer->social->theme : 'secondary'; ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description"
         content="At {{ $dealer->company_name ?? '' }}, {{ $dealer->address ?? '' }} we redefine the experience of purchasing pre-owned vehicles. With a passion for quality and reliability, we've established ourselves as a trusted name in the used car market.">
     <meta name="author" content="{{ $dealer->company_name ?? '' }}">
-
     @yield('tags')
     <title>{{ $dealer->company_name ?? '' }} | ABHCars</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
@@ -53,7 +51,8 @@
 <body class="bg-white" style="--bs-bg-opacity: .5;">
 
     <header>
-        <nav class="navbar navbar-expand-md bg-{{ $theme }}" aria-label="Fourth navbar example">
+        <nav class="navbar navbar-expand-md bg-{{ $dealer->social->theme ?? 'secondary' }}"
+            aria-label="Fourth navbar example">
             <div class="container">
                 <a class=" text-uppercase" href="{{ url('dealer/' . $dealer->user_id) }}"><img
                         src="{{ $dealer->image_url }}" class="img rounded-circle border border-white"
