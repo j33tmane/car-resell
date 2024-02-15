@@ -214,6 +214,63 @@ class CarController extends Controller
         return back();
     }
 
+    public function uploadVideo(Request $request){
+        $car = Car::find($request->car_id);
+
+        $request->validate(["videoFile"=>"required"]);
+
+        $getID3 = new \getID3;
+        $file = $getID3->analyze($request->videoFile);
+        // $duration = date('H:i:s.v', $file['playtime_seconds']);
+        $secs = $file['playtime_seconds'];
+        try{
+            if($secs>61)
+             {
+                flash('Video duration is more than 1 minute.')->error()->important(); 
+                return back();
+             }
+
+            if(!$car)
+            {
+                flash('Car Not Found')->error()->important(); 
+                return back();
+            }
+            if($car->video_key!="" || $car->video_key!=null)
+            {
+                flash('Video already uploaded')->error()->important(); 
+                return back();
+            }
+
+            $path = Storage::disk('s3')->put('cars/user_'.$car->user_id.'/'.$car->id, $request->videoFile);
+            $inputs = $request->all();
+            $car->video_key = $path;
+            $car->save();
+            flash('Video uploaded successfuly')->success()->important(); 
+            
+        }catch(\Exception $e){
+            Storage::disk('s3')->delete($path);
+        }
+        return back();
+    }
+
+    public function removeVideo(Request $request,$carId){
+        $car = Car::findOrFail($carId);
+        $path=null;
+        try{
+            if($car->video_key){
+                Storage::disk('s3')->delete($car->video_key);
+                $car->video_key=null;
+                $car->save();
+                flash('Video deleted successfuly')->success()->important(); 
+            }else{
+                flash('Car Not Found')->error()->important(); 
+            }
+        }catch(\Exception $e){
+            
+        }
+        return back();
+    }
+
     public function removeImage(Request $request,$img_id){
         $carImage = CarImage::find($img_id);
         $path=null;

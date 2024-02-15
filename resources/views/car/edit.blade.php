@@ -57,6 +57,45 @@
 
                 </div>
             </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Video</h4>
+                    <p class="card-title-desc">Upload video with duration under 1 min and horizontal 19:6 Ration.</p>
+
+                    @if ($car->images->count() == 0)
+                        <div class="alert alert-danger">
+                            <strong>Opps!</strong> Please upload at least one image</a>.
+                        </div>
+                    @endif
+                    @if ($car->video_key)
+                        <div class="row">
+
+                            <video height="400" controls>
+                                <source src="{{ $car->video_url }}" type="video/mp4">
+                                Your browser does not support HTML video.
+                            </video>
+                        </div>
+                        <a href="{{ url('cars/video/remove/' . $car->id) }}" class="px-2 text-danger btn">Remove
+                            <i class="uil uil-trash-alt font-size-18"></i></a>
+                    @else
+                        <div class="mt-3">
+                            <form class="custom-validation" action="{{ url('cars/video/upload') }}" method="post"
+                                enctype="multipart/form-data">
+                                @csrf
+                                <input type="hidden" class="form-control" name="car_id" value="{{ $car->id }}">
+                                <input type="file" class="form-control" name="videoFile">
+                                <div class="mt-3">
+                                    <button type="submit" class="btn btn-primary waves-effect waves-light me-1"
+                                        onclick="this.form.submit();this.disabled=true;">
+                                        Upload
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    @endif
+                </div>
+            </div>
             @role('admin')
                 <div class="card">
                     <div class="card-body">
@@ -370,7 +409,7 @@
 
                             <div class="mb-3 row">
                                 <div class="col-md">
-                                    <h5>Features {{ $car->features }}</h5>
+                                    <h5>Features</h5>
                                     <?php $fets = explode(',', $car->features); ?>
                                     @foreach (Config::get('drops.features') as $key => $value)
                                         <div class="form-check form-check-inline mt-3">

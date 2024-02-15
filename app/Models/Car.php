@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\QueryBuilder\QueryBuilder;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Filesystem\FilesystemManager;
+use Storage;
 
 class Car extends Model
 {
@@ -14,10 +16,15 @@ class Car extends Model
 
     protected $dates = ['deleted_at'];
 
-    protected $fillable=['is_sold','location','tyre_type','insurance','p_window','p_steering','yt_link','user_id','car_name','car_brand','year','color','fuel','transmission','km_driven','no_of_owners','car_description','car_number','price','active','features','bodystyle','power','engine'];
+    protected $fillable=['video_key','is_sold','location','tyre_type','insurance','p_window','p_steering','yt_link','user_id','car_name','car_brand','year','color','fuel','transmission','km_driven','no_of_owners','car_description','car_number','price','active','features','bodystyle','power','engine'];
 
     protected $appends = ['firstImageUrl','video_id'];
     
+    function getVideoUrlAttribute(){
+        if ($this->video_key != null && filter_var($this->video_key, FILTER_VALIDATE_INT) == false)
+            return Storage::disk('s3')->url($this->video_key);
+    }
+
     public function dealerProfile(){
         return $this->hasOne('App\Models\DealerProfile','user_id','user_id');
     }
@@ -44,6 +51,8 @@ class Car extends Model
             return null;
         else{
             $parts = parse_url($this->yt_link);
+            if(!array_key_exists('query',$parts))
+                return 'Invalid';
             if($parts['host']=="youtu.be"){
                 $video_id= str_replace('/', '', $parts['path']);
             }

@@ -177,7 +177,17 @@
 
                 </article>
 
-
+                <div class="">
+                    @if ($car->video_id)
+                        <div class="carousel-item active">
+                            <iframe width="100%" height="300"
+                                src="https://www.youtube.com/embed/{{ $car->video_id }}?rel=0" title="YouTube video player"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
+                        </div>
+                    @endif
+                </div>
 
             </div>
 
@@ -225,17 +235,7 @@
                         pollution
                         certificate
                         are other documents that are needed to be checked while buying a used car.</p>
-                    <div class="">
-                        @if ($car->video_id)
-                            <div class="carousel-item active">
-                                <iframe width="100%"
-                                    height="250px"src="https://www.youtube.com/embed/{{ $car->video_id }}"
-                                    title="YouTube video player" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    allowfullscreen></iframe>
-                            </div>
-                        @endif
-                    </div>
+
 
 
 
