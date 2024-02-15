@@ -32,10 +32,11 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Ad Title</th>
-                                    <th>Dealer</th>
+                                    <th>Clinet Name</th>
+                                    <th>Contact</th>
                                     <th>Car</th>
                                     <th>Brand</th>
+                                    <th>Offer</th>
                                     <th>Price</th>
                                     {{-- <th>Visible</th> --}}
                                     <th>Created</th>
@@ -48,13 +49,18 @@
                                         <th scope="row">{{ ((request()->input('page') ?? 1) - 1) * 10 + ($key + 1) }}
                                         </th>
                                         <td>{{ $enq->name ?? 'NA' }}</td>
-                                        <td>{{ $enq->mobile ?? 'NA' }}</td>
+                                        <td>{{ $enq->mobile ?? 'NA' }} @if ($enq->mobile)
+                                                <a href="tel:{{ $enq->mobile ?? 'NA' }}"
+                                                    class="btn btn-outline-success btn-sm">Call</a>
+                                            @endif
+                                        </td>
                                         <td><a href="{{ url('dealer/car/' . $enq->car_id) }}"
                                                 target="_blank">{{ $enq->car->car_name ?? 'NA' }} <i
                                                     class="uil-external-link-alt"></i></a>
                                         </td>
                                         <td>{{ $enq->car->car_brand ?? 'NA' }}</td>
-                                        <td>₹{{ number_format($enq->car->price) ?? 'NA' }}</td>
+                                        <td>₹{{ $enq->offer_inr ?? 0 }}</td>
+                                        <td>₹{{ $enq->car->price_inr ?? 'NA' }}</td>
                                         {{-- <td id="stat{{ $enq->id }}">{{ $enq->active == 0 ? 'Admin' : 'Dealer' }}
                                         </td> --}}
                                         <td>{{ date('d-m-Y', strtotime($enq->created_at)) ?? 'NA' }}</td>

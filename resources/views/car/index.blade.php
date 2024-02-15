@@ -59,8 +59,8 @@
                                         <td>{{ $car->car_name ?? 'NA' }}</td>
                                         <td>{{ $car->dealerProfile->company_name ?? 'NA' }}</td>
                                         <td>{{ $car->car_brand ?? 'NA' }}</td>
-                                        <td>₹{{ number_format($car->price)  ?? 'NA' }}</td>
-                                           
+                                        <td>₹{{ number_format($car->price) ?? 'NA' }}</td>
+
                                         <td id="stat{{ $car->id }}">{{ $car->active == 0 ? 'Inactive' : 'Active' }}
                                         </td>
                                         <td>
@@ -99,18 +99,19 @@
                                                     class="btn btn-sm btn-outline-info" data-bs-toggle="tooltip"
                                                     data-bs-placement="top" title="View"><i class="fa fa-eye"></i></a>
 
-                                                <form action="{{ url('/cars/' . $car->id) }}"method="POST">
+                                                @can('car-delete')
+                                                    <form action="{{ url('/cars/' . $car->id) }}"method="POST">
 
-                                                    @csrf
-                                                    @method('delete')
+                                                        @csrf
+                                                        @method('delete')
 
-                                                    <button type="submit" class="btn btn-sm btn-outline-danger"
-                                                        data-original-title="Delete" data-bs-toggle="tooltip"
-                                                        data-bs-placement="top" title="Delete"> <i class="fa fa-trash"></i>
+                                                        <button type="submit" class="btn btn-sm btn-outline-danger"
+                                                            data-original-title="Delete" data-bs-toggle="tooltip"
+                                                            data-bs-placement="top" title="Delete"> <i class="fa fa-trash"></i>
 
-                                                    </button>
-                                                </form>
-
+                                                        </button>
+                                                    </form>
+                                                @endcan
 
 
                                             </div>

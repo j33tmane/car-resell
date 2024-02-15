@@ -66,12 +66,22 @@
 
                 <div class="collapse navbar-collapse" id="navbarsExample04">
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                        {{-- <li class="nav-item">
-                            <a class="nav-link active" aria-current="page"
-                                href="{{ url('/dealer/' . $dealer->user_id) }}">Home</a>
-                        </li> --}}
+
+
                     </ul>
+                    {{-- <div class="d-flex">
+
+                        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+
+                            <li class="nav-item">
+                                <a class="nav-link " aria-current="page"
+                                    href="{{ url('/dealer/' . $dealer->user_id) }}">Search Vehicle</a>
+                            </li>
+                        </ul>
+                    </div> --}}
+
                     <div class="d-flex">
+
                         <input class="form-control me-2" type="text" placeholder="Search car name" name="car_name"
                             id="car_name">
                         <button class="btn btn-outline-light btn" type="button"

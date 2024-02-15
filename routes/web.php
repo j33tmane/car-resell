@@ -25,6 +25,10 @@ Route::get('/home', function (Request $request) {
 });
 
 Route::middleware(['auth'])->group(function () {
+    Route::get('verification-pending','UserController@verificationPending');
+});
+
+Route::middleware(['auth','active'])->group(function () {
     Route::get('/dashboard','DashboardController@index');
     Route::get('/profile','UserController@profile');
     Route::post('/profile/update', 'UserController@updateProfile')->name('updateprofile');
@@ -69,13 +73,13 @@ Route::get('/', function () {
     return view('site.index');
 });
 
-Route::get('/search/car','GuestController@searchCarByNumber');
+Route::get('/search/{id}/car','GuestController@searchCarByNumber');
 
 Route::get('/dealer/{id}','GuestController@dealerPage');
 Route::get('/dealer/car/{id}','GuestController@carDetails');
 Route::post('/enquiry/car/{id}','GuestController@submitEnquiry');
 
-Route::resource('cars', 'CarController');
+
 
 
 

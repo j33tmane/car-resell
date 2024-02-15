@@ -29,6 +29,7 @@ class Car extends Model
     public function getPriceInrAttribute(){
         return preg_replace('/(\d+?)(?=(\d\d)+(\d)(?!\d))(\.\d+)?/i', "$1,", $this->price);
     }
+    
 
     public function getFirstImageUrlAttribute(){
         $img = $this->hasMany('App\Models\CarImage','car_id')->first();

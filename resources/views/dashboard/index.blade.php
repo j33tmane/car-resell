@@ -73,77 +73,108 @@
 
     <div class="row">
         <div class="col-md-6">
-          <div class="card mb-4">
-            <h5 class="card-header">Website Link</h5>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card mb-4">
+                        <h5 class="card-header">Website Link</h5>
 
 
-            <div class="card-body demo-vertical-spacing demo-only-element">
-              
-                <ul class="list-group">
-                   <li class="list-group-item d-flex justify-content-between flex-column flex-sm-row  " style="border-color: #696cff">
-                   <div class="offer">
-                      <p class="mb-0">{{(url('/dealer/' . Auth::user()->id))}}</p>
-                   </div>
-  
-                   <button type="button" class="btn btn-outline-primary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Copied!" onclick="copyText()">
-                      Copy
-                    </button> 
-  
-                    {{-- <div class="apply mt-3 mt-sm-0"><button class="btn btn-outline-primary" onclick="copyText()">Copy</button></div> --}}
-                   </li>
-                </ul>
-                <script>
-                function copyText() {
-                    navigator.clipboard.writeText
-                        ("https://abhcars.in/Dealer/822357");
-                }
-                </script>
-                
-                {{-- <br><center><img src="https://api.qrserver.com/v1/create-qr-code/?size=190x190&amp;data=https://abhcars.in/QR/822357">
-                <br><br><a href="https://api.qrserver.com/v1/create-qr-code/?size=190x190&amp;data=https://abhcars.in/QR/822357" class="btn btn-primary" download="">Download</a></center>
-          --}}
+                        <div class="card-body demo-vertical-spacing demo-only-element">
 
-         <br><br>
-            <div class="visible-print text-center"  id="html-content-holder">
-                {!! QrCode::size(200)->generate(url('/dealer/' . Auth::user()->id)) !!}
-                <p>Scan me to return to the original page.</p>
+
+
+
+                            <div class="visible-print text-center mt-3" id="html-content-holder">
+                                {!! QrCode::size(200)->generate(url('/dealer/' . Auth::user()->id)) !!}
+                                <p>Scan me to return to visit dealer website.</p>
+                            </div>
+                            {{-- <a id="btn-Convert-Html2Image" href="#">Download</a> --}}
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between flex-column flex-sm-row  "
+                                    style="border-color: #696cff">
+                                    <div class="offer">
+                                        <p class="mb-0">{{ url('/dealer/' . Auth::user()->id) }}</p>
+                                    </div>
+
+                                    <button type="button" class="btn btn-outline-primary" data-bs-container="body"
+                                        data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Copied!"
+                                        onclick="copyText()">
+                                        Copy
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card mb-4">
+                        <h5 class="card-header">Search Car Link</h5>
+
+
+                        <div class="card-body demo-vertical-spacing demo-only-element">
+
+
+
+                            <div class="visible-print text-center mt-3" id="html-content-holder">
+                                {!! QrCode::size(200)->generate(url('/search/' . Auth::user()->id)) !!}
+                                <p>Scan me to return search car by vehicle number.</p>
+                            </div>
+                            {{-- <a id="btn-Convert-Html2Image" href="#">Download</a> --}}
+
+
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between flex-column flex-sm-row  "
+                                    style="border-color: #696cff">
+                                    <div class="offer">
+                                        <p class="mb-0">{{ url('/search/' . Auth::user()->id . '/car') }}</p>
+                                    </div>
+
+                                    <button type="button" class="btn btn-outline-primary" data-bs-container="body"
+                                        data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Copied!"
+                                        onclick="copyText('{{ url('/search/' . Auth::user()->id . '/car') }}')">
+                                        Copy
+                                    </button>
+                                </li>
+
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
             </div>
-            <a id="btn-Convert-Html2Image" href="#">Download</a>
-            </div>
-          </div>
         </div>
-      </div>
-
-     
-      
-
+    </div>
 @endsection
 @section('script')
     <!-- apexcharts -->
     <script src="{{ URL::asset('/assets/libs/apexcharts/apexcharts.min.js') }}"></script>
     <script src="{{ URL::asset('/assets/js/pages/dashboard.init.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
-    
+
     <script>
-        $(document).ready(function () {
+        function copyText(str) {
+            navigator.clipboard.writeText(str);
+        }
+    </script>
+
+    <script>
+        $(document).ready(function() {
             var element = $("#html-content-holder"); // global variable
             var getCanvas; // global variable
 
             html2canvas(element, {
-                onrendered: function (canvas) {
+                onrendered: function(canvas) {
                     $("#previewImage").append(canvas);
                     getCanvas = canvas;
                 }
             });
 
-            $("#btn-Convert-Html2Image").on('click', function () {
+            $("#btn-Convert-Html2Image").on('click', function() {
                 var imgageData = getCanvas.toDataURL("image/png");
                 // Now browser starts downloading it instead of just showing it
                 var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
                 $("#btn-Convert-Html2Image").attr("download", "your_pic_name.png").attr("href", newData);
             });
         });
-
-
     </script>
 @endsection

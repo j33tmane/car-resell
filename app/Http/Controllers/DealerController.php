@@ -11,6 +11,11 @@ use Spatie\QueryBuilder\Exceptions\InvalidSortQuery;
 class DealerController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware(['role_or_permission:car-delete'])->only('destroy');
+    }
+
     public function index(){
         $dealers =QueryBuilder::for(User::class)
         // ->allowedIncludes(['claimUser'])

@@ -31,7 +31,8 @@
 
                                     <div class="mb-3">
                                         <label class="form-label" for="username">Username</label>
-                                        <input type="text" class="form-control" id="username" placeholder="Enter username">
+                                        <input type="text" class="form-control" id="username"
+                                            placeholder="Enter username">
                                     </div>
 
                                     <div class="mb-3">
@@ -85,7 +86,7 @@
 
                                     <div class="mt-4 text-center">
                                         <p class="mb-0">Don't have an account ? <a href="auth-register"
-                                                class="fw-medium text-primary"> Signup now </a> </p>
+                                                class="fw-medium text-primary"> Create Account </a> </p>
                                     </div>
                                 </form>
                             </div>
@@ -94,10 +95,12 @@
                     </div>
 
                     <div class="mt-5 text-center">
-                        <p>© <script>
+                        <p>©
+                            <script>
                                 document.write(new Date().getFullYear())
-
-                            </script> Minible. Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand</p>
+                            </script> Minible. Crafted with <i class="mdi mdi-heart text-danger"></i> by
+                            Themesbrand
+                        </p>
                     </div>
 
                 </div>

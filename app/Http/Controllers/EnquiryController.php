@@ -25,7 +25,7 @@ class EnquiryController extends Controller
         if(!$user->hasRole('admin')){
             $enqs=$enqs->leftjoin('cars','cars.id','=','car_id')->where('user_id',$user->id);
         }
-        $enqs=$enqs->orderBy('enquiries.created_at')->paginate(10)->appends(request()->query());
+        $enqs=$enqs->orderBy('enquiries.created_at','desc')->paginate(10)->appends(request()->query());
         return view('enquiry.index',compact('enqs'));
     }
 

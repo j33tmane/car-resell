@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\DealerProfile;
 use App\Models\Car;
+use App\User;
 use App\Models\Enquiry;
 use App\Helpers\DataHelper;
 use Spatie\QueryBuilder\QueryBuilder;
@@ -55,16 +56,21 @@ class GuestController extends Controller
         return back();
     }
 
-    public function searchCarByNumber(Request $request){
+    public function searchCarByNumber(Request $request,$dealer_id){
         $car=null;
+        $dealer = User::find($dealer_id);
+     
         if($request->has('filter')){
+            // $request->merge([])
+
             $car =QueryBuilder::for(Car::class)
             ->allowedIncludes(['images'])
             ->allowedFilters([AllowedFilter::exact('car_number')])
+            ->where('user_id',$dealer_id)
             ->first();
         }
       
-        return view('site.search_car',compact('car'));
+        return view('dealer-site.search_car',compact('car','dealer'));
     }
     
 }

@@ -355,6 +355,10 @@
                             <input type="text" class="form-control" id="mobile" name="mobile"
                                 data-parsley-pattern="^[789]\d{9}$" required>
                         </div>
+                        <div class="mb-1">
+                            <label for="mobile" class="col-form-label">Offer Price:</label>
+                            <input type="number" class="form-control" id="offer" name="offer" required>
+                        </div>
                         <div class="mb-3">
                             <label for="message" class="col-form-label">Message:</label>
                             <textarea class="form-control" id="message" name="message" required></textarea>
