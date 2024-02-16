@@ -74,7 +74,7 @@
     <div class="row">
         <div class="col-md-6">
             <div class="row">
-                <div class="col-sm-6">
+                {{-- <div class="col-sm-6">
                     <div class="card mb-4">
                         <h5 class="card-header">Website Link</h5>
 
@@ -88,7 +88,7 @@
                                 {!! QrCode::size(200)->generate(url('/dealer/' . Auth::user()->id)) !!}
                                 <p>Scan me to return to visit dealer website.</p>
                             </div>
-                            {{-- <a id="btn-Convert-Html2Image" href="#">Download</a> --}}
+                            
                             <ul class="list-group">
                                 <li class="list-group-item d-flex justify-content-between flex-column flex-sm-row  "
                                     style="border-color: #696cff">
@@ -105,7 +105,7 @@
                             </ul>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <div class="col-sm-6">
                     <div class="card mb-4">
                         <h5 class="card-header">Search Car Link</h5>
@@ -116,7 +116,7 @@
 
 
                             <div class="visible-print text-center mt-3" id="html-content-holder">
-                                {!! QrCode::size(200)->generate(url('/search/' . Auth::user()->id)) !!}
+                                {!! QrCode::size(200)->generate(url('/search/' . Auth::user()->id . '/car')) !!}
                                 <p>Scan me to return search car by vehicle number.</p>
                             </div>
                             {{-- <a id="btn-Convert-Html2Image" href="#">Download</a> --}}

@@ -61,14 +61,15 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Video</h4>
-                    <p class="card-title-desc">Upload video with duration under 1 min and horizontal 19:6 Ration.</p>
+                    <p class="card-title-desc">Share You Video On Whatsapp.</p>
 
-                    @if ($car->images->count() == 0)
-                        <div class="alert alert-danger">
-                            <strong>Opps!</strong> Please upload at least one image</a>.
-                        </div>
-                    @endif
-                    @if ($car->video_key)
+                    <a href="https://wa.me/+919096418208?text=CarId: {{ $car->id }} | {{ $car->car_name }} | {{ $car->car_number }}"
+                        class="btn btn-success"> <i class="fa fa-video"></i> Share
+                        On
+                        Whatsapp</a>
+
+
+                    {{-- @if ($car->video_key)
                         <div class="row">
 
                             <video height="400" controls>
@@ -93,7 +94,7 @@
                                 </div>
                             </form>
                         </div>
-                    @endif
+                    @endif --}}
                 </div>
             </div>
             @role('admin')

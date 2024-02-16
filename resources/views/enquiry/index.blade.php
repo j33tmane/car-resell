@@ -38,9 +38,7 @@
                                     <th>Brand</th>
                                     <th>Offer</th>
                                     <th>Price</th>
-                                    {{-- <th>Visible</th> --}}
                                     <th>Created</th>
-                                    {{-- <th>Actions</th> --}}
                                 </tr>
                             </thead>
                             <tbody>
