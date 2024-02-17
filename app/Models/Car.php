@@ -9,14 +9,14 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Filesystem\FilesystemManager;
 use Storage;
-
+use Config;
 class Car extends Model
 {
     use SoftDeletes;
 
     protected $dates = ['deleted_at'];
 
-    protected $fillable=['video_key','is_sold','location','tyre_type','insurance','p_window','p_steering','yt_link','user_id','car_name','car_brand','year','color','fuel','transmission','km_driven','no_of_owners','car_description','car_number','price','active','features','bodystyle','power','engine'];
+    protected $fillable=['visibility','video_key','is_sold','location','tyre_type','insurance','p_window','p_steering','yt_link','user_id','car_name','car_brand','year','color','fuel','transmission','km_driven','no_of_owners','car_description','car_number','price','active','features','bodystyle','power','engine'];
 
     protected $appends = ['firstImageUrl','video_id'];
     
@@ -37,6 +37,10 @@ class Car extends Model
         return preg_replace('/(\d+?)(?=(\d\d)+(\d)(?!\d))(\.\d+)?/i', "$1,", $this->price);
     }
     
+    public function getBodyStyleNameAttribute(){
+        if($this->bodystyle)
+            return Config::get('drops.body-style')[$this->bodystyle];
+    }
 
     public function getFirstImageUrlAttribute(){
         $img = $this->hasMany('App\Models\CarImage','car_id')->first();

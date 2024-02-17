@@ -226,20 +226,13 @@
                                 <div class="mb-3">
                                     <label class="form-label">Body Style</label>
                                     <div>
-                                        <select class="form-control mb-2" name="body">
+                                        <select class="form-control mb-2" name="bodystyle">
                                             <option value="">-Select Body Style-</option>
-                                            <option value="SUV">SUV</option>
-                                            <option value="Mini SUV">Mini SUV</option>
-                                            <option value="Sedan">Sedan</option>
-                                            <option value="Hatchback">Hatchback</option>
-                                            <option value="Coupe">Coupe</option>
-                                            <option value="Wagon">Wagon</option>
-                                            <option value="Hybrid">Hybrid</option>
-                                            <option value="Luxury">Luxury</option>
-                                            <option value="Pickup">Pickup</option>
-                                            <option value="Convertible">Convertible</option>
-                                            <option value="Truck">Truck</option>
-                                            <option value="None">None</option>
+                                            @foreach (Config::get('drops.body-style') as $key => $value)
+                                                <option value="{{ $key }}"
+                                                    {{ $key == $car->bodystyle ? 'selected' : '' }}>{{ $value }}
+                                                </option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -326,6 +319,20 @@
                                             value="{{ old('car_number', $car->car_number) }}"
                                             pattern="^[A-Z,a-z]{2}[0-9]{2}[A-Z,a-z]{2}[0-9]{4}$"
                                             title="10 Chars Long Ex. MH09FB1234 (No Space Allowed)" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Show Car Number</label>
+                                    <div>
+                                        <select id="fuel" class="form-control mb-2" name="visibility">
+                                            <option value=''>Select Visibility </option>
+                                            <option value='1' {{ '1' == $car->visibility ? 'selected' : '' }}>
+                                                YES </option>
+                                            <option value='2' {{ '2' == $car->visibility ? 'selected' : '' }}>NO
+                                            </option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>

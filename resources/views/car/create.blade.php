@@ -192,7 +192,19 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-3">
+                                <div class="mb-3">
+                                    <label class="form-label">Show Car Number</label>
+                                    <div>
+                                        <select id="fuel" class="form-control mb-2" name="visibility">
+                                            <option value=''>Select Visibility </option>
+                                            <option value='1'>YES </option>
+                                            <option value='2'>NO </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
                                 <div class="mb-3">
                                     <label class="form-label text-primary">Price</label>
                                     <div>
@@ -201,7 +213,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-3">
                                 <div class="mb-3">
                                     <label class="form-label">Car Location</label>
                                     <div>
@@ -210,7 +222,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-3">
                                 <div class="mb-3">
                                     <label class="form-label">Tyre Condition</label>
                                     <div>
@@ -223,7 +235,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-sm-3">
                                 <div class="mb-3">
                                     <label class="form-label">Insurance</label>
                                     <div>

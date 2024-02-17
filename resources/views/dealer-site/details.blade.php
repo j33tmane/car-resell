@@ -89,66 +89,85 @@
                     <table class="table table-bordered">
 
                         <tbody>
-                            <tr>
-                                <th width="30%">Vehicle Number</th>
-                                <td>{{ $car->car_number ?? '' }}</td>
-                            </tr>
-                            <tr>
-                                <th>Brand</th>
-                                <td>{{ $car->car_brand ?? 'NA' }}</td>
-                            </tr>
-                            <tr>
-                                <th>Year</th>
-                                <td>{{ $car->year ?? 'NA' }}</td>
-                            </tr>
-                            <tr>
-                                <th>Fuel</th>
-                                <td>{{ $car->fuel ?? 'NA' }}</td>
-                            </tr>
-                            <tr>
-                                <th>Transmission</th>
-                                <td>{{ config('drops.transmission')[$car->transmission ?? 1] }}</td>
-                            </tr>
-                            <tr>
-                                <th>KM Driven</th>
-                                <td>{{ $car->km_driven ?? 'NA' }}</td>
-                            </tr>
-                            <tr>
-                                <th>No Of Owners</th>
-                                <td>{{ $car->no_of_owners ?? 'NA' }}</td>
-                            </tr>
-                            <tr>
-                                <th>Tyre Condtion</th>
-                                <td>{{ $car->tyre_type ?? 'NA' }}</td>
-                            </tr>
-                            <tr>
-                                <th>Insurance</th>
-                                <td>{{ $car->insurance == 1 ? 'YES' : 'NO' }}</td>
-                            </tr>
-                            {{-- <tr>
-                                <th>Power Window</th>
-                                <td>{{ $car->p_window == 1 ? 'YES' : 'NO' }}</td>
-                            </tr>
-                            <tr>
-                                <th>Power Steering</th>
-                                <td>{{ $car->p_steering == 1 ? 'YES' : 'NO' }}</td>
-                            </tr> --}}
-                            <tr>
-                                <th>Location</th>
-                                <td>{{ $car->location ?? 'NA' }}</td>
-                            </tr>
-                            <tr>
-                                <th>Body-style</th>
-                                <td>{{ $car->bodystyle ?? 'NA' }}</td>
-                            </tr>
-                            <tr>
-                                <th>Engine(CC)</th>
-                                <td>{{ $car->engine ?? 'NA' }}</td>
-                            </tr>
-                            <tr>
-                                <th>Power(bhp)</th>
-                                <td>{{ $car->power ?? 'NA' }}</td>
-                            </tr>
+                            @if ($car->car_number && $car->visibility != '2')
+                                <tr>
+                                    <th width="30%">Vehicle Number</th>
+                                    <td>{{ $car->car_number ?? '' }}</td>
+                                </tr>
+                            @endif
+                            @if ($car->car_brand)
+                                <tr>
+                                    <th>Brand</th>
+                                    <td>{{ $car->car_brand ?? 'NA' }}</td>
+                                </tr>
+                            @endif
+                            @if ($car->year)
+                                <tr>
+                                    <th>Year</th>
+                                    <td>{{ $car->year ?? 'NA' }}</td>
+                                </tr>
+                            @endif
+                            @if ($car->fuel)
+                                <tr>
+                                    <th>Fuel</th>
+                                    <td>{{ $car->fuel ?? 'NA' }}</td>
+                                </tr>
+                            @endif
+                            @if ($car->transmission)
+                                <tr>
+                                    <th>Transmission</th>
+                                    <td>{{ config('drops.transmission')[$car->transmission ?? 1] }}</td>
+                                </tr>
+                            @endif
+                            @if ($car->km_driven)
+                                <tr>
+                                    <th>KM Driven</th>
+                                    <td>{{ $car->km_driven ?? 'NA' }}</td>
+                                </tr>
+                            @endif
+                            @if ($car->no_of_owners)
+                                <tr>
+                                    <th>No Of Owners</th>
+                                    <td>{{ $car->no_of_owners ?? 'NA' }}</td>
+                                </tr>
+                            @endif
+                            @if ($car->tyre_type)
+                                <tr>
+                                    <th>Tyre Condtion</th>
+                                    <td>{{ $car->tyre_type ?? 'NA' }}</td>
+                                </tr>
+                            @endif
+                            @if ($car->insurance)
+                                <tr>
+                                    <th>Insurance</th>
+                                    <td>{{ $car->insurance == 1 ? 'YES' : 'NO' }}</td>
+                                </tr>
+                            @endif
+                            @if ($car->location)
+                                <tr>
+                                    <th>Location</th>
+                                    <td>{{ $car->location ?? 'NA' }}</td>
+                                </tr>
+                            @endif
+                            @if ($car->bodystyle)
+                                <tr>
+                                    <th>Body-style</th>
+                                    <td>{{ $car->body_style_name ?? 'NA' }}</td>
+                                </tr>
+                            @endif
+
+                            @if ($car->engine)
+                                <tr>
+                                    <th>Engine(CC)</th>
+                                    <td>{{ $car->engine ?? 'NA' }}</td>
+                                </tr>
+                            @endif
+                            @if ($car->power)
+                                <tr>
+                                    <th>Power(bhp)</th>
+                                    <td>{{ $car->power ?? 'NA' }}</td>
+                                </tr>
+                            @endif
 
                             <tr>
                                 <th>Features</th>
@@ -168,15 +187,16 @@
 
                 </article>
 
-                <article
-                    class="card blog-post bg-white mt-3 p-3 border border-{{ $dealer->social->theme ?? 'secondary' }}">
+                @if ($car->social)
+                    <article
+                        class="card blog-post bg-white mt-3 p-3 border border-{{ $dealer->social->theme ?? 'secondary' }}">
 
-                    <h5 class="blog-post-title">Description</h5>
-                    <p>{{ $car->car_description ?? 'No Description is provided by dealer.' }}</p>
+                        <h5 class="blog-post-title">Description</h5>
+                        <p>{{ $car->car_description ?? 'No Description is provided by dealer.' }}</p>
 
 
-                </article>
-
+                    </article>
+                @endif
                 <div class="">
                     @if ($car->video_id)
                         <div class="carousel-item active">
@@ -197,7 +217,9 @@
                     <div class="p-4 mb-3 bg-{{ $dealer->social->theme ?? 'secondary' }} rounded border border-{{ $dealer->social->theme ?? 'secondary' }}"
                         style="--bs-bg-opacity: .1;">
                         <h2 class="fw-bold">₹ {{ $car->price_inr }}</h2>
-                        Location: {{ $car->location ?? 'NA' }}
+                        @if ($car->location)
+                            Location: {{ $car->location ?? 'NA' }}
+                        @endif
                         <div class="d-grid gap-2 mt-4">
                             @if ($car->is_sold)
                                 <button type="button" class="btn btn-danger" disabled><b>SOLD</b></button>

@@ -108,7 +108,7 @@
                 </div> --}}
                 <div class="col-sm-6">
                     <div class="card mb-4">
-                        <h5 class="card-header">Search Car Link</h5>
+                        <h5 class="card-header ">Search Car Link </h5>
 
 
                         <div class="card-body demo-vertical-spacing demo-only-element">
@@ -119,7 +119,7 @@
                                 {!! QrCode::size(200)->generate(url('/search/' . Auth::user()->id . '/car')) !!}
                                 <p>Scan me to return search car by vehicle number.</p>
                             </div>
-                            {{-- <a id="btn-Convert-Html2Image" href="#">Download</a> --}}
+
 
 
                             <ul class="list-group">
@@ -139,6 +139,8 @@
                             </ul>
 
                         </div>
+                        <button id="" class="btn btn btn-info mt-1" href="#"
+                            onclick="demo()">Download</button>
                     </div>
                 </div>
             </div>
@@ -149,7 +151,7 @@
     <!-- apexcharts -->
     <script src="{{ URL::asset('/assets/libs/apexcharts/apexcharts.min.js') }}"></script>
     <script src="{{ URL::asset('/assets/js/pages/dashboard.init.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvg/dist/browser/canvg.min.js"></script>
 
     <script>
         function copyText(str) {
@@ -158,23 +160,35 @@
     </script>
 
     <script>
-        $(document).ready(function() {
-            var element = $("#html-content-holder"); // global variable
-            var getCanvas; // global variable
+        $(document).ready(function() {});
 
-            html2canvas(element, {
-                onrendered: function(canvas) {
-                    $("#previewImage").append(canvas);
-                    getCanvas = canvas;
+        function download(
+            filename, // string
+            blob // Blob
+        ) {
+            if (window.navigator.msSaveOrOpenBlob) {
+                window.navigator.msSaveBlob(blob, filename);
+            } else {
+                const elem = window.document.createElement('a');
+                elem.href = window.URL.createObjectURL(blob);
+                elem.download = filename;
+                document.body.appendChild(elem);
+                elem.click();
+                document.body.removeChild(elem);
+            }
+        }
+
+        function demo() {
+            var svg = document.querySelector('svg');
+            var data = (new XMLSerializer()).serializeToString(svg);
+            var canvas = document.createElement('canvas');
+            canvg(canvas, data, {
+                renderCallback: function() {
+                    canvas.toBlob(function(blob) {
+                        download('QR.png', blob);
+                    });
                 }
             });
-
-            $("#btn-Convert-Html2Image").on('click', function() {
-                var imgageData = getCanvas.toDataURL("image/png");
-                // Now browser starts downloading it instead of just showing it
-                var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
-                $("#btn-Convert-Html2Image").attr("download", "your_pic_name.png").attr("href", newData);
-            });
-        });
+        }
     </script>
 @endsection
