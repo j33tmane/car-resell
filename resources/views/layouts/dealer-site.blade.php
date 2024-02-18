@@ -44,7 +44,7 @@
         font-size: 3vw;
       } */
     </style>
-
+    <link rel="shortcut icon" href="{{ URL::asset('assets/my-img/favicon-logo.png') }}">
 
 </head>
 
