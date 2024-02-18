@@ -83,7 +83,8 @@
                     <div class="d-flex">
 
                         <input class="form-control me-2" type="text" placeholder="Search car name" name="car_name"
-                            id="car_name">
+                            id="car_name"
+                            value="@if (request()->has('filter')) {{ request()->input('filter')['car_name'] }} @endif">
                         <button class="btn btn-outline-light btn" type="button"
                             onclick="filterResults()">Search</button>
                     </div>
@@ -141,7 +142,28 @@
             return formatter.format(dig);
         }
     </script>
-    <!-- JAVASCRIPT -->
+    <script>
+        function filterResults() {
+            let sort = document.getElementById("price_sort")?.value;
+            let brand_filter = document.getElementById("brand_filter")?.value;
+            let year_filter = document.getElementById("year_filter")?.value;
+            let car_name = document.getElementById("car_name")?.value;
+            let fule_filter = document.getElementById("fule_filter")?.value;
+
+
+            let href = @json(url('/dealer/' . $dealer->user_id));
+            console.log(sort)
+            href += !sort ? '?sort=' : '?sort=' + sort
+            href += !fule_filter ? '&filter[fuel]=' : '&filter[fuel]=' + fule_filter;
+            href += !brand_filter ? '&filter[car_brand]=' : '&filter[car_brand]=' + brand_filter;
+            href += !car_name ? '&filter[car_name]=' : '&filter[car_name]=' + car_name;
+            href += !year_filter ? '&filter[year]=' : '&filter[year]=' + year_filter;
+
+
+            document.location.href = href;
+        }
+        // document.getElementById("filter").addEventListener("click", filterResults);
+    </script>
     @yield('scripts')
 </body>
 

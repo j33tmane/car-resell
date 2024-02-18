@@ -22,4 +22,9 @@ class DataHelper
         return  Car::select('fuel')->where('user_id',$id)->distinct()->pluck('fuel');
      }
 
+     //car object with all information
+     public static function getRelatedCars($car){
+      return  Car::select('*')->where('car_name','like','%'.$car->car_name.'%')->where('user_id','=',$car->user_id)->where('id','!=',$car->id)->get();
+   }
+
 }

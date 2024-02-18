@@ -41,8 +41,10 @@ class GuestController extends Controller
         $brands = DataHelper::getDealerBrand($car->user_id);
         $years = DataHelper::getDealerYears($car->user_id);
         $fuels = DataHelper::getDealerFuels($id);
+        $rcars = DataHelper::getRelatedCars($car);
+        
         $dealer = $car->dealerProfile;
-        return view('dealer-site.details',compact('car','dealer','brands','years','fuels'));
+        return view('dealer-site.details',compact('car','dealer','brands','years','fuels','rcars'));
     }
 
     public function submitEnquiry(Request $request,$id){

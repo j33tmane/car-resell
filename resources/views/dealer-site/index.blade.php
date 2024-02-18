@@ -151,30 +151,4 @@
 @endsection
 
 @section('scripts')
-    <script>
-        function filterResults() {
-            let sort = document.getElementById("price_sort").value;
-            let brand_filter = document.getElementById("brand_filter").value;
-            let year_filter = document.getElementById("year_filter").value;
-            let car_name = document.getElementById("car_name").value;
-            let fule_filter = document.getElementById("fule_filter").value;
-
-
-            let href = '?sort=' + sort + '&';
-            console.log(sort)
-            href += 'filter[car_brand]=' + brand_filter;
-            href += '&filter[car_name]=' + car_name;
-            href += '&filter[year]=' + year_filter;
-            href += '&filter[fuel]=' + fule_filter;
-
-            document.location.href = href;
-        }
-        // document.getElementById("filter").addEventListener("click", filterResults);
-
-        function filterResetResults() {
-            let href = '' + {{ $dealer->user_id }};
-            document.location.href = href;
-        }
-        document.getElementById("filter_reset").addEventListener("click", filterResetResults);
-    </script>
 @endsection

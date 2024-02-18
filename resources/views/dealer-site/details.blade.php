@@ -26,14 +26,14 @@
                         @foreach ($car->images as $key => $item)
                             <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
                                 <img src="{{ $item->imageUrl }}" class="w-100 rounded" alt="..."
-                                    style="height:400px;object-fit: cover;">
+                                    style="object-fit: contain;" height="350px" width="100%">
                             </div>
                         @endforeach
 
                         @if ($car->images->count() == 0)
                             <div class="carousel-item active">
                                 <img src="{{ $car->firstImageUrl }}" class="w-100 rounded" alt="..."
-                                    style="max-height:500px;object-fit: cover;">
+                                    style="max-height:500px;object-fit: contain;">
                             </div>
                         @endif
 
@@ -197,8 +197,9 @@
 
                     </article>
                 @endif
-                <div class="">
-                    @if ($car->video_id)
+
+                @if ($car->video_id)
+                    <div class="card">
                         <div class="carousel-item active">
                             <iframe width="100%" height="300"
                                 src="https://www.youtube.com/embed/{{ $car->video_id }}?rel=0" title="YouTube video player"
@@ -206,8 +207,12 @@
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                 allowfullscreen></iframe>
                         </div>
-                    @endif
-                </div>
+                    </div>
+                @endif
+
+
+
+
 
             </div>
 
@@ -264,6 +269,54 @@
                 </div>
             </div>
         </div>
+        <div class="row mt-3">
+            @if ($rcars->count() > 0)
+                <h4>Related Cars</h4>
+            @endif
+            @foreach ($rcars as $car)
+                <div class="col-md-4 ">
+                    <div class="card bg-light border border-{{ $dealer->social->theme ?? 'secondary' }}"
+                        style="--bs-bg-opacity: .5;">
+                        @if ($car->is_sold == 1)
+                            <div class="card-img-overlay">
+                                <a href="#" class="btn btn-sm btn-danger "><b>SOLD</b></a>
+                            </div>
+                        @endif
+                        <img src="{{ $car->firstImageUrl }}" style="max-height:18vh;object-fit:cover;"
+                            class="img-fluid image card-img-top">
+                        <div class="card-body p-2">
+                            <a href="#" class="text-dark">
+                                <h5>{{ $car->car_name }} </h5>
+                            </a>
+                            <ul class="list-unstyled list-inline">
+                                <a href="#" class="text-warning">
+                                    <i class="fa fa-eye"></i>
+                                </a>
+                                <a href="#" class="text-muted">
+                                    <li class="list-inline-item"><small>3 Views</small></li>
+                                </a>
+                            </ul>
+                            <div class="row justify-content-between">
+                                <div class="col">
+                                    <h4 class="text-{{ $dealer->social->theme ?? 'secondary' }}"><i
+                                            class="fa fa-inr"></i>
+                                        {{ $car->price_inr }}
+                                    </h4>
+                                </div>
+                                <div class="col-auto">
+                                    <a href="{{ url('dealer/car/' . $car->id) }}"
+                                        class="btn btn-outline-{{ $dealer->social->theme ?? 'secondary' }} btn-sm">
+                                        <li class="list-inline-item"><small>View Details</small></li>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+
     </section>
 
     <br>
@@ -414,8 +467,6 @@
                 .catch(() => {
                     alert("something went wrong");
                 });
-
-
         }
     </script>
 @endsection
