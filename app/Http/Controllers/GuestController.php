@@ -74,5 +74,14 @@ class GuestController extends Controller
       
         return view('dealer-site.search_car',compact('car','dealer'));
     }
+
+    public function dealerProfile(Request $request,$dealer_id)
+    {
+        $dealer = DealerProfile::where('user_id',$dealer_id)->first();
+        $carsTotal = Car::where('user_id',$dealer_id)->count();
+        $soldCars = Car::where('user_id',$dealer_id)->where('is_sold',1)->count();
+        $soldCars+= $dealer->sold_cars;
+        return view('dealer-site.dealer-profile',compact('dealer','carsTotal','soldCars'));
+    }
     
 }

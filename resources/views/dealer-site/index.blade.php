@@ -3,17 +3,20 @@
     <meta property="og:image" content="{{ $dealer->imageUrl }}">
 @endsection
 @section('content')
-    <section class="py-5 text-center container bg-{{ $dealer->social->theme ?? 'secondary' }} mt-3">
+    <section class="text-center container bg-{{ $dealer->social->theme ?? 'secondary' }} mt-3">
         <div class="row py-2">
             <div class="col-lg-6 col-md-8 mx-auto">
 
                 <h1 class="fw-light text-white">{{ $dealer->company_name }}</h1>
                 <p class="lead text-white">{{ $dealer->address }}</p>
                 <p>
-                    <a href="tel:+91{{ $dealer->contact_call }}" class="btn btn-light my-2"> <i class="uil-phone-alt"></i>
+                    <a href="tel:+91{{ $dealer->contact_call }}" class="btn btn-light "> <i class="fa fa-phone"></i>
                         Call</a>
-                    <a href="https://wa.me/{{ $dealer->contact_whatsapp }}" class="btn btn-light my-2"><i
-                            class="bx bxl-whatsapp"></i> Whats App</a>
+                    <a href="{{ url('/dealer/' . $dealer->user_id . '/profile') }}" class="btn btn-light"><i
+                            class="fa fa-info"></i>
+                        About</a>
+                    <button id="shareLink" class="btn btn-light"><i class="fa fa-share"></i>
+                        Share</button>
                 </p>
             </div>
         </div>
@@ -29,7 +32,7 @@
                     </div>
                 @endif
                 <div class="col-auto mb-2">
-                    <button type="button" class="btn btn-outline-{{ $dealer->social->theme ?? 'secondary' }} btn-sm"
+                    <button type="button" class="btn btn-{{ $dealer->social->theme ?? 'secondary' }} btn-sm"
                         data-bs-toggle="collapse" data-bs-target="#demo">Show
                         Filters</button>
 
@@ -121,7 +124,11 @@
                                         <i class="fa fa-eye"></i>
                                     </a>
                                     <a href="#" class="text-muted">
-                                        <li class="list-inline-item"><small>3 Views</small></li>
+                                        <li class="list-inline-item">
+                                            <small>{{ \Carbon\Carbon::now()->diffInHours($car->created_at) }}
+
+                                            </small>
+                                        </li>
                                     </a>
                                 </ul>
                                 <div class="row justify-content-between">
@@ -151,4 +158,23 @@
 @endsection
 
 @section('scripts')
+    <script>
+        var title = @json($dealer->company_name);
+        var text = @json($dealer->address);
+        var url = window.location.href;
+        const shareButton = document.getElementById("shareLink");
+        shareButton.addEventListener("click", (e) => {
+            if (navigator.share) {
+                navigator.share({
+                        title: title,
+                        text: text,
+                        url: url,
+                    })
+                    .then(() => console.log('Successful share'))
+                    .catch((error) => console.log('Error sharing', error));
+            } else {
+                console.log('Share not supported on this browser, do it the old way.');
+            }
+        });
+    </script>
 @endsection

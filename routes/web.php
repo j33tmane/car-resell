@@ -81,6 +81,7 @@ Route::get('/', function () {
 Route::get('/search/{id}/car','GuestController@searchCarByNumber');
 
 Route::get('/dealer/{id}','GuestController@dealerPage');
+Route::get('/dealer/{id}/profile','GuestController@dealerProfile');
 Route::get('/dealer/car/{id}','GuestController@carDetails');
 Route::post('/enquiry/car/{id}','GuestController@submitEnquiry');
 

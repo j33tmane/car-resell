@@ -50,6 +50,9 @@ class Car extends Model
             return url('/assets/images/car-place.png'); 
     }
 
+
+    
+
     public function getVideoIdAttribute(){
         if(!$this->yt_link)
             return null;

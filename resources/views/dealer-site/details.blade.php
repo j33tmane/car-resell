@@ -235,7 +235,8 @@
                         </div>
                     </div>
 
-                    <div class="p-4 mb-3 border border-{{ $dealer->social->theme ?? 'secondary' }} rounded">
+                    <div
+                        class="p-4 mb-3 border border-{{ $dealer->social->theme ?? 'secondary' }} rounded d-none d-sm-none d-md-block">
                         <div class="row">
                             <div class="col-auto">
 
@@ -316,7 +317,29 @@
                 </div>
             @endforeach
         </div>
+        <div class="p-4 mb-3 border border-{{ $dealer->social->theme ?? 'secondary' }} rounded  d-sm-block d-md-none">
+            <div class="row">
+                <div class="col-auto">
 
+                    <a class=" text-uppercase" href="{{ url('dealer/' . $dealer->user_id) }}"><img
+                            src="{{ $dealer->image_url }}" class="img rounded-circle border border-white"
+                            style="height: 50px;width: 50px;object-fit: cover;">
+                    </a>
+                </div>
+                <div class="col-auto">
+                    <h5 class="fw-bold">{{ $dealer->company_name ?? '' }}</h5>
+                    <p class="blog-post-meta">{{ date('d-M-Y', strtotime($car->created_at)) ?? 'NA' }} </a>
+                    </p>
+
+                </div>
+                <div class="row">
+                    <a href="{{ url('dealer/' . $car->dealerProfile->user_id) }}"
+                        class="btn btn-outline-{{ $dealer->social->theme ?? 'secondary' }}">View Other
+                        Vehicles</a>
+                </div>
+            </div>
+
+        </div>
     </section>
 
     <br>

@@ -85,7 +85,8 @@ class DealerProfileController extends Controller
         $inputs = $request->except(['user_id']);
 
         $dp = DealerProfile::updateOrCreate(["user_id"=>$id],$inputs);
-        $img_key=null;
+        $key=null;
+      
         if($dp && $request->imageFile){
             $file = $request->imageFile;
             $filename = $file->hashName();
@@ -103,7 +104,21 @@ class DealerProfileController extends Controller
                 $dp->image_key = $key ;
                 $dp->save();
            }catch(\Exception $e){
-            Storage::disk('s3')->delete($img_key);
+            Storage::disk('s3')->delete($key);
+            flash('Error occurred, Please try later')->error()->important();
+           }
+        }
+        $key = null;
+        if($dp && $request->bannerFile){
+           try{
+                if($dp->profile_img && filter_var($dp->profile_img, FILTER_VALIDATE_INT) == false)
+                    Storage::disk('s3')->delete($dp->profile_img);
+
+                $key = Storage::disk('s3')->put( 'users/'.$dp->id, $request->bannerFile);
+                $dp->profile_img = $key ;
+                $dp->save();
+           }catch(\Exception $e){
+            Storage::disk('s3')->delete($key);
             flash('Error occurred, Please try later')->error()->important();
            }
         }
