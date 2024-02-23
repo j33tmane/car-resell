@@ -176,12 +176,13 @@
                                             </ul>
                                         </div>
                                     @endif
-                                    <img src="{{ $car->firstImageUrl }}" style="height:15vh;object-fit:cover;"
+                                    <img src="{{ $car->firstImageUrl }}"
+                                        style="height:100%; min-height: 15vh; object-fit:cover;"
                                         class="img-fluid  card-img-top rounded img-thumbnail ">
                                 </div>
                                 <div class="col-7 auto overflow-x-scroll">
                                     <a href="#" class="text-dark">
-                                        <p class="font-size-16 mb-1">{{ $car->car_name }} </p>
+                                        <p class="font-size-16 mb-1">{{ $car->car_name }} asdsd asdasd</p>
                                     </a>
                                     <h4 class="text-{{ $dealer->social->theme ?? 'secondary' }} mb-1"><i
                                             class="fa fa-inr"></i>
