@@ -187,8 +187,8 @@
                                             class="fa fa-inr"></i>
                                         {{ $car->price_inr }}
                                     </h4>
-                                    <p class="font-size-16 mb-1">{{ $car->location ?? '' }} </p>
-                                    <p class="font-size-16 mb-1 text-capitalize">{{ $car->year ?? '20XX' }} |
+                                    <p class="font-size-16 mb-1">{{ $car->location ?? 'Hidden Location' }} </p>
+                                    <p class="font-size-13 mb-1 text-capitalize">{{ $car->year ?? '20XX' }} |
                                         {{ $car->km_driven ?? '10XXX' }} KM | {{ $car->fuel ?? 'XX' }} </p>
                                 </div>
                             </div>
