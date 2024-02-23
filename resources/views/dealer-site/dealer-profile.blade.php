@@ -134,13 +134,14 @@
             <div class="card-body p-0 border border-{{ $dealer->social->theme ?? 'secondary' }} rounded">
                 <img src="{{ $dealer->banner }}" alt="banner" class="bg-secondary" width="100%" height="250px"
                     style="object-fit: cover;">
-                <div class="row align-items-center">
-                    <div class="col-lg-4 order-lg-1 order-2">
-                        <div class="d-flex align-items-center justify-content-around m-4">
+                <div class="row align-items-center m-4">
+                    <div class="col-lg-4 order-lg-1 order-2 text-center mt-3">
+                        <div class="d-flex align-items-center justify-content-around ">
                             <div class="text-center">
                                 <i class="fa fa-car fs-6 d-block mb-2"></i>
                                 <h4 class="mb-0 fw-semibold lh-1">{{ $carsTotal ?? 0 }}</h4>
                                 <p class="mb-0 fs-4">Total Cars</p>
+
                             </div>
                             <div class="text-center">
                                 <i class="fa fa-car fs-6 d-block mb-2"></i>
@@ -148,7 +149,11 @@
                                 <p class="mb-0 fs-4">Sold Cars</p>
                             </div>
                         </div>
+                        <a href="{{ url('/dealer/' . $dealer->user_id) }}"
+                            class="mb-0 fs-6 btn btn-outline-{{ $dealer->social->theme ?? 'secondary' }} btn-sm mt-3">View
+                            All Cars</a>
                     </div>
+
                     <div class="col-lg-4 mt-n3 order-lg-2 order-1">
                         <div class="mt-n5">
                             <div class="d-flex align-items-center justify-content-center mb-2">
@@ -188,6 +193,12 @@
                                     <i class="fa fa-globe"></i>
                                 </a>
                             </li>
+                            <li class="position-relative" id="shareLink">
+                                <a class="text-white bg-warning d-flex align-items-center justify-content-center p-2 fs-4 rounded-circle "
+                                    href="javascript:void(0)">
+                                    <i class="fa fa-share-alt"></i>
+                                </a>
+                            </li>
 
                         </ul>
                     </div>
@@ -215,4 +226,26 @@
 
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+        var title = @json($dealer->company_name);
+        var text = @json($dealer->address);
+        var url = window.location.href;
+        const shareButton = document.getElementById("shareLink");
+        shareButton.addEventListener("click", (e) => {
+            if (navigator.share) {
+                navigator.share({
+                        title: title,
+                        text: text,
+                        url: url,
+                    })
+                    .then(() => console.log('Successful share'))
+                    .catch((error) => console.log('Error sharing', error));
+            } else {
+                console.log('Share not supported on this browser, do it the old way.');
+            }
+        });
+    </script>
 @endsection
