@@ -275,7 +275,8 @@
                 <h4>Related Cars</h4>
             @endif
             @foreach ($rcars as $car)
-                <div class="col-md-4 ">
+                {{-- large display design start --}}
+                <div class="col-md-4 d-none d-sm-none d-md-block">
                     <div class="card bg-light border border-{{ $dealer->social->theme ?? 'secondary' }}"
                         style="--bs-bg-opacity: .5;">
                         @if ($car->is_sold == 1)
@@ -294,7 +295,11 @@
                                     <i class="fa fa-eye"></i>
                                 </a>
                                 <a href="#" class="text-muted">
-                                    <li class="list-inline-item"><small>3 Views</small></li>
+                                    <li class="list-inline-item">
+                                        <small>{{ \Carbon\Carbon::now()->diffInHours($car->created_at) }}
+
+                                        </small>
+                                    </li>
                                 </a>
                             </ul>
                             <div class="row justify-content-between">
@@ -315,6 +320,51 @@
                         </div>
                     </div>
                 </div>
+                {{-- large display design end --}}
+                {{-- small display design start --}}
+                <div class="col-md-4 d-sm-block d-md-none">
+                    <div class="card border border-{{ $dealer->social->theme ?? 'secondary' }}"
+                        onclick="document.location='{{ url('dealer/car/' . $car->id) }}'">
+                        <div class="row">
+
+                            <div class="col-5">
+                                @if ($car->is_sold == 1)
+                                    <div class="card-img-overlay">
+                                        <a href="#" class="btn btn-sm btn-danger font-size-10"><b>SOLD</b></a>
+                                    </div>
+                                @else
+                                    <div class="card-img-overlay">
+                                        <ul class="list-unstyled list-inline ">
+                                            <a href="#" class="text-muted bg-white rounded p-1 font-size-10">
+                                                <li class="list-inline-item">
+                                                    <i class="fa fa-eye"></i>
+                                                    <small>{{ \Carbon\Carbon::now()->diffInHours($car->created_at) }}
+
+                                                    </small>
+                                                </li>
+                                            </a>
+                                        </ul>
+                                    </div>
+                                @endif
+                                <img src="{{ $car->firstImageUrl }}" style="height:15vh;object-fit:cover;"
+                                    class="img-fluid  card-img-top rounded img-thumbnail ">
+                            </div>
+                            <div class="col-7 auto overflow-x-scroll">
+                                <a href="#" class="text-dark">
+                                    <p class="font-size-16 mb-1">{{ $car->car_name }} </p>
+                                </a>
+                                <h4 class="text-{{ $dealer->social->theme ?? 'secondary' }} mb-1"><i
+                                        class="fa fa-inr"></i>
+                                    {{ $car->price_inr }}
+                                </h4>
+                                <p class="font-size-16 mb-1">{{ $car->location ?? '' }} </p>
+                                <p class="font-size-16 mb-1 text-capitalize">{{ $car->year ?? '20XX' }} |
+                                    {{ $car->km_driven ?? '10XXX' }} KM | {{ $car->fuel ?? 'XX' }} </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{-- small display design end --}}
             @endforeach
         </div>
         <div class="p-4 mb-3 border border-{{ $dealer->social->theme ?? 'secondary' }} rounded  d-sm-block d-md-none">

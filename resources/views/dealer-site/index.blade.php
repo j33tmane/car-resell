@@ -7,15 +7,15 @@
         <div class="row py-2">
             <div class="col-lg-6 col-md-8 mx-auto">
 
-                <h1 class="fw-light text-white">{{ $dealer->company_name }}</h1>
-                <p class="lead text-white">{{ $dealer->address }}</p>
+                <h2 class="fw-light text-white">{{ $dealer->company_name }}</h2>
+                <p class="lead text-white font-size-14">{{ $dealer->address }}</p>
                 <p>
-                    <a href="tel:+91{{ $dealer->contact_call }}" class="btn btn-light "> <i class="fa fa-phone"></i>
+                    <a href="tel:+91{{ $dealer->contact_call }}" class="btn btn-light btn-sm"> <i class="fa fa-phone"></i>
                         Call</a>
-                    <a href="{{ url('/dealer/' . $dealer->user_id . '/profile') }}" class="btn btn-light"><i
+                    <a href="{{ url('/dealer/' . $dealer->user_id . '/profile') }}" class="btn btn-light btn-sm"><i
                             class="fa fa-info"></i>
                         About</a>
-                    <button id="shareLink" class="btn btn-light"><i class="fa fa-share"></i>
+                    <button id="shareLink" class="btn btn-light btn-sm"><i class="fa fa-share"></i>
                         Share</button>
                 </p>
             </div>
@@ -105,7 +105,8 @@
             <div class="row mb-2">
 
                 @foreach ($cars as $car)
-                    <div class="col-md-4 ">
+                    {{-- large display design start --}}
+                    <div class="col-md-4 d-none d-sm-none d-md-block">
                         <div class="card bg-light border border-{{ $dealer->social->theme ?? 'secondary' }}"
                             style="--bs-bg-opacity: .5;">
                             @if ($car->is_sold == 1)
@@ -149,6 +150,51 @@
                             </div>
                         </div>
                     </div>
+                    {{-- large display design end --}}
+                    {{-- small display design start --}}
+                    <div class="col-md-4 d-sm-block d-md-none">
+                        <div class="card border border-{{ $dealer->social->theme ?? 'secondary' }}"
+                            onclick="document.location='{{ url('dealer/car/' . $car->id) }}'">
+                            <div class="row">
+
+                                <div class="col-5">
+                                    @if ($car->is_sold == 1)
+                                        <div class="card-img-overlay">
+                                            <a href="#" class="btn btn-sm btn-danger font-size-10"><b>SOLD</b></a>
+                                        </div>
+                                    @else
+                                        <div class="card-img-overlay">
+                                            <ul class="list-unstyled list-inline ">
+                                                <a href="#" class="text-muted bg-white rounded p-1 font-size-10">
+                                                    <li class="list-inline-item">
+                                                        <i class="fa fa-eye"></i>
+                                                        <small>{{ \Carbon\Carbon::now()->diffInHours($car->created_at) }}
+
+                                                        </small>
+                                                    </li>
+                                                </a>
+                                            </ul>
+                                        </div>
+                                    @endif
+                                    <img src="{{ $car->firstImageUrl }}" style="height:15vh;object-fit:cover;"
+                                        class="img-fluid  card-img-top rounded img-thumbnail ">
+                                </div>
+                                <div class="col-7 auto overflow-x-scroll">
+                                    <a href="#" class="text-dark">
+                                        <p class="font-size-16 mb-1">{{ $car->car_name }} </p>
+                                    </a>
+                                    <h4 class="text-{{ $dealer->social->theme ?? 'secondary' }} mb-1"><i
+                                            class="fa fa-inr"></i>
+                                        {{ $car->price_inr }}
+                                    </h4>
+                                    <p class="font-size-16 mb-1">{{ $car->location ?? '' }} </p>
+                                    <p class="font-size-16 mb-1 text-capitalize">{{ $car->year ?? '20XX' }} |
+                                        {{ $car->km_driven ?? '10XXX' }} KM | {{ $car->fuel ?? 'XX' }} </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- small display design end --}}
                 @endforeach
             </div>
 
