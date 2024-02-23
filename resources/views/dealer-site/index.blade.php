@@ -182,7 +182,7 @@
                                 </div>
                                 <div class="col-7 auto overflow-x-scroll">
                                     <a href="#" class="text-dark">
-                                        <p class="font-size-16 mb-1">{{ $car->car_name }} asdsd asdasd</p>
+                                        <p class="font-size-16 mb-1">{{ $car->car_name }} </p>
                                     </a>
                                     <h4 class="text-{{ $dealer->social->theme ?? 'secondary' }} mb-1"><i
                                             class="fa fa-inr"></i>
