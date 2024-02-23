@@ -217,10 +217,83 @@
 
                 </div>
                 <div class="col-sm-12 col-lg-12">
-                    <div class="card hover-img p-3 border border-{{ $dealer->social->theme ?? 'secondary' }} rounded">
+                    @if ($dealer->description)
+                        <div class="card hover-img p-3 border border-{{ $dealer->social->theme ?? 'secondary' }} rounded">
 
-                        {!! nl2br(e($dealer->description)) !!}
-                    </div>
+                            {!! nl2br(e($dealer->description)) !!}
+                        </div>
+                    @else
+                        <div class="card hover-img p-3 border border-{{ $dealer->social->theme ?? 'secondary' }} rounded">
+                            {{ $dealer->company_name }} is a trusted name in the pre-owned car market, dedicated to
+                            providing
+                            quality
+                            vehicles and exceptional service to our customers. With years of experience in the automotive
+                            industry,
+                            we have established ourselves as a reliable source for purchasing reliable, affordable, and
+                            well-maintained used cars.
+
+                            Mission Statement:
+                            Our mission at {{ $dealer->company_name }} is to simplify the car-buying process for our
+                            customers
+                            by
+                            offering
+                            a wide selection of high-quality used vehicles at competitive prices. We aim to exceed
+                            expectations
+                            by
+                            providing personalized assistance, transparent dealings, and ongoing support to ensure a
+                            satisfying
+                            and
+                            hassle-free buying experience.
+                            <br><br>
+                            Services:
+                            <br><br>
+                            Extensive Inventory:<br> We maintain a diverse inventory of used cars, trucks, SUVs, and vans,
+                            meticulously
+                            inspected and thoroughly reconditioned to meet our high standards.<br>
+                            Financing Options: <br>Our experienced finance team works with various lenders to offer flexible
+                            financing
+                            solutions tailored to each customer's budget and credit situation.<br>
+                            Trade-In Assistance:<br> We accept trade-ins, providing fair market value assessments to help
+                            customers
+                            seamlessly transition into their new vehicle.<br>
+                            Warranty and Protection Plans: <br>For added peace of mind, we offer comprehensive warranty
+                            options
+                            and
+                            vehicle protection plans to safeguard against unexpected repairs.<br>
+                            Exceptional Customer Service:<br> Our dedicated sales staff is committed to providing
+                            knowledgeable
+                            guidance, transparent communication, and ongoing support to ensure complete customer
+                            satisfaction.
+                            <br><br>
+                            Why Choose Us:
+                            <br><br>
+                            Quality Assurance: <br>Every vehicle in our inventory undergoes a rigorous inspection process to
+                            ensure
+                            reliability and performance.
+                            Competitive Pricing: We offer fair and transparent pricing, backed by market analysis and
+                            competitive
+                            comparison.<br><br>
+                            Customer-Centric Approach: <br>At {{ $dealer->company_name }} , customer satisfaction is our
+                            top
+                            priority.
+                            We
+                            strive to build lasting relationships based on trust, integrity, and respect.
+                            Convenient Location: Our conveniently located dealership provides easy access for customers from
+                            across
+                            the region, with ample parking and a welcoming atmosphere.<br><br>
+                            Contact Information:<br>
+                            {{ $dealer->company_name }}<br>
+                            Address: {{ $dealer->company_name }}<br>
+                            Contact Person:{{ $dealer->contact_person_name }}<br>
+                            Phone: {{ $dealer->contact_call }}<br>
+                            Website: {{ $dealer->social->weburl ?? 'NA' }}<br>
+
+                            For inquiries, appointments, or to browse our current inventory, please contact us or visit our
+                            showroom
+                            today!
+                        </div>
+                    @endif
+
                 </div>
             </div>
 
