@@ -198,7 +198,7 @@
                     {{-- small display design end --}}
                 @endforeach
             </div>
-
+            {{ $cars->links() }}
         </div>
     </div>
     </main>

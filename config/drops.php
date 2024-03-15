@@ -2,8 +2,8 @@
 
 return [
     'transmission' => [
-        '1' => 'Automatic',
-        '2' => 'Petrol',
+        '2' => 'Automatic',
+        '1' => 'Manual',
     ],
     'body-style' => [
         '1'=> 'SUV',

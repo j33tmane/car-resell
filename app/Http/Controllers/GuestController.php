@@ -29,7 +29,7 @@ class GuestController extends Controller
             ->allowedFilters(['brand','year','car_name','car_brand','fuel'])
             ->allowedSorts('price')
             ->where('user_id',$id)
-            ->latest()->paginate(10)->appends(request()->query());
+            ->latest()->paginate(12)->appends(request()->query());
 
         return view('dealer-site.index',compact('dealer','cars','brands','years','fuels'));
     }
