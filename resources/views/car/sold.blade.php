@@ -29,7 +29,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="basic-default-fullname">Customer Mobile No.</label>
-                            <input type="text" class="form-control" name="customer_mobile" maxlength="10"
+                            <input type="number" class="form-control" name="customer_mobile" maxlength="10"
                                 placeholder="Enter customer mobile no." required="">
                         </div>
                         <div class="mb-3">
@@ -41,7 +41,7 @@
                         <div class="mb-3">
                             <label class="form-label" for="basic-default-fullname">Solded Price <i
                                     class="bx bx-rupee"></i></label>
-                            <input type="text" class="form-control" name="sell_price" placeholder="₹ 5,00,000"
+                            <input type="number" class="form-control" name="sell_price" placeholder="500000"
                                 required="">
                         </div>
 
