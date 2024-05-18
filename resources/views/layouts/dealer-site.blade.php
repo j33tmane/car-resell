@@ -130,9 +130,8 @@
     <script src="{{ url('assets/libs/bootstrap/bootstrap.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
-        
         $(document).ready(() => {
-            
+
             // view();
             $(document.body).on('click', '.card[data-clickable=true]', (e) => {
                 var href = $(e.currentTarget).data('href');
@@ -155,6 +154,7 @@
     </script>
     <script>
         function filterResults() {
+            let is_sold = document.getElementById("is_sold")?.value;
             let sort = document.getElementById("price_sort")?.value;
             let brand_filter = document.getElementById("brand_filter")?.value;
             let year_filter = document.getElementById("year_filter")?.value;
@@ -169,6 +169,8 @@
             href += !brand_filter ? '&filter[car_brand]=' : '&filter[car_brand]=' + brand_filter;
             href += !car_name ? '&filter[car_name]=' : '&filter[car_name]=' + car_name;
             href += !year_filter ? '&filter[year]=' : '&filter[year]=' + year_filter;
+            href += !is_sold ? '&filter[is_sold]=' : '&filter[is_sold]=' + is_sold;
+
 
 
             document.location.href = href;

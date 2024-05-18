@@ -24,7 +24,7 @@ class DataHelper
 
      //car object with all information
      public static function getRelatedCars($car){
-      return  Car::select('*')->where('car_name','like','%'.$car->car_name.'%')->where('user_id','=',$car->user_id)->where('id','!=',$car->id)->get();
+      return  Car::select('*')->where('bodystyle','=',$car->bodystyle)->where('bodystyle','!=',null)->where('is_sold','!=',1)->where('user_id','=',$car->user_id)->where('id','!=',$car->id)->get();
    }
 
 }

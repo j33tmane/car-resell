@@ -41,6 +41,19 @@
 
                     <div class="row  mb-5  justify-content-end">
                         <div class="col-6 col-md-3 mt-1">
+                            <label for="price_sort" class="form-label">Show Only:</label>
+                            <select class="form-select" id="is_sold" name="is_sold" onchange="filterResults()">
+                                <option value="">Select
+                                </option>
+                                <option value="0" {{ request()->input('sort') == 'price' ? 'selected' : '' }}>
+                                    Available
+                                </option>
+                                <option value="1" {{ request()->input('sort') == '-price' ? 'selected' : '' }}>
+                                    Sold
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-6 col-md-2 mt-1">
                             <label for="price_sort" class="form-label">Sort by price:</label>
                             <select class="form-select" id="price_sort" name="price_sort" onchange="filterResults()">
                                 <option value="">Select sort
@@ -56,7 +69,7 @@
                             </select>
                         </div>
 
-                        <div class="col-6 col-md-3 mt-1">
+                        <div class="col-6 col-md-2 mt-1">
                             <label for="price_sort" class="form-label">Year:</label>
                             <select class="form-select" id="year_filter" name="year" onchange="filterResults()">
                                 <option value="">Select Year
@@ -82,7 +95,7 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-6 col-md-3 mt-1">
+                        <div class="col-6 col-md-2 mt-1">
                             <label for="price_sort" class="form-label">Fule:</label>
                             <select class="form-select" id="fule_filter" name="fule_filter" onchange="filterResults()">
                                 <option value="">Select brand
@@ -117,7 +130,7 @@
                             <img src="{{ $car->firstImageUrl }}" style="max-height:18vh;object-fit:cover;"
                                 class="img-fluid image card-img-top">
                             <div class="card-body p-2">
-                                <a href="#" class="text-dark">
+                                <a href="{{ url('dealer/car/' . $car->id) }}" class="text-dark">
                                     <h5>{{ $car->car_name }} </h5>
                                 </a>
                                 <ul class="list-unstyled list-inline">

@@ -96,9 +96,9 @@
 
                             <div class="col-sm-6">
                                 <div class="mb-3">
-                                    <label class="form-label">Body Style</label>
+                                    <label class="form-label">Body Style <span class="text-danger">*</span></label>
                                     <div>
-                                        <select class="form-control mb-2" name="bodystyle">
+                                        <select class="form-control mb-2" name="bodystyle" required>
                                             <option value="">-Select
                                                 Body Style-</option>
                                             @foreach (Config::get('drops.body-style') as $key => $value)

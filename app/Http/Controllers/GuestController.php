@@ -26,7 +26,7 @@ class GuestController extends Controller
 
         $cars = QueryBuilder::for(Car::class)
             // ->allowedIncludes(['claimUser'])
-            ->allowedFilters(['brand','year','car_name','car_brand','fuel'])
+            ->allowedFilters(['brand','year','car_name','car_brand','fuel','is_sold'])
             ->allowedSorts('price')
             ->where('user_id',$id)
             ->latest()->paginate(12)->appends(request()->query());
